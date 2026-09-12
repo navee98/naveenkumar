@@ -2473,41 +2473,506 @@ section#experience,section#education{background:var(--ref-bg) !important}
 }
 
 
-/* Cleaner Let's Connect icon */
-.connect-arrow{
-  display:inline-block !important;
-  margin-left:5px !important;
-  font-size:1.15em !important;
-  font-weight:900 !important;
-  line-height:1 !important;
-  transform:translateY(1px) !important;
-  transition:transform .2s ease !important;
+/* ============================================================
+   HERO REFERENCE UPDATE
+   - Metrics moved to top hero area
+   - Reference circular background
+   - Stronger dark blue atmospheric lighting
+   - Single handwritten Data Drives Possibilities
+   ============================================================ */
+
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+  min-height:520px !important;
+  background:
+    radial-gradient(circle at 73% 50%,rgba(36,166,255,.13),transparent 24%),
+    radial-gradient(circle at 18% 75%,rgba(75,181,255,.06),transparent 30%),
+    linear-gradient(125deg,#fbfdff 0%,#eef7ff 58%,#e5f3ff 100%) !important;
 }
-.btn:hover .connect-arrow{
-  transform:translate(3px,1px) !important;
+.hero:before{
+  content:"" !important;
+  position:absolute !important;
+  width:900px !important;
+  height:900px !important;
+  right:-330px !important;
+  top:-370px !important;
+  border-radius:50% !important;
+  border:105px solid rgba(42,151,239,.045) !important;
+  box-shadow:
+    0 0 0 55px rgba(42,151,239,.022),
+    0 0 0 115px rgba(42,151,239,.014) !important;
+  pointer-events:none !important;
+}
+.hero:after{
+  content:"" !important;
+  position:absolute !important;
+  width:680px !important;
+  height:680px !important;
+  right:-300px !important;
+  bottom:-510px !important;
+  border-radius:50% !important;
+  border:90px solid rgba(42,151,239,.035) !important;
+  pointer-events:none !important;
+}
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 70% 49%,rgba(0,192,255,.21) 0%,rgba(0,117,255,.10) 19%,transparent 36%),
+    radial-gradient(circle at 87% 20%,rgba(0,205,255,.10),transparent 27%),
+    radial-gradient(circle at 34% 82%,rgba(14,102,255,.08),transparent 32%),
+    linear-gradient(125deg,#020d1b 0%,#06182b 48%,#082b48 100%) !important;
+}
+:root:not(.light) .hero:before{
+  border-color:rgba(28,166,249,.055) !important;
+  box-shadow:
+    0 0 0 55px rgba(28,166,249,.032),
+    0 0 0 115px rgba(28,166,249,.020) !important;
+}
+:root:not(.light) .hero:after{
+  border-color:rgba(27,181,255,.04) !important;
+}
+
+/* Hero layout */
+.hero-grid{
+  min-height:520px !important;
+  position:relative !important;
+  z-index:2 !important;
+  grid-template-columns:1fr 1fr !important;
+  padding:42px 0 28px !important;
+}
+.hero-copy{position:relative !important;z-index:5 !important}
+.hero h1{
+  font-size:46px !important;
+  line-height:1.04 !important;
+  letter-spacing:-1.8px !important;
+  margin-top:14px !important;
+}
+.hero p{
+  max-width:475px !important;
+  margin:12px 0 17px !important;
+  line-height:1.7 !important;
+}
+.hero-buttons{margin-bottom:16px !important}
+
+/* Metrics are now directly beneath the hero buttons, matching the reference. */
+.hero-copy > .stats{
+  width:100% !important;
+  max-width:475px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  position:relative !important;
+  z-index:6 !important;
+}
+.hero-copy > .stats .stat{
+  padding:8px 6px 5px 0 !important;
+  text-align:left !important;
+  border:0 !important;
+  min-width:0 !important;
+}
+.hero-copy > .stats .stat strong{
+  display:block !important;
+  font-size:22px !important;
+  line-height:1 !important;
+  letter-spacing:-.5px !important;
+  color:#087cf0 !important;
+  white-space:nowrap !important;
+}
+.hero-copy > .stats .stat span{
+  display:block !important;
+  margin-top:6px !important;
+  font-size:8px !important;
+  line-height:1.25 !important;
+  color:#526b89 !important;
+  white-space:nowrap !important;
+}
+:root:not(.light) .hero-copy > .stats .stat strong{
+  color:#16c5ff !important;
+  text-shadow:0 0 12px rgba(0,190,255,.12);
+}
+:root:not(.light) .hero-copy > .stats .stat span{
+  color:#b4c9dc !important;
+}
+
+/* Orbit: more like the supplied reference images */
+.visual{
+  min-height:390px !important;
+  height:390px !important;
+  position:relative !important;
+}
+.visual-stage{
+  width:510px !important;
+  height:370px !important;
+  position:relative !important;
+}
+.visual-stage:before{
+  content:"" !important;
+  position:absolute !important;
+  width:370px !important;
+  height:370px !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  background:radial-gradient(circle,rgba(54,174,255,.09),transparent 67%) !important;
+  pointer-events:none !important;
+}
+.orbit{
+  width:300px !important;
+  height:300px !important;
+  border-color:rgba(50,164,248,.68) !important;
+}
+.orbit:before{
+  border-color:rgba(55,171,248,.23) !important;
+}
+.cloud-core{
+  width:106px !important;
+  height:106px !important;
+  border-radius:29px !important;
+  box-shadow:
+    0 0 0 1px rgba(57,174,255,.18),
+    0 18px 42px rgba(29,93,146,.14) !important;
+}
+:root:not(.light) .visual-stage:before{
+  background:radial-gradient(circle,rgba(0,190,255,.17),rgba(0,115,255,.06) 36%,transparent 70%) !important;
+}
+:root:not(.light) .orbit{
+  border-color:rgba(25,184,255,.78) !important;
+  filter:drop-shadow(0 0 8px rgba(0,175,255,.18));
+}
+:root:not(.light) .cloud-core{
+  box-shadow:
+    0 0 0 1px rgba(51,192,255,.34),
+    0 0 27px rgba(0,181,255,.25),
+    0 18px 42px rgba(0,0,0,.32) !important;
+}
+
+/* Exactly one handwritten reference label */
+.scribble{
+  position:absolute !important;
+  right:-3px !important;
+  top:276px !important;
+  z-index:8 !important;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-size:17px !important;
+  line-height:1.02 !important;
+  font-weight:600 !important;
+  color:#153b86 !important;
+  transform:rotate(-5deg) !important;
+  text-align:left !important;
+}
+.scribble:after{
+  content:"" !important;
+  display:block !important;
+  width:105px !important;
+  height:2px !important;
+  margin-top:8px !important;
+  background:#087cf0 !important;
+  transform:rotate(-4deg) !important;
+  border-radius:2px !important;
+}
+:root:not(.light) .scribble{
+  color:#e2f6ff !important;
+  text-shadow:0 1px 12px rgba(0,188,255,.24) !important;
+}
+:root:not(.light) .scribble:after{
+  background:#20caff !important;
+  box-shadow:0 0 8px rgba(32,202,255,.36) !important;
+}
+
+/* Mobile keeps the metrics at the top and prevents overlap. */
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    min-height:auto !important;
+  }
+  .visual{
+    height:360px !important;
+  }
+}
+@media(max-width:620px){
+  .hero{
+    min-height:710px !important;
+  }
+  .hero-grid{
+    padding:30px 0 20px !important;
+  }
+  .hero h1{font-size:36px !important}
+  .hero-copy > .stats{
+    max-width:100% !important;
+  }
+  .hero-copy > .stats .stat strong{
+    font-size:17px !important;
+  }
+  .hero-copy > .stats .stat span{
+    font-size:6.5px !important;
+  }
+  .visual{
+    height:315px !important;
+    min-height:315px !important;
+  }
+  .visual-stage{
+    width:350px !important;
+    height:295px !important;
+  }
+  .orbit{
+    width:205px !important;
+    height:205px !important;
+  }
+  .scribble{
+    right:0 !important;
+    top:235px !important;
+    font-size:12px !important;
+  }
+  .scribble:after{
+    width:74px !important;
+    margin-top:5px !important;
+  }
 }
 
 
-/* FINAL Let's Connect CTA icon fix */
-.btn .connect-arrow{
-  display:inline-block !important;
-  width:auto !important;
-  height:auto !important;
-  margin-left:6px !important;
-  font-family:Arial, sans-serif !important;
-  font-size:1.15em !important;
-  font-weight:900 !important;
-  line-height:1 !important;
-  opacity:1 !important;
-  transform:translateY(1px) !important;
+/* ============================================================
+   ARCHITECTURE — reference-style atmospheric background
+   ============================================================ */
+
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+  background:#eef7ff !important;
 }
-.btn:hover .connect-arrow{
-  transform:translate(3px,1px) !important;
+
+/* Layered curved bands behind the architecture graphic */
+.architecture-bg{
+  position:absolute !important;
+  inset:0 !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+  z-index:0 !important;
 }
-/* Prevent any old button pseudo-icon from appearing before the label. */
-.btn.connect::before,
-.btn.connect::after{
-  content:none !important;
+
+.arch-wave{
+  position:absolute !important;
+  border-radius:50% !important;
+  pointer-events:none !important;
+}
+
+/* Large pale sweeping curve */
+.arch-wave-1{
+  width:900px !important;
+  height:560px !important;
+  right:-310px !important;
+  top:-185px !important;
+  border:70px solid rgba(112,184,239,.075) !important;
+  transform:rotate(-10deg) !important;
+}
+
+/* Lower sweeping curve */
+.arch-wave-2{
+  width:850px !important;
+  height:480px !important;
+  left:-300px !important;
+  bottom:-310px !important;
+  border:75px solid rgba(88,171,237,.065) !important;
+  transform:rotate(12deg) !important;
+}
+
+/* Broad diagonal/curved atmospheric band */
+.arch-wave-3{
+  width:1050px !important;
+  height:620px !important;
+  left:-420px !important;
+  top:95px !important;
+  border:105px solid rgba(255,255,255,.52) !important;
+  transform:rotate(-13deg) !important;
+  opacity:.85 !important;
+}
+
+/* Blue light concentrated behind the Google Cloud center */
+.arch-glow{
+  position:absolute !important;
+  width:560px !important;
+  height:560px !important;
+  left:57% !important;
+  top:52% !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  background:radial-gradient(
+    circle,
+    rgba(71,181,255,.18) 0%,
+    rgba(91,188,250,.09) 28%,
+    rgba(91,188,250,.035) 48%,
+    transparent 72%
+  ) !important;
+  filter:blur(2px) !important;
+}
+
+/* Architecture content stays above the background */
+.hero-grid,
+.visual,
+.visual-stage,
+.orbit,
+.cloud-core,
+.orbit-card,
+.scribble{
+  position:relative;
+  z-index:2;
+}
+
+/* Orbit rings — reference look */
+.visual-stage{
+  isolation:isolate !important;
+}
+.orbit{
+  border:3px dashed rgba(74,171,247,.72) !important;
+  box-shadow:0 0 22px rgba(50,165,245,.05) !important;
+}
+.orbit:before{
+  border:1px dashed rgba(73,169,245,.25) !important;
+}
+
+/* Small orbit points add the reference "data flow" feel */
+.orbit:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:-9px !important;
+  border-radius:50% !important;
+  border:1px solid rgba(83,174,244,.16) !important;
+  pointer-events:none !important;
+}
+
+/* White architecture cards in light mode */
+:root.light .orbit-card .float-card{
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(206,226,243,.96) !important;
+  box-shadow:
+    0 14px 30px rgba(45,112,158,.11),
+    0 2px 8px rgba(45,112,158,.06) !important;
+  color:#173452 !important;
+}
+
+/* Reference-style dark mode: deep blue + cyan atmospheric glow */
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 67% 50%,
+      rgba(0,196,255,.20) 0%,
+      rgba(0,135,255,.10) 18%,
+      transparent 38%),
+    radial-gradient(circle at 90% 15%,
+      rgba(0,204,255,.10),
+      transparent 28%),
+    radial-gradient(circle at 22% 84%,
+      rgba(17,106,255,.10),
+      transparent 32%),
+    linear-gradient(135deg,#020d1b 0%,#06203a 52%,#073451 100%) !important;
+}
+
+:root:not(.light) .arch-wave-1{
+  border-color:rgba(28,160,238,.075) !important;
+}
+:root:not(.light) .arch-wave-2{
+  border-color:rgba(24,145,236,.065) !important;
+}
+:root:not(.light) .arch-wave-3{
+  border-color:rgba(20,112,184,.10) !important;
+}
+:root:not(.light) .arch-glow{
+  background:radial-gradient(
+    circle,
+    rgba(0,195,255,.22) 0%,
+    rgba(0,137,255,.11) 30%,
+    rgba(0,111,255,.045) 50%,
+    transparent 73%
+  ) !important;
+  filter:blur(4px) !important;
+}
+
+:root:not(.light) .orbit{
+  border-color:rgba(17,185,255,.82) !important;
+  filter:drop-shadow(0 0 8px rgba(0,172,255,.16)) !important;
+}
+:root:not(.light) .orbit:before{
+  border-color:rgba(35,185,255,.24) !important;
+}
+:root:not(.light) .orbit:after{
+  border-color:rgba(22,175,255,.18) !important;
+}
+
+:root:not(.light) .orbit-card .float-card{
+  background:rgba(4,28,49,.95) !important;
+  border:1px solid rgba(50,171,231,.24) !important;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.30),
+    0 0 18px rgba(0,155,255,.045) !important;
+  color:#f2f8ff !important;
+}
+
+/* Center Google Cloud card */
+.cloud-core{
+  background:#fff !important;
+  border:1px solid rgba(69,177,247,.42) !important;
+  box-shadow:
+    0 0 0 10px rgba(65,175,245,.045),
+    0 0 28px rgba(55,174,247,.14),
+    0 18px 38px rgba(35,101,146,.14) !important;
+}
+:root:not(.light) .cloud-core{
+  box-shadow:
+    0 0 0 10px rgba(0,174,255,.06),
+    0 0 30px rgba(0,185,255,.22),
+    0 18px 42px rgba(0,0,0,.32) !important;
+}
+
+/* One handwritten note, reference placement */
+.scribble{
+  color:#153b86 !important;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-weight:600 !important;
+  transform:rotate(-5deg) !important;
+}
+:root:not(.light) .scribble{
+  color:#e4f7ff !important;
+  text-shadow:0 1px 12px rgba(0,192,255,.25) !important;
+}
+
+/* Do not let the architecture visual clip cards */
+.visual{
+  overflow:visible !important;
+}
+
+/* Mobile reference treatment */
+@media(max-width:620px){
+  .arch-wave-1{
+    width:620px !important;
+    height:420px !important;
+    right:-280px !important;
+    top:80px !important;
+    border-width:55px !important;
+  }
+  .arch-wave-2{
+    width:600px !important;
+    height:360px !important;
+    left:-270px !important;
+    bottom:-190px !important;
+    border-width:55px !important;
+  }
+  .arch-wave-3{
+    width:700px !important;
+    height:420px !important;
+    left:-300px !important;
+    top:170px !important;
+    border-width:65px !important;
+  }
+  .arch-glow{
+    width:390px !important;
+    height:390px !important;
+    left:50% !important;
+    top:53% !important;
+  }
 }
 
 </style>
@@ -2526,7 +2991,33 @@ section#experience,section#education{background:var(--ref-bg) !important}
     <nav>
       <a href="#top" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
-    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme"><span class="theme-icon theme-light-icon" aria-hidden="true">☀</span> <span class="theme-icon theme-dark-icon" aria-hidden="true">☾</span> </button><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div> </div> </header> <main id="top"> <section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div> <div class="container hero-grid"> <div class="hero-copy"> <span class="eyebrow">DATA ENGINEER | GOOGLE CLOUD</span> <h1>Building Data<br>Solutions for a<br><span>Smarter Tomorrow</span></h1> <p>I design, build, and automate scalable data pipelines and analytics solutions on Google Cloud to turn data into meaningful insights.</p> <div class="pills"> <span class="pill">Google Cloud</span><span class="pill">Data Engineering</span> <span class="pill">Data Analytics</span><span class="pill">Automation</span> </div> <div class="hero-buttons"> <a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a> <a class="btn" href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener"> &nbsp;Let's Connect <span class="connect-arrow" aria-hidden="true">→</span></a>
+    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme">
+  <span class="theme-icon theme-light-icon" aria-hidden="true">☀</span>
+  <span class="theme-icon theme-dark-icon" aria-hidden="true">☾</span>
+</button><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div>
+<div class="container hero-grid">
+  <div class="hero-copy">
+    <span class="eyebrow">DATA ENGINEER | GOOGLE CLOUD</span>
+    <h1>Building Data<br>Solutions for a<br><span>Smarter Tomorrow</span></h1>
+    
+    <p>I design, build, and automate scalable data pipelines and analytics solutions on Google Cloud to turn data into meaningful insights.</p>
+    <div class="pills">
+      <span class="pill">Google Cloud</span><span class="pill">Data Engineering</span>
+      <span class="pill">Data Analytics</span><span class="pill">Automation</span>
+    </div>
+    <div class="hero-buttons">
+      <a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a>
+      <a class="btn" href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">↗ &nbsp;Let's Connect</a>
+    </div>
+<div class="stats">
+      <div class="stat"><strong>4+</strong><span>Years Experience</span></div>
+      <div class="stat"><strong>10+</strong><span>Data Pipelines</span></div>
+      <div class="stat"><strong>100M+</strong><span>Records Processed</span></div>
     </div>
   </div>
 
@@ -2582,25 +3073,10 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </div>
 </section>
 
-<div class="stats">
-      <div class="stat"><strong>4+</strong><span>Years Experience</span></div>
-      <div class="stat"><strong>10+</strong><span>Data Pipelines</span></div>
-      <div class="stat"><strong>100M+</strong><span>Records Processed</span></div>
-    </div>
-
 <section id="about" class="reveal"><div class="container">
 <div class="section-head"><span class="bar"></span><h3>About Me</h3><p>Data engineering with a focus on reliable, scalable and useful data solutions.</p></div>
 <div class="about-grid">
-<div class="about-copy"><h3 style="font-size:21px;line-height:1.2;margin-bottom:12px">Passionate about solving real-world problems with data</h3><p>I am a Data Engineer with 4+ years of experience in designing, building and maintaining scalable data pipelines and analytics solutions on Google Cloud Platform.</p><p>My experience includes extracting, transforming and loading data from diverse sources, automating workflows, and creating reliable data platforms that support business decisions.</p><div class="values"><div class="value"><div class="ico">◈</div><strong>Problem Solver</strong><small>Enjoy solving complex challenges</small></div><div class="value"><div class="ico">♟</div><strong>Team Player</strong><small>Collaborative by nature</small></div><div class="value"><div class="ico">◉</div><strong>Data Driven</strong><small>Focused on measurable impact</small></div><div class="value"><div class="ico">↗</div><strong>Continuous Learner</strong><small>Always learning new technology</small></div></div><div class="about-highlight">
-  <div class="about-highlight-number">4+</div>
-  <div><strong>Years Experience</strong><small>Data Engineering</small></div>
-  <div class="about-highlight-number">10+</div>
-  <div><strong>Data Pipelines</strong><small>Cloud & Analytics</small></div>
-  <div class="about-highlight-number">100M+</div>
-  <div><strong>Records Processed</strong><small>Scalable Workloads</small></div>
-  <blockquote>“Better Data.<br>Brighter Decisions.”</blockquote>
-</div>
-</div>
+<div class="about-copy"><h3 style="font-size:21px;line-height:1.2;margin-bottom:12px">Passionate about solving real-world problems with data</h3><p>I am a Data Engineer with 4+ years of experience in designing, building and maintaining scalable data pipelines and analytics solutions on Google Cloud Platform.</p><p>My experience includes extracting, transforming and loading data from diverse sources, automating workflows, and creating reliable data platforms that support business decisions.</p><div class="values"><div class="value"><div class="ico">◈</div><strong>Problem Solver</strong><small>Enjoy solving complex challenges</small></div><div class="value"><div class="ico">♟</div><strong>Team Player</strong><small>Collaborative by nature</small></div><div class="value"><div class="ico">◉</div><strong>Data Driven</strong><small>Focused on measurable impact</small></div><div class="value"><div class="ico">↗</div><strong>Continuous Learner</strong><small>Always learning new technology</small></div></div></div>
 <div id="skills" class="stack">
   <div class="stack-title">
     <strong>Tech Stack</strong>
