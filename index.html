@@ -488,6 +488,156 @@ footer{background:#030b15}
   border-color:rgba(72,190,255,.45);
 }
 
+
+/* ===== Dark-mode Experience readability ===== */
+:root:not(.light) #experience{
+  background:linear-gradient(180deg,#081827 0%,#06111f 100%) !important;
+  border-top:1px solid rgba(90,180,240,.10);
+  border-bottom:1px solid rgba(90,180,240,.10);
+}
+:root:not(.light) #experience .section-head h3,
+:root:not(.light) #experience .job h4{
+  color:#f4f9ff;
+}
+:root:not(.light) #experience .section-head p,
+:root:not(.light) #experience .job p,
+:root:not(.light) #experience .job .date{
+  color:#9db2c9;
+}
+:root:not(.light) #experience .job .company{
+  color:#4db4ff;
+}
+:root:not(.light) #experience .timeline:before{
+  background:linear-gradient(180deg,#168cff,rgba(33,212,253,.18));
+}
+:root:not(.light) #experience .dot{
+  background:#168cff;
+  border-color:#0b2944;
+  box-shadow:0 0 0 3px rgba(22,140,255,.12);
+}
+:root:not(.light) #experience .tag{
+  background:rgba(22,140,255,.14);
+  border:1px solid rgba(70,175,255,.16);
+  color:#78c7ff;
+}
+:root:not(.light) #experience .bar{
+  box-shadow:0 0 12px rgba(33,212,253,.28);
+}
+
+/* Keep the same professional contrast on smaller screens. */
+@media(max-width:620px){
+  :root:not(.light) #experience{
+    background:linear-gradient(180deg,#081827 0%,#06111f 100%) !important;
+  }
+}
+
+
+/* ===== Education: keep this section light for maximum readability ===== */
+#education{
+  background:#f8fbff !important;
+  color:#13233d;
+  border-top:1px solid #e3edf7;
+  border-bottom:1px solid #e3edf7;
+}
+#education .section-head h3{
+  color:#13233d;
+}
+#education .section-head p{
+  color:#738096;
+}
+#education .edu-card{
+  background:#fff !important;
+  color:#13233d;
+  border:1px solid #dbe7f4;
+  box-shadow:0 8px 25px rgba(30,60,90,.07);
+}
+#education .edu-card h4{
+  color:#13233d;
+}
+#education .edu-card p{
+  color:#738096;
+}
+#education .edu-card p strong{
+  color:#35639a;
+}
+
+
+
+/* ===== Complete Light / Dark Theme ===== */
+/* Light mode: every section uses the light palette. */
+:root.light #education,
+:root.light #experience{
+  background:#f8fbff !important;
+  color:#13233d !important;
+}
+:root.light #education .edu-card,
+:root.light #experience .job,
+:root.light .project,
+:root.light .do-card{
+  background:#ffffff;
+}
+
+/* Dark mode: every section, including Education, switches to the dark palette. */
+:root:not(.light) #education,
+:root:not(.light) #experience{
+  background:linear-gradient(180deg,#081827 0%,#06111f 100%) !important;
+  color:#eaf3ff !important;
+  border-color:rgba(120,170,220,.18);
+}
+:root:not(.light) #education .section-head h3,
+:root:not(.light) #education .edu-card h4,
+:root:not(.light) #experience .section-head h3,
+:root:not(.light) #experience .job h4{
+  color:#f4f9ff !important;
+}
+:root:not(.light) #education .section-head p,
+:root:not(.light) #education .edu-card p,
+:root:not(.light) #experience .section-head p,
+:root:not(.light) #experience .job p,
+:root:not(.light) #experience .job .date{
+  color:#9db2c9 !important;
+}
+:root:not(.light) #education .edu-card{
+  background:rgba(12,30,51,.88) !important;
+  color:#eaf3ff !important;
+  border:1px solid rgba(120,170,220,.18) !important;
+  box-shadow:0 12px 35px rgba(0,0,0,.20);
+}
+:root:not(.light) #education .edu-card p strong{
+  color:#55baff !important;
+}
+:root:not(.light) #experience .job .company{
+  color:#55baff !important;
+}
+:root:not(.light) #experience .timeline:before{
+  background:linear-gradient(180deg,#168cff,rgba(33,212,253,.18));
+}
+:root:not(.light) #experience .dot{
+  background:#168cff;
+  border-color:#0b2944;
+  box-shadow:0 0 0 3px rgba(22,140,255,.12);
+}
+:root:not(.light) #experience .tag{
+  background:rgba(22,140,255,.14);
+  border:1px solid rgba(70,175,255,.16);
+  color:#78c7ff;
+}
+
+/* Dark mode for all remaining content cards and text. */
+:root:not(.light) .about-copy h3,
+:root:not(.light) .do-card h4,
+:root:not(.light) .project h4,
+:root:not(.light) .stack-title strong{
+  color:#f4f9ff;
+}
+:root:not(.light) .edu-card,
+:root:not(.light) .project,
+:root:not(.light) .do-card,
+:root:not(.light) .value,
+:root:not(.light) .stack{
+  color:#eaf3ff;
+}
+
 </style>
 
 </head>
@@ -718,7 +868,7 @@ footer{background:#030b15}
   const root=document.documentElement;
   const button=document.getElementById('themeToggle');
   const saved=localStorage.getItem('portfolio-theme');
-  const theme=saved || 'dark';
+  const theme=saved || 'light';
 
   function applyTheme(value){
     root.classList.toggle('light',value==='light');
