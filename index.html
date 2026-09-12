@@ -1,1545 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Naveen Kumar M | Data Engineer</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f9fc;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.97);
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .nav-container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 18px 25px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 21px;
-            font-weight: bold;
-            color: #111827;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: #4b5563;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .nav-links a:hover {
-            color: #2563eb;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            max-width: 1150px;
-            margin: auto;
-
-            padding: 110px 25px 90px;
-
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-
-            gap: 60px;
-
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            color: #111827;
-            margin-bottom: 10px;
-        }
-
-        .hero h2 {
-            font-size: 27px;
-            color: #2563eb;
-            margin-bottom: 22px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #6b7280;
-            max-width: 680px;
-        }
-
-        .hero-buttons {
-            margin-top: 32px;
-
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 23px;
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            display: inline-block;
-
-            transition: 0.2s;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #374151;
-
-            border: 1px solid #d1d5db;
-        }
-
-        .btn-secondary:hover {
-            background: #f3f4f6;
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           HERO CARD
-        ========================= */
-
-        .hero-card {
-            background: white;
-
-            padding: 35px;
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,0.07);
-        }
-
-        .hero-card h3 {
-            margin-bottom: 22px;
-            font-size: 21px;
-        }
-
-        .hero-card p {
-            font-size: 15px;
-            margin-bottom: 13px;
-            color: #4b5563;
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            max-width: 1150px;
-            margin: auto;
-
-            padding: 80px 25px;
-        }
-
-        .section-title {
-            font-size: 34px;
-            color: #111827;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: #6b7280;
-            margin-bottom: 35px;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-box {
-            background: white;
-
-            padding: 35px;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .about-box p {
-            color: #4b5563;
-        }
-
-
-        /* =========================
-           SKILLS
-        ========================= */
-
-        .skills-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 13px;
-
-            border: 1px solid #e5e7eb;
-
-            transition: 0.2s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.07);
-        }
-
-        .skill-card h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           EXPERIENCE
-        ========================= */
-
-        .experience-card {
-            background: white;
-
-            padding: 35px;
-
-            margin-bottom: 25px;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .experience-header {
-            display: flex;
-
-            justify-content:
-                space-between;
-
-            gap: 20px;
-
-            margin-bottom: 12px;
-        }
-
-        .experience-header h3 {
-            font-size: 22px;
-            color: #111827;
-        }
-
-        .company {
-            color: #6b7280;
-            margin-top: 3px;
-        }
-
-        .date {
-            color: #2563eb;
-
-            font-weight: bold;
-
-            white-space: nowrap;
-        }
-
-        .client {
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .tech {
-            color: #4b5563;
-            margin-bottom: 20px;
-        }
-
-        .experience-card ul {
-            padding-left: 20px;
-        }
-
-        .experience-card li {
-            margin-bottom: 10px;
-            color: #4b5563;
-        }
-
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .project-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 25px;
-        }
-
-        .project-card {
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 15px;
-
-            border: 1px solid #e5e7eb;
-
-            transition: 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.07);
-        }
-
-        .project-card h3 {
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .project-card p {
-            color: #6b7280;
-            margin-bottom: 20px;
-        }
-
-        .tags {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-        }
-
-        .tag {
-            background: #eff6ff;
-
-            color: #2563eb;
-
-            padding: 6px 11px;
-
-            border-radius: 20px;
-
-            font-size: 12px;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           ARCHITECTURE
-        ========================= */
-
-        .architecture {
-            margin-top: 35px;
-
-            padding: 35px;
-
-            background: #111827;
-
-            color: white;
-
-            border-radius: 15px;
-
-            text-align: center;
-
-            font-size: 17px;
-        }
-
-        .architecture span {
-            color: #93c5fd;
-
-            margin: 0 8px;
-        }
-
-
-        /* =========================
-           EDUCATION
-        ========================= */
-
-        .education-card {
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 15px;
-
-            border: 1px solid #e5e7eb;
-        }
-
-        .education-card h3 {
-            color: #111827;
-
-            margin-bottom: 8px;
-        }
-
-        .education-card p {
-            color: #6b7280;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            background: #111827;
-
-            max-width: none;
-
-            color: white;
-
-            text-align: center;
-        }
-
-        .contact-inner {
-            max-width: 1150px;
-
-            margin: auto;
-
-            padding: 80px 25px;
-        }
-
-        .contact h2 {
-            font-size: 36px;
-
-            margin-bottom: 15px;
-        }
-
-        .contact p {
-            color: #d1d5db;
-
-            margin-bottom: 28px;
-        }
-
-        .contact-links {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: white;
-
-            border: 1px solid #4b5563;
-
-            padding: 11px 20px;
-
-            border-radius: 8px;
-
-            transition: 0.2s;
-        }
-
-        .contact-links a:hover {
-            background: #2563eb;
-
-            border-color: #2563eb;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #0b1120;
-
-            color: #9ca3af;
-
-            text-align: center;
-
-            padding: 20px;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 850px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-
-                padding-top: 70px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero h2 {
-                font-size: 24px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-            }
-
-            .date {
-                white-space: normal;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Kumar M | Data Engineer</title>
+
+<style>
+:root{
+  --blue:#0b6cff;
+  --blue2:#4285f4;
+  --navy:#0b1f4b;
+  --text:#253858;
+  --muted:#65758b;
+  --line:#e5edf7;
+  --bg:#f7faff;
+  --white:#fff;
+  --shadow:0 12px 35px rgba(24,65,120,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1180px;margin:auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:800;color:var(--navy)}
+.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:27px;align-items:center;font-size:14px;font-weight:600;color:#334568}
+.navlinks a:hover{color:var(--blue)}
+.resume-top{background:var(--blue);color:white;padding:10px 17px;border-radius:8px;box-shadow:0 6px 18px rgba(11,108,255,.2)}
+.resume-top:hover{background:#0758d4}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#f8fbff 0%,#eef7ff 55%,#e6f3ff 100%);padding:78px 0 55px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(1px);opacity:.45}
+.hero:before{width:420px;height:420px;right:-120px;top:-180px;background:#d6ecff}
+.hero:after{width:330px;height:330px;right:100px;bottom:-250px;background:#c9e4ff}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.badge{display:inline-flex;align-items:center;border:1px solid #8fc1ff;background:#edf6ff;color:#075fd4;border-radius:30px;padding:6px 13px;font-size:13px;font-weight:700;margin-bottom:13px}
+.hero h1{font-size:56px;line-height:1.08;color:var(--navy);letter-spacing:-1.8px}
+.hero h2{font-size:31px;color:var(--blue);margin:6px 0 15px}
+.hero-desc{font-size:18px;color:#536986;max-width:650px}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.pill{background:#fff;border:1px solid #e1ebf7;border-radius:24px;padding:8px 13px;font-size:13px;box-shadow:0 4px 12px rgba(20,70,130,.06)}
+.buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:23px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;font-weight:700;font-size:14px;transition:.25s}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(11,108,255,.22)}
+.btn-primary:hover{transform:translateY(-2px);background:#0758d4}
+.btn-outline{border:1px solid #9bc6ff;background:white;color:#0864e5}
+.btn-outline:hover{transform:translateY(-2px);background:#f1f7ff}
+
+/* ORBIT */
+.orbit-wrap{height:340px;display:flex;align-items:center;justify-content:center}
+.orbit{width:285px;height:285px;border:1.5px dashed #76b4ff;border-radius:50%;position:relative;animation:spin 24s linear infinite}
+.cloud-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:88px;height:88px;border-radius:25px;background:white;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:45px}
+.orbit-item{position:absolute;width:78px;height:66px;background:white;border-radius:13px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:24px}
+.orbit-item small{font-size:10px;color:var(--text);font-weight:700}
+.o1{top:-22px;left:103px}.o2{right:-35px;top:83px}.o3{right:17px;bottom:5px}.o4{left:0;bottom:18px}.o5{left:-34px;top:78px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* STATS */
+.stats{background:#fff;border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:24px 0}
+.stat{text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat strong{display:block;color:var(--blue);font-size:30px}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* SECTION */
+section{padding:78px 0}
+.section-head{margin-bottom:32px}
+.section-head h2{font-size:31px;color:var(--navy)}
+.section-head h2:before{content:"";display:inline-block;width:17px;height:4px;border-radius:4px;background:var(--blue);vertical-align:middle;margin-right:11px}
+.section-head p{color:var(--muted);margin-top:4px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:29px;box-shadow:var(--shadow)}
+.about h3{font-size:23px;color:var(--navy);line-height:1.25;margin-bottom:14px}
+.about p{color:#526681;margin-bottom:13px}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:24px}
+.value{text-align:center}
+.value-icon{width:48px;height:48px;margin:auto;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#eaf4ff;color:var(--blue);font-size:22px}
+.value strong{display:block;font-size:12px;margin-top:7px;color:var(--navy)}
+.value span{display:block;font-size:10px;color:var(--muted)}
+
+/* TECH */
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tech{border:1px solid var(--line);border-radius:11px;padding:15px 10px;background:#fff;text-align:center;transition:.25s}
+.tech:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#b9d8ff}
+.tech-icon{height:40px;display:flex;align-items:center;justify-content:center;font-size:27px;margin-bottom:5px}
+.tech strong{font-size:12px;color:var(--navy);display:block}
+.tech small{font-size:9px;color:var(--muted)}
+
+/* ARCHITECTURE */
+.arch-wrap{background:#fff;border:1px solid var(--line);border-radius:17px;padding:25px;box-shadow:var(--shadow);overflow-x:auto}
+.arch{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;min-width:1000px}
+.arch-box{position:relative;border:1px solid #dce8f6;border-radius:12px;padding:17px 12px;background:linear-gradient(#fff,#f9fcff);min-height:190px}
+.arch-box:not(:last-child):after{content:"→";position:absolute;right:-19px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--blue);font-weight:800}
+.arch-box h4{text-align:center;color:var(--navy);font-size:13px;margin-bottom:13px}
+.arch-icon{text-align:center;font-size:28px;margin-bottom:9px}
+.arch-box ul{list-style:none;font-size:11px;color:#61738a}
+.arch-box li{margin:7px 0}
+.arch-box li:before{content:"✓";color:#19a463;font-weight:bold;margin-right:5px}
+
+/* WHAT I DO */
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow);transition:.25s}
+.service:hover{transform:translateY(-5px)}
+.service .icon{width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#eaf4ff;color:var(--blue);font-size:22px;margin-bottom:13px}
+.service h3{font-size:16px;color:var(--navy);margin-bottom:6px}
+.service p{font-size:13px;color:var(--muted)}
+
+/* EXPERIENCE */
+.timeline{position:relative;margin-left:8px;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:6px;top:5px;bottom:5px;width:2px;background:#cfe2fa}
+.job{position:relative;margin-bottom:24px}
+.job:before{content:"";position:absolute;left:-28px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:3px solid #dcebff}
+.job-grid{display:grid;grid-template-columns:120px 1fr;gap:20px}
+.job-date{color:var(--blue);font-weight:800;font-size:13px}
+.job h3{font-size:17px;color:var(--navy)}
+.job .company{font-size:13px;font-weight:700}
+.job .client{font-size:11px;color:var(--muted)}
+.job p{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* PROJECTS */
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);transition:.25s}
+.project:hover{transform:translateY(-4px)}
+.project-top{display:flex;justify-content:space-between;gap:15px}
+.project h3{font-size:15px;color:var(--navy)}
+.project .arrow{color:var(--blue);font-size:20px}
+.project p{font-size:12px;color:var(--muted);margin:7px 0 12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:10px;background:#eef6ff;color:#1266d8;padding:4px 8px;border-radius:20px}
+
+/* BOTTOM */
+.bottom-grid{display:grid;grid-template-columns:1.15fr 1fr .9fr;gap:28px}
+.edu{font-size:13px;color:var(--muted)}
+.edu strong{color:var(--navy)}
+.connect{margin-top:18px}
+.connect h3{color:var(--navy);font-size:17px;margin-bottom:4px}
+.connect p{font-size:12px;color:var(--muted);margin-bottom:12px}
+.connect-links{display:flex;gap:8px}
+.connect-links a{background:var(--blue);color:white;border-radius:7px;padding:8px 13px;font-size:11px;font-weight:700}
+.connect-links a:last-child{background:white;color:var(--blue);border:1px solid #9bc6ff}
+
+/* FOOTER */
+footer{background:#0c1c3a;color:white;padding:28px 0}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.footer strong{font-size:14px}
+.footer small{display:block;color:#9fb0cc;margin-top:3px}
+.quote{color:#d9e7ff;font-size:12px;font-style:italic}
+.top{width:34px;height:34px;border:1px solid #61789e;border-radius:8px;display:flex;align-items:center;justify-content:center}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:900px){
+  .navlinks{display:none}
+  .hero-grid,.about-grid,.bottom-grid{grid-template-columns:1fr}
+  .hero h1{font-size:43px}
+  .orbit-wrap{height:310px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{margin-bottom:15px}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .hero{padding-top:55px}
+  .hero h1{font-size:38px}
+  .hero h2{font-size:25px}
+  section{padding:58px 0}
+  .stats-grid,.service-grid,.project-grid{grid-template-columns:1fr}
+  .values{grid-template-columns:repeat(2,1fr);gap:20px}
+  .job-grid{grid-template-columns:1fr;gap:3px}
+  .footer{flex-direction:column;text-align:center}
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav>
-
-    <div class="nav-container">
-
-        <div class="logo">
-            Naveen Kumar M
-        </div>
-
-        <div class="nav-links">
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#skills">
-                Skills
-            </a>
-
-            <a href="#experience">
-                Experience
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#education">
-                Education
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
+  <div class="container nav">
+    <a class="logo" href="#top">Naveen Kumar <span>M</span></a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a class="resume-top" href="Naveen_Kumar_resume.pdf" download>↓ Download Resume</a>
     </div>
-
+  </div>
 </nav>
 
+<main id="top">
 
-
-<!-- =========================
-     HERO
-========================= -->
-
-<div class="hero">
+<section class="hero">
+  <div class="container hero-grid">
 
     <div>
+      <div class="badge">Data Engineer</div>
+      <h1>Naveen Kumar M</h1>
+      <h2>Data Engineer</h2>
 
-        <h1>
-            Naveen Kumar M
-        </h1>
+      <p class="hero-desc">
+        Building scalable data pipelines and analytics solutions on
+        Google Cloud Platform to turn data into meaningful insights.
+      </p>
 
-        <h2>
-            Data Engineer
-        </h2>
+      <div class="pills">
+        <span class="pill">☁ Google Cloud</span>
+        <span class="pill">📊 Data Engineering</span>
+        <span class="pill">📈 Data Analytics</span>
+        <span class="pill">⚙ Automation</span>
+      </div>
 
-        <p>
-
-            Data Engineer with 4+ years of experience
-            designing and implementing scalable data
-            pipelines, cloud data solutions, analytics
-            workflows and automated data systems.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#projects"
-                class="btn btn-primary"
-            >
-                View Projects
-            </a>
-
-
-            <!-- DOWNLOAD RESUME -->
-
-            <a
-                href="Naveen_Kumar_resume.pdf"
-                class="btn btn-secondary"
-                download
-            >
-                Download Resume
-            </a>
-
-        </div>
-
+      <div class="buttons">
+        <a class="btn btn-primary" href="Naveen_Kumar_resume.pdf" download>↓ Download Resume</a>
+        <a class="btn btn-outline" href="#contact">✈ Contact Me</a>
+      </div>
     </div>
 
-
-
-    <div class="hero-card">
-
-        <h3>
-            Core Technologies
-        </h3>
-
-        <p>
-            ☁️ Google Cloud Platform
-        </p>
-
-        <p>
-            📊 BigQuery
-        </p>
-
-        <p>
-            ⚙️ Apache Airflow / Astronomer
-        </p>
-
-        <p>
-            🐍 Python
-        </p>
-
-        <p>
-            🗄️ SQL
-        </p>
-
-        <p>
-            📈 Looker Studio / Tableau
-        </p>
-
+    <div class="orbit-wrap">
+      <div class="orbit">
+        <div class="cloud-core">☁️</div>
+        <div class="orbit-item o1">🔎<small>BigQuery</small></div>
+        <div class="orbit-item o2">▣<small>Dataflow</small></div>
+        <div class="orbit-item o3">◉<small>Looker</small></div>
+        <div class="orbit-item o4">⚙<small>Airflow</small></div>
+        <div class="orbit-item o5">▤<small>Storage</small></div>
+      </div>
     </div>
 
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>4+</strong><span>Years Experience</span></div>
+    <div class="stat"><strong>3</strong><span>Companies</span></div>
+    <div class="stat"><strong>10+</strong><span>Data Pipelines</span></div>
+    <div class="stat"><strong>5+</strong><span>Projects</span></div>
+  </div>
 </div>
 
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section id="about">
-
-    <h2 class="section-title">
-        About Me
-    </h2>
-
-    <p class="section-subtitle">
-
-        Data Engineering • Cloud • Analytics • Automation
-
-    </p>
-
-
-    <div class="about-box">
-
-        <p>
-
-            Experienced Data Engineer with 4+ years
-            of expertise in designing and implementing
-            data pipelines and analytics solutions.
-
-        </p>
-
-        <br>
-
-        <p>
-
-            Proficient in Google Cloud Platform services
-            including Google Cloud Storage, BigQuery,
-            Cloud Composer, Cloud Functions,
-            Cloud Dataflow and Cloud Data Fusion.
-
-        </p>
-
-        <br>
-
-        <p>
-
-            Experienced in migrating data from diverse
-            source systems to GCP and building scalable,
-            automated and efficient data systems.
-
-        </p>
-
-        <br>
-
-        <p>
-
-            Strong focus on automation, data quality,
-            pipeline reliability, performance monitoring
-            and analytics.
-
-        </p>
-
+<section id="about" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <h2>About Me</h2>
+      <p>Data Engineering • Cloud • Analytics • Automation</p>
     </div>
 
+    <div class="about-grid">
+      <div class="about card">
+        <h3>Passionate about solving real-world problems with data</h3>
+        <p>
+          I am a Data Engineer with 4+ years of experience designing,
+          building and maintaining scalable data pipelines and analytics
+          solutions on Google Cloud Platform.
+        </p>
+        <p>
+          I specialize in extracting, transforming and loading data from
+          diverse sources, automating workflows and creating reliable
+          data platforms that support business decisions.
+        </p>
+        <p>
+          I enjoy working with cloud-native solutions, optimizing data
+          pipelines, improving data quality and continuously learning
+          new technologies.
+        </p>
+
+        <div class="values">
+          <div class="value"><div class="value-icon">✓</div><strong>Problem Solver</strong><span>Reliable solutions</span></div>
+          <div class="value"><div class="value-icon">👥</div><strong>Team Player</strong><span>Cross-functional</span></div>
+          <div class="value"><div class="value-icon">▥</div><strong>Data Driven</strong><span>Measurable impact</span></div>
+          <div class="value"><div class="value-icon">🚀</div><strong>Continuous Learner</strong><span>New technologies</span></div>
+        </div>
+      </div>
+
+      <div id="skills" class="card">
+        <div class="section-head" style="margin-bottom:16px">
+          <h2 style="font-size:22px">Tech Stack</h2>
+          <p>Google Cloud focused engineering toolkit</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech"><div class="tech-icon">☁️</div><strong>Google Cloud</strong><small>GCP</small></div>
+          <div class="tech"><div class="tech-icon">🔎</div><strong>BigQuery</strong><small>Warehouse</small></div>
+          <div class="tech"><div class="tech-icon">▣</div><strong>Cloud Storage</strong><small>GCS</small></div>
+          <div class="tech"><div class="tech-icon">☁</div><strong>Cloud Composer</strong><small>Orchestration</small></div>
+          <div class="tech"><div class="tech-icon">⚡</div><strong>Dataflow</strong><small>Processing</small></div>
+          <div class="tech"><div class="tech-icon">◆</div><strong>Data Fusion</strong><small>Integration</small></div>
+          <div class="tech"><div class="tech-icon">●</div><strong>Pub/Sub</strong><small>Streaming</small></div>
+          <div class="tech"><div class="tech-icon">⌘</div><strong>Cloud Functions</strong><small>Serverless</small></div>
+          <div class="tech"><div class="tech-icon">⚙</div><strong>Apache Airflow</strong><small>Scheduling</small></div>
+          <div class="tech"><div class="tech-icon">🐍</div><strong>Python</strong><small>Automation</small></div>
+          <div class="tech"><div class="tech-icon">▦</div><strong>SQL</strong><small>Analytics</small></div>
+          <div class="tech"><div class="tech-icon">◉</div><strong>Looker Studio</strong><small>BI</small></div>
+          <div class="tech"><div class="tech-icon">▥</div><strong>Tableau</strong><small>BI</small></div>
+          <div class="tech"><div class="tech-icon">🐬</div><strong>MySQL</strong><small>Database</small></div>
+          <div class="tech"><div class="tech-icon">🐘</div><strong>PostgreSQL</strong><small>Database</small></div>
+          <div class="tech"><div class="tech-icon">◆</div><strong>Figma</strong><small>UI/UX</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- =========================
-     SKILLS
-========================= -->
-
-<section id="skills">
-
-    <h2 class="section-title">
-        Technical Skills
-    </h2>
-
-    <p class="section-subtitle">
-
-        Technologies and tools I work with
-
-    </p>
-
-
-    <div class="skills-grid">
-
-
-        <div class="skill-card">
-
-            <h3>
-                Google Cloud
-            </h3>
-
-            <p>
-
-                Google Cloud Storage (GCS),
-                BigQuery, Cloud Functions,
-                Cloud Dataflow and Cloud Data Fusion.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-            <h3>
-                Data Engineering
-            </h3>
-
-            <p>
-
-                Apache Airflow,
-                Cloud Composer,
-                Astronomer and ETL / ELT pipelines.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-            <h3>
-                Programming
-            </h3>
-
-            <p>
-
-                Python scripting,
-                SQL, MySQL and PostgreSQL.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-            <h3>
-                Data Analytics
-            </h3>
-
-            <p>
-
-                BigQuery reporting tables,
-                BigQuery views and data validation.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-            <h3>
-                Visualization
-            </h3>
-
-            <p>
-
-                Tableau Desktop,
-                Tableau Prep and Looker Studio.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-            <h3>
-                UI / UX
-            </h3>
-
-            <p>
-
-                Figma UI/UX design,
-                dashboard prototyping and
-                internal data tools.
-
-            </p>
-
-        </div>
-
-
+<section class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <h2>Data Engineering Architecture</h2>
+      <p>End-to-end data pipeline on Google Cloud Platform</p>
     </div>
 
+    <div class="arch-wrap">
+      <div class="arch">
+
+        <div class="arch-box">
+          <div class="arch-icon">🗄️</div>
+          <h4>Data Sources</h4>
+          <ul>
+            <li>Databases</li><li>APIs</li><li>SaaS Applications</li><li>Files / Excel</li><li>IoT Devices</li>
+          </ul>
+        </div>
+
+        <div class="arch-box">
+          <div class="arch-icon">☁️</div>
+          <h4>Ingestion Layer</h4>
+          <ul>
+            <li>Cloud Storage</li><li>Pub/Sub</li><li>Data Fusion</li><li>Cloud Functions</li>
+          </ul>
+        </div>
+
+        <div class="arch-box">
+          <div class="arch-icon">⚙️</div>
+          <h4>Orchestration</h4>
+          <ul>
+            <li>Apache Airflow</li><li>Scheduling</li><li>Monitoring</li><li>Error Handling</li><li>Automation</li>
+          </ul>
+        </div>
+
+        <div class="arch-box">
+          <div class="arch-icon">⚡</div>
+          <h4>Processing / Transformation</h4>
+          <ul>
+            <li>Dataflow</li><li>Python / SQL</li><li>Transform</li><li>Cleanse</li><li>Validate</li>
+          </ul>
+        </div>
+
+        <div class="arch-box">
+          <div class="arch-icon">🔎</div>
+          <h4>Data Warehouse</h4>
+          <ul>
+            <li>BigQuery</li><li>Scalable</li><li>High Performance</li><li>Analytics Ready</li><li>Cost Efficient</li>
+          </ul>
+        </div>
+
+        <div class="arch-box">
+          <div class="arch-icon">📊</div>
+          <h4>Visualization</h4>
+          <ul>
+            <li>Looker Studio</li><li>Tableau</li><li>Dashboards</li><li>Reports</li><li>Business Insights</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
+<section class="reveal">
+  <div class="container">
+    <div class="section-head"><h2>What I Do</h2><p>Building reliable, scalable and useful data solutions</p></div>
 
-
-<!-- =========================
-     EXPERIENCE
-========================= -->
-
-<section id="experience">
-
-    <h2 class="section-title">
-        Professional Experience
-    </h2>
-
-    <p class="section-subtitle">
-
-        My professional journey in Data Engineering
-
-    </p>
-
-
-
-    <!-- ACL DIGITAL -->
-
-    <div class="experience-card">
-
-        <div class="experience-header">
-
-            <div>
-
-                <h3>
-                    Senior Data Engineer
-                </h3>
-
-                <div class="company">
-                    ACL Digital
-                </div>
-
-            </div>
-
-
-            <div class="date">
-                Feb 2026 – Present
-            </div>
-
-        </div>
-
-
-        <div class="client">
-
-            Client: Iron Mountain
-
-        </div>
-
-
-        <div class="tech">
-
-            <strong>Technologies:</strong>
-
-            GCS, BigQuery, Astronomer,
-            Looker Studio, SQL, Python
-
-        </div>
-
-
-        <ul>
-
-            <li>
-                Designed, developed and automated
-                end-to-end data pipelines using
-                Astronomer (Apache Airflow).
-            </li>
-
-            <li>
-                Built automated pipelines to extract
-                data from relational databases and
-                ingest it into GCP.
-            </li>
-
-            <li>
-                Developed and maintained scalable
-                data pipelines using GCS and BigQuery.
-            </li>
-
-            <li>
-                Implemented data transformation,
-                cleansing and validation processes
-                to ensure data quality.
-            </li>
-
-            <li>
-                Created and optimized BigQuery
-                reporting tables for business
-                reporting and analytics.
-            </li>
-
-            <li>
-                Designed and developed Looker
-                dashboards to provide meaningful
-                business insights.
-            </li>
-
-            <li>
-                Monitored and troubleshot pipeline
-                failures and implemented error
-                handling.
-            </li>
-
-            <li>
-                Optimized workflows to improve
-                pipeline reliability and performance.
-            </li>
-
-            <li>
-                Led UI/UX design and prototyping
-                of dashboards and internal data
-                tools using Figma.
-            </li>
-
-            <li>
-                Contributed to BigQuery schema
-                design and performance tuning.
-            </li>
-
-        </ul>
-
+    <div class="service-grid">
+      <div class="service"><div class="icon">▤</div><h3>Build Data Pipelines</h3><p>Design and develop scalable ETL/ELT pipelines using GCP services and Airflow.</p></div>
+      <div class="service"><div class="icon">☁</div><h3>Cloud Data Solutions</h3><p>Migrate and integrate diverse data sources into Google Cloud platforms.</p></div>
+      <div class="service"><div class="icon">▥</div><h3>Data Transformation</h3><p>Clean, validate and transform data into high-quality analytical datasets.</p></div>
+      <div class="service"><div class="icon">📊</div><h3>Analytics & Visualization</h3><p>Create meaningful dashboards using Looker Studio and Tableau.</p></div>
     </div>
-
-
-
-    <!-- HORIZONTAL INTEGRATION -->
-
-    <div class="experience-card">
-
-        <div class="experience-header">
-
-            <div>
-
-                <h3>
-                    GCP Data Engineer
-                </h3>
-
-                <div class="company">
-
-                    Horizontal Integration India
-                    Private Limited
-
-                </div>
-
-            </div>
-
-
-            <div class="date">
-
-                Mar 2024 – Nov 2025
-
-            </div>
-
-        </div>
-
-
-        <div class="client">
-
-            Client: Trane Technologies
-
-        </div>
-
-
-        <div class="tech">
-
-            <strong>Technologies:</strong>
-
-            GCS, BigQuery, Airflow,
-            Data Fusion, SQL, Python,
-            MS Excel
-
-        </div>
-
-
-        <ul>
-
-            <li>
-                Designed and developed scalable
-                ELT/ETL pipelines using Apache Airflow.
-            </li>
-
-            <li>
-                Used Google Cloud Data Fusion and
-                Tableau Prep to automate data ingestion,
-                transformation and loading.
-            </li>
-
-            <li>
-                Performed data cleaning, shaping
-                and combining using Tableau Prep.
-            </li>
-
-            <li>
-                Migrated business logic from Excel
-                Macros to SQL-based workflows.
-            </li>
-
-            <li>
-                Automated data validation and
-                transformation tasks using SQL
-                and Python.
-            </li>
-
-            <li>
-                Implemented email notification systems
-                with Airflow DAGs for pipeline monitoring.
-            </li>
-
-            <li>
-                Developed and maintained interactive
-                Tableau dashboards with automated
-                refreshes and drill-down capabilities.
-            </li>
-
-        </ul>
-
-    </div>
-
-
-
-    <!-- INVENSIS -->
-
-    <div class="experience-card">
-
-        <div class="experience-header">
-
-            <div>
-
-                <h3>
-                    Process Analyst
-                </h3>
-
-                <div class="company">
-
-                    Invensis Technologies
-                    Private Limited
-
-                </div>
-
-            </div>
-
-
-            <div class="date">
-
-                Jan 2021 – Mar 2023
-
-            </div>
-
-        </div>
-
-
-        <div class="client">
-
-            Client: Davey Tree
-
-        </div>
-
-
-        <div class="tech">
-
-            <strong>Technologies:</strong>
-
-            GCS, BigQuery, Airflow,
-            Dataflow, SQL, Python,
-            MS Excel
-
-        </div>
-
-
-        <ul>
-
-            <li>
-                Integrated LB-Telematics IoT devices
-                with Google Cloud Pub/Sub to capture
-                real-time vehicle data.
-            </li>
-
-            <li>
-                Streamed data directly from Pub/Sub
-                into BigQuery for processing and analytics.
-            </li>
-
-            <li>
-                Applied advanced BigQuery SQL techniques
-                including joins, aggregation functions,
-                window functions and CTEs.
-            </li>
-
-            <li>
-                Created BigQuery views for easy access
-                and exploration of data.
-            </li>
-
-            <li>
-                Transformed raw telematics data into
-                structured formats for end-user reporting.
-            </li>
-
-        </ul>
-
-    </div>
-
+  </div>
 </section>
 
+<section id="experience" class="reveal">
+  <div class="container">
+    <div class="section-head"><h2>Professional Experience</h2><p>My journey in Data Engineering</p></div>
 
+    <div class="card timeline">
 
-<!-- =========================
-     PROJECTS
-========================= -->
+      <div class="job">
+        <div class="job-grid">
+          <div class="job-date">2026 – Present</div>
+          <div>
+            <h3>Senior Data Engineer</h3>
+            <div class="company">ACL Digital</div>
+            <div class="client">Client: Iron Mountain</div>
+            <p>Building and automating end-to-end data pipelines using Astronomer / Apache Airflow, GCS and BigQuery, with reporting and analytics workflows.</p>
+          </div>
+        </div>
+      </div>
 
-<section id="projects">
+      <div class="job">
+        <div class="job-grid">
+          <div class="job-date">2024 – 2025</div>
+          <div>
+            <h3>GCP Data Engineer</h3>
+            <div class="company">Horizontal Integration India Private Limited</div>
+            <div class="client">Client: Trane Technologies</div>
+            <p>Developed ELT/ETL pipelines using Apache Airflow, GCS, BigQuery and Data Fusion, including data validation and reporting automation.</p>
+          </div>
+        </div>
+      </div>
 
-    <h2 class="section-title">
-        Featured Projects
-    </h2>
+      <div class="job">
+        <div class="job-grid">
+          <div class="job-date">2021 – 2023</div>
+          <div>
+            <h3>Process Analyst</h3>
+            <div class="company">Invensis Technologies Private Limited</div>
+            <div class="client">Client: Davey Tree</div>
+            <p>Worked with IoT telematics data using Google Cloud Pub/Sub and BigQuery, building SQL transformations and analytical views.</p>
+          </div>
+        </div>
+      </div>
 
-    <p class="section-subtitle">
+    </div>
+  </div>
+</section>
 
-        Selected Data Engineering and Cloud projects
-
-    </p>
-
+<section id="projects" class="reveal">
+  <div class="container">
+    <div class="section-head"><h2>Featured Projects</h2><p>Selected Data Engineering and Cloud projects</p></div>
 
     <div class="project-grid">
+      <div class="project">
+        <div class="project-top"><h3>Relational Database → BigQuery</h3><span class="arrow">›</span></div>
+        <p>Automated data ingestion and transformation pipeline for moving relational database data into Google Cloud for analytics and reporting.</p>
+        <div class="tags"><span class="tag">GCP</span><span class="tag">BigQuery</span><span class="tag">Airflow</span><span class="tag">Python</span><span class="tag">SQL</span></div>
+      </div>
 
+      <div class="project">
+        <div class="project-top"><h3>IoT Telematics Data Pipeline</h3><span class="arrow">›</span></div>
+        <p>Streamed vehicle telemetry using Pub/Sub and BigQuery for processing, transformation and analytics.</p>
+        <div class="tags"><span class="tag">Pub/Sub</span><span class="tag">BigQuery</span><span class="tag">GCP</span><span class="tag">SQL</span></div>
+      </div>
 
-        <div class="project-card">
+      <div class="project">
+        <div class="project-top"><h3>Multi-Source Cloud Migration</h3><span class="arrow">›</span></div>
+        <p>Migrated diverse data sources including Gsheets, Tally, SurveyMonkey, HackerEarth, HubSpot and Adobe into Google Cloud.</p>
+        <div class="tags"><span class="tag">GCS</span><span class="tag">BigQuery</span><span class="tag">Airflow</span><span class="tag">Cloud Functions</span></div>
+      </div>
 
-            <h3>
-                Relational Database → BigQuery
-            </h3>
-
-            <p>
-
-                Automated data ingestion and
-                transformation pipeline for moving
-                data from relational databases into
-                Google Cloud for analytics and reporting.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    GCP
-                </span>
-
-                <span class="tag">
-                    BigQuery
-                </span>
-
-                <span class="tag">
-                    Airflow
-                </span>
-
-                <span class="tag">
-                    Python
-                </span>
-
-                <span class="tag">
-                    SQL
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="project-card">
-
-            <h3>
-                IoT Telematics Data Pipeline
-            </h3>
-
-            <p>
-
-                Integrated LB-Telematics IoT devices
-                with Google Cloud Pub/Sub and streamed
-                vehicle data into BigQuery for
-                processing and analytics.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    Pub/Sub
-                </span>
-
-                <span class="tag">
-                    BigQuery
-                </span>
-
-                <span class="tag">
-                    GCP
-                </span>
-
-                <span class="tag">
-                    SQL
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="project-card">
-
-            <h3>
-                Multi-Source Cloud Migration
-            </h3>
-
-            <p>
-
-                Migrated diverse data sources including
-                Gsheets, Tally, SurveyMonkey, HackerEarth,
-                HubSpot and Adobe to Google Cloud.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    GCS
-                </span>
-
-                <span class="tag">
-                    BigQuery
-                </span>
-
-                <span class="tag">
-                    Airflow
-                </span>
-
-                <span class="tag">
-                    Cloud Functions
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="project-card">
-
-            <h3>
-                Automated Reporting Platform
-            </h3>
-
-            <p>
-
-                Built BigQuery tables and views and
-                automated scheduled reporting workflows
-                and email reporting processes.
-
-            </p>
-
-
-            <div class="tags">
-
-                <span class="tag">
-                    BigQuery
-                </span>
-
-                <span class="tag">
-                    Python
-                </span>
-
-                <span class="tag">
-                    Airflow
-                </span>
-
-                <span class="tag">
-                    Looker
-                </span>
-
-            </div>
-
-        </div>
-
-
+      <div class="project">
+        <div class="project-top"><h3>Automated Reporting Platform</h3><span class="arrow">›</span></div>
+        <p>Built BigQuery tables and views and automated reporting workflows and dashboard refresh processes.</p>
+        <div class="tags"><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">Looker</span></div>
+      </div>
     </div>
-
-
-
-    <div class="architecture">
-
-        Data Sources
-
-        <span>→</span>
-
-        GCS / Pub/Sub
-
-        <span>→</span>
-
-        Airflow
-
-        <span>→</span>
-
-        Transformation
-
-        <span>→</span>
-
-        BigQuery
-
-        <span>→</span>
-
-        Looker / Tableau
-
-    </div>
-
+  </div>
 </section>
 
+<section id="education" class="reveal">
+  <div class="container">
+    <div class="section-head"><h2>Education</h2><p>Academic background</p></div>
 
+    <div class="bottom-grid">
+      <div class="card edu">
+        <h3 style="color:var(--navy);margin-bottom:8px">Bachelor of Science</h3>
+        <p>Mathematics, Electronics & Computer Science</p>
+        <p><strong>Adi Kavi Nannaya University</strong></p>
+        <p>Andhra Pradesh, India • 2019</p>
+      </div>
 
-<!-- =========================
-     EDUCATION
-========================= -->
+      <div></div>
 
-<section id="education">
-
-    <h2 class="section-title">
-        Education
-    </h2>
-
-    <p class="section-subtitle">
-        Academic background
-    </p>
-
-
-    <div class="education-card">
-
-        <h3>
-            Bachelor of Science
-        </h3>
-
-        <p>
-            Mathematics, Electronics &
-            Computer Science
-        </p>
-
-        <br>
-
-        <p>
-            <strong>
-                Adi Kavi Nannaya University
-            </strong>
-        </p>
-
-        <p>
-            Andhra Pradesh, India
-        </p>
-
-        <p>
-            2019
-        </p>
-
+      <div id="contact" class="card connect">
+        <h3>✈ Let's Connect</h3>
+        <p>Interested in Data Engineering, Cloud and Analytics? Feel free to reach out.</p>
+        <div class="connect-links">
+          <a href="mailto:mediboyinanaveen98@gmail.com">✉ Email Me</a>
+          <a href="https://www.linkedin.com/in/naveen-kumar-36207824a/" target="_blank" rel="noopener">in LinkedIn</a>
+        </div>
+      </div>
     </div>
-
+  </div>
 </section>
 
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<div class="contact" id="contact">
-
-    <div class="contact-inner">
-
-        <h2>
-            Let's Connect
-        </h2>
-
-        <p>
-
-            Interested in Data Engineering,
-            Cloud Data Platforms and scalable
-            data solutions?
-
-        </p>
-
-
-        <div class="contact-links">
-
-
-            <a href="mailto:mediboyinanaveen98@gmail.com">
-
-                📧 Email
-
-            </a>
-
-
-            <a
-                href="https://www.linkedin.com/in/naveen-kumar-36207824a/"
-                target="_blank"
-            >
-
-                🔗 LinkedIn
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
+</main>
 
 <footer>
-
-    © 2026 Naveen Kumar M
-    · Data Engineer
-
+  <div class="container footer">
+    <div>
+      <strong>Naveen Kumar M</strong>
+      <small>Data Engineer | Google Cloud | Analytics | Automation</small>
+    </div>
+    <div class="quote">“Turning data into impactful solutions”</div>
+    <div>
+      <small>© 2026 Naveen Kumar M</small>
+      <small>All rights reserved.</small>
+    </div>
+    <a class="top" href="#top">↑</a>
+  </div>
 </footer>
 
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
 
 </body>
-
 </html>
