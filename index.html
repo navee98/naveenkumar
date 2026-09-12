@@ -102,24 +102,24 @@ nav a:hover{color:var(--blue)}
 
 /* The five cards are equally spaced on one fixed-radius circle. */
 .orbit-pos1{
-  --counter-start:0deg;
-  transform:translate(-50%,-50%) rotate(0deg) translateY(-125px);
+  --orbit-angle:0deg;--counter-start:0deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
 }
 .orbit-pos2{
-  --counter-start:-72deg;
-  transform:translate(-50%,-50%) rotate(72deg) translateY(-125px);
+  --orbit-angle:72deg;--counter-start:-72deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
 }
 .orbit-pos3{
-  --counter-start:-144deg;
-  transform:translate(-50%,-50%) rotate(144deg) translateY(-125px);
+  --orbit-angle:144deg;--counter-start:-144deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
 }
 .orbit-pos4{
-  --counter-start:-216deg;
-  transform:translate(-50%,-50%) rotate(216deg) translateY(-125px);
+  --orbit-angle:216deg;--counter-start:-216deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
 }
 .orbit-pos5{
-  --counter-start:-288deg;
-  transform:translate(-50%,-50%) rotate(288deg) translateY(-125px);
+  --orbit-angle:288deg;--counter-start:-288deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
 }
 
 @keyframes orbitSpin{
@@ -298,6 +298,54 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
   .arrow{display:none}
   .do-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* Keep the hero orbit visually consistent on desktop and mobile. */
+@media(max-width:620px){
+  .visual-stage{
+    transform:none;
+    width:360px;
+    height:300px;
+  }
+  .orbit{
+    width:210px;
+    height:210px;
+  }
+  .orbit:before{
+    inset:29px;
+  }
+  .orbit-items{
+    width:210px;
+    height:210px;
+  }
+  .orbit-pos1,.orbit-pos2,.orbit-pos3,.orbit-pos4,.orbit-pos5{
+    transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-105px);
+  }
+  .orbit-pos1{--orbit-angle:0deg;--counter-start:0deg}
+  .orbit-pos2{--orbit-angle:72deg;--counter-start:-72deg}
+  .orbit-pos3{--orbit-angle:144deg;--counter-start:-144deg}
+  .orbit-pos4{--orbit-angle:216deg;--counter-start:-216deg}
+  .orbit-pos5{--orbit-angle:288deg;--counter-start:-288deg}
+  .orbit-card .float-card{
+    width:82px;
+    min-height:74px;
+    padding:7px 8px;
+  }
+  .orbit-card .float-card img{
+    width:31px;
+    height:31px;
+    margin-bottom:4px;
+  }
+  .orbit-card .float-card b{
+    font-size:8px;
+  }
+  .scribble{
+    right:-18px;
+    top:0;
+    width:125px;
+    font-size:11px;
+  }
+}
+
 @media(max-width:620px){
   .tech[data-tooltip]::after,
   .arch-card[data-tooltip]::after{width:175px;font-size:8px}
@@ -309,7 +357,6 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
   .hero h2{font-size:21px}
   .hero-grid{padding:38px 0 20px}
   .visual{height:310px}
-  .visual-stage{transform:scale(.78);transform-origin:center}
   .stack-grid{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}
