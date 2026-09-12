@@ -1,373 +1,2794 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveen Kumar M - Data Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            /* Light Theme (Glassmorphism & Clean) */
-            --bg-color: #f0f4f8;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --card-bg: rgba(255, 255, 255, 0.7);
-            --card-border: rgba(255, 255, 255, 0.5);
-            --primary-blue: #0062ff;
-            --primary-light: #e0edff;
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-            --orbit-border: #cbd5e1;
-            --glass-blur: blur(12px);
-            --transition: all 0.3s ease;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Naveen Kumar M — Data Engineer specializing in Google Cloud, BigQuery, Python, SQL and data pipelines.">
+<title>Naveen Kumar M | Data Engineer</title>
 
-        [data-theme="dark"] {
-            /* Dark Theme */
-            --bg-color: #0b1120;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --primary-blue: #3b82f6;
-            --primary-light: rgba(59, 130, 246, 0.2);
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --orbit-border: #334155;
-        }
+<style>
+:root{
+  --blue:#1a73e8;--blue2:#0b57d0;--ink:#172b4d;--muted:#607086;
+  --line:#e3eaf3;--bg:#f7fbff;--card:#fff;
+  --shadow:0 12px 35px rgba(31,56,88,.08)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+header{height:72px;display:flex;align-items:center;justify-content:space-between;background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(229,234,241,.7)}
+.brand{font-weight:800;font-size:16px;letter-spacing:-.3px}
+.brand span{color:var(--blue)}
+nav{display:flex;gap:27px;font-size:12px;color:#334155}
+nav a:hover{color:var(--blue)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #cfe0f7;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:700;transition:.25s}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 6px 18px rgba(26,115,232,.2)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,115,232,.15)}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            transition: var(--transition);
-            line-height: 1.6;
-        }
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(115deg,#f8fbff 0%,#eef7ff 58%,#e4f2ff 100%);
+  border-radius:0 0 34px 34px
+}
+.hero:before{
+  content:"";position:absolute;right:-140px;top:-170px;width:520px;height:520px;
+  border-radius:50%;border:85px solid rgba(26,115,232,.045);pointer-events:none
+}
+.hero-grid{
+  min-height:385px;display:grid;grid-template-columns:1.08fr .92fr;
+  align-items:center;gap:20px;padding:44px 0 34px
+}
+.hero-copy{position:relative;z-index:5;padding-right:10px}
+.eyebrow{display:inline-flex;padding:5px 11px;border-radius:20px;background:#e5f0ff;border:1px solid #bfd9ff;color:var(--blue2);font-size:11px;font-weight:700;margin-bottom:10px}
+.hero h1{font-size:44px;line-height:1.04;letter-spacing:-1.8px;color:#10244a}
+.hero h2{font-size:25px;color:var(--blue);margin-top:5px}
+.hero p{max-width:540px;color:#627189;font-size:14px;margin:10px 0 16px}
+.pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.pill{background:#fff;border:1px solid #e1e8f2;border-radius:20px;padding:6px 10px;font-size:10px;color:#53637a}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap}
 
-        /* --- Glassmorphism Card Style --- */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-        }
+.visual{
+  position:relative;height:330px;width:100%;max-width:500px;margin:auto;
+  display:flex;align-items:center;justify-content:center
+}
+.visual-stage{
+  position:relative;width:470px;height:300px;margin:0 auto
+}
+.cloud-core{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:96px;height:96px;border-radius:25px;background:#fff;
+  box-shadow:0 15px 35px rgba(31,56,88,.12);display:grid;place-items:center;z-index:3
+}
+.cloud-core img{width:68px;height:68px;object-fit:contain}
+.orbit{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:250px;height:250px;border:2px dashed #82b8ff;border-radius:50%;z-index:1
+}
+.orbit:before{
+  content:"";position:absolute;inset:34px;border:1px dashed #b8d6ff;border-radius:50%
+}
+.orbit-items{
+  position:absolute;left:50%;top:50%;width:250px;height:250px;
+  transform:translate(-50%,-50%);z-index:4;
+  /* Orbit movement is controlled by JavaScript for consistent desktop + iPhone Safari behavior. */
+}
+.orbit-card{
+  position:absolute;
+  left:50%;top:50%;
+  width:0;height:0;
+}
+.orbit-card .float-card{
+  position:absolute;
+  left:0;top:0;
+  width:92px;min-height:82px;
+  transform:translate(-50%,-50%) rotate(var(--counter-start));
+  transform-origin:center center;
+  background:#fff;border:1px solid #e6edf5;border-radius:12px;
+  padding:9px 11px;text-align:center;
+  box-shadow:0 10px 25px rgba(40,80,120,.10);
+  font-size:9px;color:#334155;
+  /* Card counter-rotation is controlled by JavaScript. */
+  will-change:transform;
+}
+.orbit-card .float-card img{
+  width:36px;height:36px;display:block;margin:0 auto 5px;object-fit:contain;
+}
+.orbit-card .float-card b{
+  display:block;white-space:nowrap;font-size:9px;
+}
 
-        /* --- Header --- */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 5%; background: transparent; position: sticky; top: 0; z-index: 100;
-            backdrop-filter: var(--glass-blur);
-            border-bottom: 1px solid var(--card-border);
-        }
+/* The five cards are equally spaced on one fixed-radius circle. */
+.orbit-pos1{
+  --orbit-angle:0deg;--counter-start:0deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
+}
+.orbit-pos2{
+  --orbit-angle:72deg;--counter-start:-72deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
+}
+.orbit-pos3{
+  --orbit-angle:144deg;--counter-start:-144deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
+}
+.orbit-pos4{
+  --orbit-angle:216deg;--counter-start:-216deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
+}
+.orbit-pos5{
+  --orbit-angle:288deg;--counter-start:-288deg;
+  transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
+}
 
-        .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
-        .logo-circle {
-            background: var(--primary-blue); color: white; width: 45px; height: 45px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;
-        }
-        .logo-text h1 { font-size: 1.2rem; color: var(--text-main); }
-        .logo-text span { font-size: 0.8rem; color: var(--primary-blue); font-weight: 700; text-transform: uppercase; }
+  to{transform:translate(-50%,-50%) rotate(calc(var(--counter-start) - 360deg))}
+}
 
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; transition: var(--transition); }
-        nav a:hover, nav a.active { color: var(--primary-blue); }
+/* Hover changes only the shadow, so it cannot disturb the counter-rotation. */
+.orbit-card .float-card:hover{
+  box-shadow:0 12px 25px rgba(35,65,100,.15);
+}
 
-        .header-actions { display: flex; align-items: center; gap: 1rem; }
-        .btn-primary {
-            background: var(--primary-blue); color: white; padding: 0.6rem 1.2rem; border-radius: 8px;
-            text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer;
-        }
-        .theme-toggle {
-            background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);
-            cursor: pointer; padding: 0.5rem; border-radius: 20px; font-size: 1.2rem;
-        }
+.scribble{
+  position:absolute;right:-32px;top:4px;transform:rotate(-4deg);
+  font-family:cursive;color:#41607f;font-size:14px;line-height:1.08;
+  width:145px;text-align:center;z-index:6
+}
 
-        /* --- Hero Section & Orbit Animations --- */
-        .hero { display: grid; grid-template-columns: 1fr 1fr; padding: 4rem 5%; align-items: center; gap: 2rem; }
-        .hero-tag { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; display: block; }
-        .hero h2 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
-        .hero h2 span { color: var(--primary-blue); }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 90%; margin-bottom: 2rem; }
-        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 3rem; }
-        .btn-secondary {
-            background: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border);
-            padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;
-        }
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(30,60,90,.04)}
+.stat{padding:17px 15px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat strong{display:block;color:var(--blue);font-size:21px}
+.stat span{font-size:10px;color:#6b778a}
 
-        /* Fixed Orbit Keyframes */
-        .orbit-wrapper { position: relative; width: 100%; height: 500px; display: flex; justify-content: center; align-items: center; }
-        
-        .orbit-center {
-            width: 100px; height: 100px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 10;
-        }
-        .orbit-center img { width: 70px; height: 70px; } /* Central Colorful GCP Logo */
+section{padding:62px 0}
+.section-head{margin-bottom:24px}
+.section-head .bar{width:25px;height:3px;background:var(--blue);display:inline-block;margin-right:8px;vertical-align:middle}
+.section-head h3{display:inline;font-size:23px;letter-spacing:-.5px}
+.section-head p{margin-top:6px;color:#738096;font-size:12px}
 
-        .orbit-track-1 {
-            position: absolute; width: 300px; height: 300px; border: 1px dashed var(--orbit-border); border-radius: 50%;
-            animation: rotateOrbit 25s linear infinite;
-        }
-        .orbit-track-2 {
-            position: absolute; width: 450px; height: 450px; border: 1px dashed var(--orbit-border); border-radius: 50%;
-            animation: rotateOrbitReverse 35s linear infinite;
-        }
+.about-grid{display:grid;grid-template-columns:1fr 1.18fr;gap:34px}
+.about-copy p{font-size:12px;color:#647188;margin-bottom:13px}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:18px}
+.value{padding:13px 8px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
+.value .ico{width:34px;height:34px;margin:0 auto 7px;border-radius:50%;display:grid;place-items:center;background:#eaf3ff;color:var(--blue);font-size:16px}
+.value strong{display:block;font-size:10px}
+.value small{display:block;font-size:8px;color:#78859a;margin-top:2px}
 
-        .orbit-card {
-            position: absolute; width: 85px; height: 85px; background: var(--card-bg); backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--card-border); border-radius: 16px; box-shadow: var(--shadow);
-            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-            font-size: 0.7rem; font-weight: 600; color: var(--text-main);
-        }
-        .orbit-card img { width: 35px; height: 35px; } /* Colorful Orbit Icons */
+.stack{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 25px rgba(25,55,90,.05)}
+.stack-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.stack-title strong{font-size:14px}
+.stack-title span{font-size:10px;color:#8290a5;display:flex;align-items:center;gap:5px}
+.stack-title img{width:15px;height:15px;object-fit:contain}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tech{
+  position:relative;overflow:visible;
+  border:1px solid #e1e8f1;border-radius:10px;min-height:92px;padding:10px 5px;
+  text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:.2s;background:#fff;z-index:1
+}
+.tech:hover{transform:translateY(-3px);box-shadow:0 7px 17px rgba(35,65,100,.1);z-index:20}
+.tech img{width:38px;height:38px;object-fit:contain;margin-bottom:6px;display:block;font-size:0}
+.tech strong{font-size:9px}
+.tech small{font-size:7px;color:#8792a3;margin-top:1px}
 
-        /* Counter-rotation so cards stay upright */
-        .orbit-track-1 .orbit-card { animation: rotateOrbitReverse 25s linear infinite; }
-        .orbit-track-2 .orbit-card { animation: rotateOrbit 35s linear infinite; }
+.tech[data-tooltip]::after,
+.arch-card[data-tooltip]::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 10px);
+  transform:translate(-50%,8px);
+  width:205px;
+  padding:9px 11px;
+  border-radius:9px;
+  background:#172b4d;
+  color:#fff;
+  font-size:9px;
+  line-height:1.45;
+  font-weight:500;
+  text-align:left;
+  box-shadow:0 8px 22px rgba(20,45,75,.22);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:.2s ease;
+  z-index:100;
+}
+.tech[data-tooltip]::before,
+.arch-card[data-tooltip]::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 4px);
+  transform:translate(-50%,8px);
+  border:5px solid transparent;
+  border-top-color:#172b4d;
+  opacity:0;
+  visibility:hidden;
+  transition:.2s ease;
+  z-index:101;
+}
+.tech[data-tooltip]:hover::after,
+.tech[data-tooltip]:hover::before,
+.arch-card[data-tooltip]:hover::after,
+.arch-card[data-tooltip]:hover::before{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0);
+}
 
-        /* Positioning Orbit Cards */
-        .track-1-node-1 { top: -42px; left: 50%; transform: translateX(-50%); }
-        .track-1-node-2 { bottom: -42px; left: 50%; transform: translateX(-50%); }
-        .track-2-node-1 { top: 50%; left: -42px; transform: translateY(-50%); }
-        .track-2-node-2 { top: -20px; right: 20px; }
-        .track-2-node-3 { bottom: -20px; right: 20px; }
+.arch{background:var(--bg)}
+.arch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:center}
+.arch-card{
+  position:relative;
+  background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 8px;
+  text-align:center;min-height:120px;box-shadow:0 5px 17px rgba(30,60,90,.04);
+  transition:.2s;z-index:1
+}
+.arch-card:hover{transform:translateY(-3px);box-shadow:0 7px 17px rgba(35,65,100,.1);z-index:20}
+.arch-card .arch-icon{width:38px;height:38px;margin:0 auto 9px;border-radius:10px;background:#edf5ff;display:grid;place-items:center;color:var(--blue)}
+.arch-card img{width:30px;height:30px;object-fit:contain}
+.arch-card strong{display:block;font-size:10px}
+.arch-card small{font-size:7px;color:#7a8799}
+.arrow{color:#8bbcff;text-align:center;font-size:22px}
 
-        @keyframes rotateOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes rotateOrbitReverse { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.do-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.do-card{padding:22px;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 25px rgba(30,60,90,.05)}
+.do-card .big-icon{font-size:25px;color:var(--blue);margin-bottom:10px}
+.do-card h4{font-size:14px;margin-bottom:6px}
+.do-card p{font-size:10px;color:#738096}
 
-        /* --- Bento Grid / Main Layout --- */
-        .bento-grid { padding: 0 5% 4rem; display: flex; flex-wrap: wrap; gap: 1.5rem; }
-        .card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; font-size: 1.1rem; font-weight: 700; }
-        .card-header i { color: var(--primary-blue); }
+.timeline{position:relative;margin-left:8px}
+.timeline:before{content:"";position:absolute;left:8px;top:5px;bottom:5px;width:2px;background:#d8e9ff}
+.job{position:relative;padding:0 0 30px 35px}
+.dot{position:absolute;left:2px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:4px solid #dcecff}
+.job-head{display:flex;justify-content:space-between;gap:20px}
+.job h4{font-size:14px}
+.job .company{color:var(--blue);font-size:11px;font-weight:700}
+.job .date{font-size:10px;color:#7b8799;white-space:nowrap}
+.job p{font-size:10px;color:#718096;margin-top:7px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:8px;background:#f0f6ff;color:#35639a;padding:4px 7px;border-radius:10px}
 
-        /* --- Tech Stack & Hover Tooltips --- */
-        .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; justify-items: center; }
-        .tech-item {
-            position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-            cursor: pointer; transition: transform 0.2s ease;
-        }
-        .tech-item:hover { transform: translateY(-3px); }
-        .tech-item img { width: 45px; height: 45px; object-fit: contain; }
-        .tech-item span { font-size: 0.8rem; font-weight: 600; color: var(--text-main); }
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.project{border:1px solid var(--line);border-radius:15px;padding:21px;background:#fff;box-shadow:0 7px 22px rgba(30,60,90,.05)}
+.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.project h4{font-size:14px}
+.project-icon{width:40px;height:40px;border-radius:11px;background:#eaf3ff;display:grid;place-items:center;color:var(--blue);font-size:18px}
+.project p{font-size:10px;color:#738096}
+.education{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.edu-card{border:1px solid var(--line);border-radius:15px;padding:21px;background:#fff}
+.edu-card h4{font-size:14px}
+.edu-card p{font-size:10px;color:#738096;margin-top:4px}
 
-        /* Pop-up Tooltip Styles */
-        .tooltip {
-            position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%) translateY(10px);
-            background: var(--text-main); color: var(--bg-color);
-            padding: 8px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 500;
-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            white-space: nowrap; box-shadow: 0 10px 20px rgba(0,0,0,0.15); z-index: 50; text-align: center;
-        }
-        .tooltip::after {
-            content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-            border-width: 6px; border-style: solid; border-color: var(--text-main) transparent transparent transparent;
-        }
-        .tech-item:hover .tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tooltip-title { font-weight: 700; color: var(--primary-light); font-size: 0.85rem; display: block; margin-bottom: 2px; }
+.contact{background:linear-gradient(135deg,#edf6ff,#f9fcff);border:1px solid #dcecff;border-radius:22px;padding:35px;text-align:center}
+.contact h3{font-size:25px}
+.contact p{color:#718096;font-size:12px;margin:7px auto 18px;max-width:600px}
+.contact-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.contact-links a{background:#fff;border:1px solid #dbe6f3;padding:10px 15px;border-radius:9px;font-size:11px;font-weight:700;color:#31557e}
 
-        /* --- Experience & Projects Layout --- */
-        .timeline { border-left: 2px solid var(--orbit-border); padding-left: 1.5rem; margin-left: 0.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
-        .timeline-item { position: relative; }
-        .timeline-item::before {
-            content: ''; position: absolute; left: -1.85rem; top: 0.2rem; width: 12px; height: 12px;
-            border-radius: 50%; background: var(--primary-blue); border: 3px solid var(--card-bg);
-        }
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-        .tag { background: var(--primary-light); color: var(--primary-blue); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-brand{font-weight:800;color:#fff}
+.footer-inner p{font-size:9px}
+.footer-links{display:flex;gap:18px;font-size:10px}
+.footer-links a:hover{color:#fff}
+.reveal{opacity:0;transform:translateY(18px);transition:.65s}
+.reveal.show{opacity:1;transform:none}
 
-        /* Layout Helpers */
-        .flex-col { display: flex; flex-direction: column; gap: 1.5rem; }
-    </style>
+@media(max-width:900px){
+  nav{display:none}
+  .hero-grid,.about-grid,.education{grid-template-columns:1fr}
+  .hero-copy{padding-right:0}
+  .visual{margin-top:10px}
+  .arch-grid{grid-template-columns:repeat(3,1fr)}
+  .arrow{display:none}
+  .do-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Keep the hero orbit visually consistent on desktop and mobile. */
+@media(max-width:620px){
+  .visual-stage{
+    transform:none;
+    width:360px;
+    height:300px;
+  }
+  .orbit{
+    width:210px;
+    height:210px;
+  }
+  .orbit:before{
+    inset:29px;
+  }
+  .orbit-items{
+    width:210px;
+    height:210px;
+  }
+  .orbit-pos1,.orbit-pos2,.orbit-pos3,.orbit-pos4,.orbit-pos5{
+    transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-105px);
+  }
+  .orbit-pos1{--orbit-angle:0deg;--counter-start:0deg}
+  .orbit-pos2{--orbit-angle:72deg;--counter-start:-72deg}
+  .orbit-pos3{--orbit-angle:144deg;--counter-start:-144deg}
+  .orbit-pos4{--orbit-angle:216deg;--counter-start:-216deg}
+  .orbit-pos5{--orbit-angle:288deg;--counter-start:-288deg}
+  .orbit-card .float-card{
+    width:82px;
+    min-height:74px;
+    padding:7px 8px;
+  }
+  .orbit-card .float-card img{
+    width:31px;
+    height:31px;
+    margin-bottom:4px;
+  }
+  .orbit-card .float-card b{
+    font-size:8px;
+  }
+  .scribble{
+    right:-18px;
+    top:0;
+    width:125px;
+    font-size:11px;
+  }
+}
+
+@media(max-width:620px){
+  .tech[data-tooltip]::after,
+  .arch-card[data-tooltip]::after{width:175px;font-size:8px}
+
+  .container{width:min(100% - 24px,1120px)}
+  header{height:64px}
+  .nav-actions .btn{padding:8px 10px;font-size:10px}
+  .hero h1{font-size:34px}
+  .hero h2{font-size:21px}
+  .hero-grid{padding:38px 0 20px}
+  .visual{height:310px}
+  .stack-grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .values{grid-template-columns:repeat(2,1fr)}
+  .arch-grid{grid-template-columns:repeat(2,1fr)}
+  .projects,.do-grid{grid-template-columns:1fr}
+  .job-head{display:block}
+  .job .date{display:block;margin-top:4px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .scribble{display:none}
+}
+
+/* ===== Option 2 Professional Theme ===== */
+:root{
+  --blue:#168cff;--cyan:#21d4fd;--violet:#9b6cff;
+  --ink:#eaf3ff;--muted:#91a4bf;--line:rgba(120,170,220,.18);
+  --bg:#06111f;--bg2:#091a2e;--card:rgba(12,30,51,.82);
+}
+:root.light{
+  --ink:#13233d;--muted:#627189;--line:#dbe7f4;
+  --bg:#f5f9ff;--bg2:#edf6ff;--card:rgba(255,255,255,.9);
+}
+body{
+  color:var(--ink);
+  background:var(--bg);
+  transition:background .3s,color .3s;
+}
+body:before{
+  background:
+    radial-gradient(circle at 85% 10%,rgba(33,212,253,.12),transparent 28%),
+    radial-gradient(circle at 10% 35%,rgba(22,140,255,.10),transparent 30%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+}
+header{
+  background:rgba(6,17,31,.82);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+:root.light header{background:rgba(255,255,255,.84)}
+nav{color:var(--muted)}
+.hero{
+  background:
+    radial-gradient(circle at 75% 48%,rgba(22,140,255,.12),transparent 25%),
+    radial-gradient(circle at 90% 25%,rgba(33,212,253,.10),transparent 24%);
+  border-bottom:1px solid var(--line);
+}
+.hero h1{font-size:52px;line-height:1.02;letter-spacing:-2.4px}
+.hero h1 span{color:var(--blue)}
+.hero h2{color:#63c9ff}
+.hero p,.hero-note{color:var(--muted)}
+.eyebrow{
+  background:rgba(22,140,255,.10);
+  border:1px solid rgba(22,140,255,.25);
+  color:#4ca9ff;
+}
+.pill,.stack,.tech,.arch-card,.do-card,.project,.edu-card,.value,.contact{
+  background:var(--card);
+  border-color:var(--line);
+}
+.btn{
+  background:rgba(255,255,255,.03);
+  border-color:rgba(33,212,253,.3);
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--blue),#0967e8);
+  border-color:transparent;
+}
+.stats{background:var(--card);border-color:var(--line)}
+.stat{border-color:var(--line)}
+.stat strong{color:#49b4ff}
+.stat span,.section-head p,.about-copy p,.tech small,.arch-card small,.do-card p,
+.job .date,.job p,.project p,.edu-card p,.stack-title span{color:var(--muted)}
+.section-head .bar{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.value .ico,.arch-card .arch-icon,.project-icon{background:rgba(22,140,255,.10);color:#55baff}
+.tech:hover,.arch-card:hover{box-shadow:0 12px 28px rgba(22,140,255,.16)}
+.tag{background:rgba(22,140,255,.09);color:#55baff}
+.arch{background:rgba(8,25,43,.35);border-color:var(--line)}
+:root.light .arch{background:rgba(237,246,255,.65)}
+.contact{background:linear-gradient(135deg,rgba(22,140,255,.12),rgba(33,212,253,.05))}
+footer{background:#030b15}
+.theme-btn{
+  width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+  background:var(--card);color:var(--ink);display:grid;place-items:center;
+  cursor:pointer;font-size:16px;transition:.25s;
+}
+.theme-btn:hover{transform:translateY(-2px);border-color:rgba(33,212,253,.5)}
+.cloud-core{
+  background:rgba(255,255,255,.96);
+  box-shadow:0 0 0 1px rgba(80,170,255,.15),0 20px 55px rgba(0,0,0,.22);
+}
+.cloud-core:after{border-color:rgba(33,212,253,.23)}
+.orbit{border-color:rgba(55,164,255,.65)}
+.orbit:before{border-color:rgba(85,182,255,.18)}
+.orbit-card .float-card{
+  background:rgba(10,27,47,.94);
+  border-color:rgba(110,180,235,.18);
+  color:var(--ink);
+  box-shadow:0 14px 35px rgba(0,0,0,.28);
+}
+:root.light .orbit-card .float-card{
+  background:rgba(255,255,255,.96);
+  box-shadow:0 14px 35px rgba(30,70,110,.12);
+}
+.scribble{color:#70cfff}
+
+
+@media(max-width:620px){
+  .hero h1{font-size:38px;letter-spacing:-1.5px}
+  .hero p{font-size:13px}
+  .hero-buttons .btn{padding:11px 13px}
+  .theme-btn{width:34px;height:34px}
+}
+
+
+/* Dark mode: give monochrome technology logos a clean light treatment so they
+   remain clearly visible against the dark cards. Colored brand logos stay unchanged. */
+:root:not(.light) .tech img[src*="simpleicons.org"],
+:root:not(.light) .tech img[src*="simple-icons"]{
+  filter:brightness(0) invert(1);
+  opacity:.96;
+}
+:root:not(.light) .tech img[src*="astronomer"]{
+  filter:none;
+  opacity:1;
+}
+:root:not(.light) .tech{
+  background:rgba(13,34,57,.92);
+  border-color:rgba(113,190,240,.25);
+}
+:root:not(.light) .tech strong{
+  color:#ffffff;
+  text-shadow:0 1px 8px rgba(33,160,255,.12);
+}
+:root:not(.light) .tech small{
+  color:#9fc0dc;
+}
+:root:not(.light) .tech:hover{
+  background:rgba(16,43,70,.98);
+  border-color:rgba(72,190,255,.45);
+}
+
+
+/* ===== Dark-mode Experience readability ===== */
+:root:not(.light) #experience{
+  background:linear-gradient(180deg,#081827 0%,#06111f 100%) !important;
+  border-top:1px solid rgba(90,180,240,.10);
+  border-bottom:1px solid rgba(90,180,240,.10);
+}
+:root:not(.light) #experience .section-head h3,
+:root:not(.light) #experience .job h4{
+  color:#f4f9ff;
+}
+:root:not(.light) #experience .section-head p,
+:root:not(.light) #experience .job p,
+:root:not(.light) #experience .job .date{
+  color:#9db2c9;
+}
+:root:not(.light) #experience .job .company{
+  color:#4db4ff;
+}
+:root:not(.light) #experience .timeline:before{
+  background:linear-gradient(180deg,#168cff,rgba(33,212,253,.18));
+}
+:root:not(.light) #experience .dot{
+  background:#168cff;
+  border-color:#0b2944;
+  box-shadow:0 0 0 3px rgba(22,140,255,.12);
+}
+:root:not(.light) #experience .tag{
+  background:rgba(22,140,255,.14);
+  border:1px solid rgba(70,175,255,.16);
+  color:#78c7ff;
+}
+:root:not(.light) #experience .bar{
+  box-shadow:0 0 12px rgba(33,212,253,.28);
+}
+
+/* Keep the same professional contrast on smaller screens. */
+@media(max-width:620px){
+  :root:not(.light) #experience{
+    background:linear-gradient(180deg,#081827 0%,#06111f 100%) !important;
+  }
+}
+
+
+/* ===== Education: keep this section light for maximum readability ===== */
+#education{
+  background:#f8fbff !important;
+  color:#13233d;
+  border-top:1px solid #e3edf7;
+  border-bottom:1px solid #e3edf7;
+}
+#education .section-head h3{
+  color:#13233d;
+}
+#education .section-head p{
+  color:#738096;
+}
+#education .edu-card{
+  background:#fff !important;
+  color:#13233d;
+  border:1px solid #dbe7f4;
+  box-shadow:0 8px 25px rgba(30,60,90,.07);
+}
+#education .edu-card h4{
+  color:#13233d;
+}
+#education .edu-card p{
+  color:#738096;
+}
+#education .edu-card p strong{
+  color:#35639a;
+}
+
+
+
+/* ===== Complete Light / Dark Theme ===== */
+/* Light mode: every section uses the light palette. */
+:root.light #education,
+:root.light #experience{
+  background:#f8fbff !important;
+  color:#13233d !important;
+}
+:root.light #education .edu-card,
+:root.light #experience .job,
+:root.light .project,
+:root.light .do-card{
+  background:#ffffff;
+}
+
+/* Dark mode: every section, including Education, switches to the dark palette. */
+:root:not(.light) #education,
+:root:not(.light) #experience{
+  background:linear-gradient(180deg,#081827 0%,#06111f 100%) !important;
+  color:#eaf3ff !important;
+  border-color:rgba(120,170,220,.18);
+}
+:root:not(.light) #education .section-head h3,
+:root:not(.light) #education .edu-card h4,
+:root:not(.light) #experience .section-head h3,
+:root:not(.light) #experience .job h4{
+  color:#f4f9ff !important;
+}
+:root:not(.light) #education .section-head p,
+:root:not(.light) #education .edu-card p,
+:root:not(.light) #experience .section-head p,
+:root:not(.light) #experience .job p,
+:root:not(.light) #experience .job .date{
+  color:#9db2c9 !important;
+}
+:root:not(.light) #education .edu-card{
+  background:rgba(12,30,51,.88) !important;
+  color:#eaf3ff !important;
+  border:1px solid rgba(120,170,220,.18) !important;
+  box-shadow:0 12px 35px rgba(0,0,0,.20);
+}
+:root:not(.light) #education .edu-card p strong{
+  color:#55baff !important;
+}
+:root:not(.light) #experience .job .company{
+  color:#55baff !important;
+}
+:root:not(.light) #experience .timeline:before{
+  background:linear-gradient(180deg,#168cff,rgba(33,212,253,.18));
+}
+:root:not(.light) #experience .dot{
+  background:#168cff;
+  border-color:#0b2944;
+  box-shadow:0 0 0 3px rgba(22,140,255,.12);
+}
+:root:not(.light) #experience .tag{
+  background:rgba(22,140,255,.14);
+  border:1px solid rgba(70,175,255,.16);
+  color:#78c7ff;
+}
+
+/* Dark mode for all remaining content cards and text. */
+:root:not(.light) .about-copy h3,
+:root:not(.light) .do-card h4,
+:root:not(.light) .project h4,
+:root:not(.light) .stack-title strong{
+  color:#f4f9ff;
+}
+:root:not(.light) .edu-card,
+:root:not(.light) .project,
+:root:not(.light) .do-card,
+:root:not(.light) .value,
+:root:not(.light) .stack{
+  color:#eaf3ff;
+}
+
+
+/* ===== Premium NK Header Branding ===== */
+.premium-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:max-content;
+}
+.brand-badge{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:-.5px;
+  color:#fff;
+  background:linear-gradient(145deg,#0b2340,#123c68);
+  border:1px solid rgba(80,190,255,.75);
+  box-shadow:
+    0 0 0 2px rgba(22,140,255,.10),
+    0 0 16px rgba(22,140,255,.30),
+    inset 0 0 12px rgba(33,212,253,.12);
+  position:relative;
+  transition:.3s ease;
+}
+.brand-badge:after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:1px solid rgba(33,212,253,.20);
+  animation:brandPulse 2.8s ease-in-out infinite;
+}
+.premium-brand:hover .brand-badge{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:
+    0 0 0 2px rgba(22,140,255,.14),
+    0 0 24px rgba(22,140,255,.45),
+    inset 0 0 14px rgba(33,212,253,.18);
+}
+.brand-copy{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+.brand-copy strong{
+  font-size:14px;
+  font-weight:850;
+  letter-spacing:-.35px;
+  color:var(--ink);
+}
+.brand-copy strong:after{
+  content:" M";
+  color:var(--blue);
+}
+.brand-copy small{
+  margin-top:4px;
+  font-size:6px;
+  letter-spacing:1.6px;
+  font-weight:800;
+  color:#55baff;
+}
+@keyframes brandPulse{
+  0%,100%{transform:scale(.96);opacity:.35}
+  50%{transform:scale(1.08);opacity:.9}
+}
+
+/* Light mode gets a clean premium blue badge while retaining the same identity. */
+:root.light .brand-badge{
+  background:linear-gradient(145deg,#0d5fb8,#168cff);
+  border-color:rgba(22,140,255,.35);
+  box-shadow:
+    0 0 0 2px rgba(22,140,255,.08),
+    0 7px 18px rgba(22,140,255,.20),
+    inset 0 0 10px rgba(255,255,255,.20);
+}
+:root.light .brand-copy strong{color:#13233d}
+:root.light .brand-copy small{color:#167fe8}
+
+@media(max-width:620px){
+  .premium-brand{gap:8px}
+  .brand-badge{width:36px;height:36px;font-size:11px}
+  .brand-copy strong{font-size:12px}
+  .brand-copy small{font-size:5.5px;letter-spacing:1.35px}
+}
+
+
+/* ===== Premium NK badge: stronger light-mode clarity ===== */
+:root.light .brand-badge{
+  background:linear-gradient(145deg,#0757ad,#0b78df) !important;
+  color:#ffffff !important;
+  border:2px solid #ffffff !important;
+  box-shadow:
+    0 0 0 1px rgba(7,87,173,.20),
+    0 8px 22px rgba(7,87,173,.24),
+    inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+:root.light .brand-badge{
+  text-shadow:0 1px 2px rgba(0,35,80,.28);
+}
+:root.light .brand-copy strong{
+  color:#13233d !important;
+  font-weight:900 !important;
+}
+:root.light .brand-copy strong:after{
+  color:#087bea !important;
+}
+:root.light .brand-copy small{
+  color:#0868c7 !important;
+  font-weight:900 !important;
+  letter-spacing:1.7px;
+}
+
+
+/* ===== Recruiter-ready visual upgrade ===== */
+body{overflow-x:hidden}
+header{box-shadow:0 4px 18px rgba(25,70,120,.04)}
+nav a{position:relative;padding:8px 0}
+nav a:after{
+  content:"";position:absolute;left:0;right:0;bottom:1px;height:2px;
+  border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));
+  transform:scaleX(0);transform-origin:center;transition:.25s
+}
+nav a:hover:after,nav a.active:after{transform:scaleX(1)}
+nav a.active{color:var(--blue);font-weight:800}
+
+.hero{
+  min-height:500px;
+  background:
+    radial-gradient(circle at 78% 45%,rgba(22,140,255,.14),transparent 22%),
+    radial-gradient(circle at 96% 5%,rgba(33,212,253,.13),transparent 20%),
+    linear-gradient(115deg,#f8fbff 0%,#eef7ff 57%,#e2f2ff 100%);
+}
+.hero:after{
+  content:"";position:absolute;right:-180px;bottom:-280px;width:620px;height:620px;
+  border:90px solid rgba(22,140,255,.035);border-radius:50%;pointer-events:none
+}
+.hero-grid{min-height:500px;padding:55px 0 55px;gap:25px}
+.hero-copy{padding-left:4px}
+.eyebrow{
+  box-shadow:0 5px 16px rgba(22,140,255,.08);
+  letter-spacing:.4px
+}
+.hero h1{font-size:56px;max-width:620px}
+.hero h2{font-size:21px;letter-spacing:-.2px}
+.hero p{font-size:14px;line-height:1.7}
+.hero-buttons .btn{min-height:42px}
+.hero-buttons .btn:not(.primary){
+  background:rgba(255,255,255,.72);
+  border-color:#c8ddf5;
+}
+.visual{height:390px;max-width:560px}
+.visual-stage{width:520px;height:350px}
+.cloud-core{
+  width:112px;height:112px;border-radius:30px;
+  box-shadow:0 18px 42px rgba(31,56,88,.15),0 0 0 1px rgba(22,140,255,.08)
+}
+.cloud-core:before{
+  content:"";position:absolute;inset:-8px;border-radius:34px;
+  border:1px solid rgba(22,140,255,.15);box-shadow:0 0 32px rgba(22,140,255,.10)
+}
+.cloud-core img{width:76px;height:76px}
+.orbit{width:285px;height:285px}
+.orbit:before{inset:42px}
+.orbit-items{width:285px;height:285px}
+.orbit-pos1{transform:translate(-50%,-50%) rotate(0deg) translateY(-142px)}
+.orbit-pos2{transform:translate(-50%,-50%) rotate(72deg) translateY(-142px)}
+.orbit-pos3{transform:translate(-50%,-50%) rotate(144deg) translateY(-142px)}
+.orbit-pos4{transform:translate(-50%,-50%) rotate(216deg) translateY(-142px)}
+.orbit-pos5{transform:translate(-50%,-50%) rotate(288deg) translateY(-142px)}
+.orbit-card .float-card{
+  width:98px;min-height:88px;border-radius:15px;
+  box-shadow:0 14px 32px rgba(30,70,110,.13);
+  border-color:rgba(95,160,220,.22)
+}
+.orbit-card .float-card:hover{
+  transform:translate(-50%,-50%) scale(1.04) rotate(var(--counter-start));
+}
+.scribble{
+  right:-2px;top:5px;width:145px;font-size:14px;
+  color:#23518a;font-weight:600
+}
+
+.stats{
+  position:relative;z-index:10;
+  width:min(920px,calc(100% - 40px));margin:-28px auto 0;
+  border:1px solid #dbe8f6;border-radius:18px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 16px 42px rgba(35,78,120,.12);
+  backdrop-filter:blur(16px)
+}
+.stat{padding:17px 15px}
+.stat strong{font-size:23px}
+.stat span{font-size:9px}
+
+section{padding:72px 0}
+.section-head h3{font-size:27px}
+.section-head p{font-size:11px}
+.about-grid{gap:38px}
+.stack{border-radius:18px;box-shadow:0 15px 38px rgba(30,70,110,.08)}
+.tech{min-height:96px;border-radius:12px}
+.tech:hover{transform:translateY(-5px) scale(1.01)}
+
+.arch{padding-top:70px;padding-bottom:70px}
+.arch-card{min-height:132px;border-radius:15px}
+.arch-card:hover{transform:translateY(-5px)}
+
+.do-card,.project,.edu-card{
+  transition:.25s;position:relative;overflow:hidden
+}
+.do-card:before,.project:before,.edu-card:before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.65
+}
+.do-card:hover,.project:hover,.edu-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 35px rgba(30,80,125,.12)
+}
+.project{min-height:190px}
+.job{padding-bottom:38px}
+.job h4{font-size:15px}
+.job p{line-height:1.65}
+
+.contact{
+  padding:42px 30px;border-radius:24px;
+  box-shadow:0 18px 45px rgba(30,80,125,.08)
+}
+.contact h3{font-size:28px}
+
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 78% 45%,rgba(22,140,255,.15),transparent 22%),
+    radial-gradient(circle at 96% 5%,rgba(33,212,253,.11),transparent 20%),
+    linear-gradient(115deg,#061321 0%,#081b30 58%,#0b2540 100%);
+}
+:root:not(.light) .hero:after{border-color:rgba(33,212,253,.035)}
+:root:not(.light) .stats{
+  background:rgba(9,27,47,.92);
+  border-color:rgba(100,175,230,.22);
+  box-shadow:0 18px 45px rgba(0,0,0,.28)
+}
+:root:not(.light) .hero-buttons .btn:not(.primary){
+  background:rgba(8,25,43,.72);
+  border-color:rgba(100,175,230,.25);
+}
+:root:not(.light) .scribble{color:#70cfff}
+:root:not(.light) .stack,.dark .stack{box-shadow:0 18px 45px rgba(0,0,0,.22)}
+:root:not(.light) .do-card,
+:root:not(.light) .project,
+:root:not(.light) .edu-card{
+  box-shadow:0 14px 35px rgba(0,0,0,.20)
+}
+
+@media(max-width:900px){
+  .hero h1{font-size:46px}
+  .visual-stage{width:470px}
+}
+@media(max-width:620px){
+  .hero{min-height:auto}
+  .hero-grid{min-height:auto;padding:42px 0 28px}
+  .hero h1{font-size:39px}
+  .hero h2{font-size:18px}
+  .visual{height:330px}
+  .visual-stage{width:360px;height:300px}
+  .cloud-core{width:105px;height:105px}
+  .orbit,.orbit-items{width:210px;height:210px}
+  .orbit:before{inset:29px}
+  .orbit-pos1{transform:translate(-50%,-50%) rotate(0deg) translateY(-105px)}
+  .orbit-pos2{transform:translate(-50%,-50%) rotate(72deg) translateY(-105px)}
+  .orbit-pos3{transform:translate(-50%,-50%) rotate(144deg) translateY(-105px)}
+  .orbit-pos4{transform:translate(-50%,-50%) rotate(216deg) translateY(-105px)}
+  .orbit-pos5{transform:translate(-50%,-50%) rotate(288deg) translateY(-105px)}
+  .orbit-card .float-card{width:82px;min-height:74px}
+  .stats{width:calc(100% - 24px);margin:-12px auto 0;border-radius:15px}
+  .stats .stat{padding:14px 8px}
+  .stat strong{font-size:18px}
+  .stat span{font-size:8px}
+}
+
+
+/* ================================================================
+   APPROVED MOCKUP MATCH — recruiter / portfolio presentation
+   ================================================================ */
+
+:root{
+  --mock-blue:#087cf0;
+  --mock-cyan:#18c8f5;
+  --mock-ink:#10264a;
+  --mock-muted:#647a98;
+  --mock-line:#d7e6f5;
+  --mock-bg:#f5faff;
+  --mock-card:#ffffff;
+  --mock-shadow:0 12px 32px rgba(29,83,139,.10);
+}
+:root:not(.light){
+  --mock-ink:#f3f8ff;
+  --mock-muted:#9db2ca;
+  --mock-line:rgba(111,181,232,.20);
+  --mock-bg:#061321;
+  --mock-card:#0b2037;
+}
+
+/* ---------- Header ---------- */
+header{
+  height:70px !important;
+  padding:0 24px;
+  background:rgba(255,255,255,.88) !important;
+  border-bottom:1px solid var(--mock-line) !important;
+  box-shadow:0 2px 16px rgba(35,82,130,.05);
+}
+:root:not(.light) header{
+  background:rgba(4,16,29,.90) !important;
+}
+.premium-brand{gap:10px}
+.brand-badge{
+  width:43px;height:43px;
+  background:linear-gradient(145deg,#0875df,#20a9ff) !important;
+  border:2px solid #fff !important;
+  box-shadow:0 5px 18px rgba(8,124,240,.25) !important;
+}
+.brand-copy strong{
+  font-size:14px !important;
+  color:#10264a !important;
+}
+:root:not(.light) .brand-copy strong{color:#f3f8ff !important}
+.brand-copy strong:after{color:#087cf0 !important}
+.brand-copy small{
+  color:#0874d2 !important;
+  font-size:6px !important;
+  letter-spacing:1.8px !important;
+}
+:root:not(.light) .brand-copy small{color:#55c8ff !important}
+
+nav{gap:24px !important}
+nav a{font-size:10px !important;color:#61738e !important}
+:root:not(.light) nav a{color:#9db2ca !important}
+nav a.active,nav a:hover{color:#087cf0 !important}
+
+.nav-actions{gap:8px !important}
+.theme-btn{
+  width:36px;height:36px;
+  background:#fff !important;
+  color:#18304f !important;
+  border:1px solid #d5e3f1 !important;
+}
+:root:not(.light) .theme-btn{
+  background:#0b2037 !important;color:#fff !important;
+  border-color:rgba(120,190,235,.25) !important;
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:485px !important;
+  background:
+    radial-gradient(circle at 79% 48%,rgba(40,166,255,.13),transparent 23%),
+    linear-gradient(125deg,#fbfdff 0%,#f0f8ff 58%,#e6f3ff 100%) !important;
+  border-bottom:0 !important;
+}
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 79% 48%,rgba(21,155,255,.18),transparent 23%),
+    linear-gradient(125deg,#061321 0%,#081d33 58%,#0a2945 100%) !important;
+}
+.hero-grid{
+  min-height:485px !important;
+  grid-template-columns:1.02fr .98fr !important;
+  gap:12px !important;
+  padding:44px 0 35px !important;
+}
+.hero-copy{padding-left:4px}
+.eyebrow{
+  font-size:9px !important;
+  padding:6px 10px !important;
+  color:#0874d2 !important;
+  background:rgba(8,124,240,.08) !important;
+  border-color:rgba(8,124,240,.18) !important;
+}
+:root:not(.light) .eyebrow{
+  color:#65caff !important;
+  background:rgba(22,140,255,.10) !important;
+}
+.hero h1{
+  font-size:45px !important;
+  line-height:1.04 !important;
+  letter-spacing:-1.8px !important;
+  color:#10264a !important;
+  max-width:530px !important;
+}
+:root:not(.light) .hero h1{color:#f4f8ff !important}
+.hero h1 span{color:#087cf0 !important}
+:root:not(.light) .hero h1 span{color:#22c7ff !important}
+.hero h2{
+  font-size:15px !important;
+  color:#0b75d7 !important;
+  margin-top:11px !important;
+}
+:root:not(.light) .hero h2{color:#64caff !important}
+.hero p{
+  max-width:500px !important;
+  font-size:11px !important;
+  line-height:1.7 !important;
+  color:#617692 !important;
+  margin:11px 0 17px !important;
+}
+:root:not(.light) .hero p{color:#a0b5cc !important}
+.pills{gap:6px !important;margin-bottom:17px !important}
+.pill{
+  padding:6px 10px !important;
+  font-size:8px !important;
+  color:#49627f !important;
+  background:rgba(255,255,255,.72) !important;
+  border-color:#d6e5f3 !important;
+}
+:root:not(.light) .pill{
+  color:#a8bfd5 !important;
+  background:rgba(9,30,51,.75) !important;
+  border-color:rgba(100,175,230,.20) !important;
+}
+.hero-buttons .btn{
+  min-height:39px !important;
+  padding:9px 14px !important;
+  font-size:9px !important;
+}
+.hero-buttons .btn.primary{
+  background:linear-gradient(135deg,#087cf0,#0668d8) !important;
+  box-shadow:0 8px 22px rgba(8,124,240,.22) !important;
+}
+.hero-buttons .btn:not(.primary){
+  background:#fff !important;
+  color:#193554 !important;
+  border-color:#cbdff2 !important;
+}
+:root:not(.light) .hero-buttons .btn:not(.primary){
+  background:#0a1e34 !important;color:#eaf4ff !important;
+  border-color:rgba(120,190,235,.28) !important;
+}
+.hero-note{
+  font-size:8px !important;
+  margin-top:12px !important;
+}
+
+/* ---------- Hero Orbit ---------- */
+.visual{height:365px !important;max-width:540px !important}
+.visual-stage{width:500px !important;height:340px !important}
+.cloud-core{
+  width:102px !important;height:102px !important;
+  border-radius:27px !important;
+}
+.cloud-core img{width:69px !important;height:69px !important}
+.orbit{width:275px !important;height:275px !important}
+.orbit-items{width:275px !important;height:275px !important}
+.orbit-pos1{transform:translate(-50%,-50%) rotate(0deg) translateY(-137px) !important}
+.orbit-pos2{transform:translate(-50%,-50%) rotate(72deg) translateY(-137px) !important}
+.orbit-pos3{transform:translate(-50%,-50%) rotate(144deg) translateY(-137px) !important}
+.orbit-pos4{transform:translate(-50%,-50%) rotate(216deg) translateY(-137px) !important}
+.orbit-pos5{transform:translate(-50%,-50%) rotate(288deg) translateY(-137px) !important}
+.orbit-card .float-card{
+  width:86px !important;
+  min-height:77px !important;
+  padding:8px 7px !important;
+  border-radius:13px !important;
+  box-shadow:0 10px 25px rgba(31,76,120,.12) !important;
+}
+.orbit-card .float-card img{width:34px !important;height:34px !important}
+.orbit-card .float-card b{font-size:8px !important}
+.scribble{
+  right:-3px !important;
+  top:10px !important;
+  width:120px !important;
+  font-size:13px !important;
+}
+
+/* ---------- Floating Metrics ---------- */
+.stats{
+  width:min(820px,calc(100% - 36px)) !important;
+  margin:-20px auto 0 !important;
+  border-radius:15px !important;
+  border:1px solid #d8e7f5 !important;
+  background:rgba(255,255,255,.94) !important;
+  box-shadow:0 14px 34px rgba(32,80,130,.11) !important;
+}
+:root:not(.light) .stats{
+  background:rgba(10,29,49,.94) !important;
+  border-color:rgba(110,180,230,.22) !important;
+  box-shadow:0 14px 34px rgba(0,0,0,.28) !important;
+}
+.stat{padding:14px !important}
+.stat strong{font-size:20px !important;color:#087cf0 !important}
+:root:not(.light) .stat strong{color:#4ec8ff !important}
+.stat span{font-size:8px !important;color:#657b97 !important}
+:root:not(.light) .stat span{color:#9db2ca !important}
+
+/* ---------- Content cards ---------- */
+section{padding:55px 0 !important}
+.section-head{margin-bottom:20px !important}
+.section-head h3{
+  font-size:20px !important;
+  color:#10264a !important;
+}
+:root:not(.light) .section-head h3{color:#f3f8ff !important}
+.section-head p{font-size:9px !important}
+
+.stack{
+  border-radius:15px !important;
+  padding:16px !important;
+  box-shadow:var(--mock-shadow) !important;
+}
+.stack-title strong{font-size:12px !important}
+.tech{
+  min-height:82px !important;
+  border-radius:10px !important;
+}
+.tech img{width:34px !important;height:34px !important}
+.tech strong{font-size:8px !important}
+.tech small{font-size:6.5px !important}
+
+/* Architecture */
+.arch{padding:55px 0 !important}
+.arch-card{
+  min-height:105px !important;
+  padding:14px 7px !important;
+  border-radius:12px !important;
+}
+.arch-card .arch-icon{width:34px !important;height:34px !important}
+.arch-card strong{font-size:9px !important}
+
+/* Experience timeline */
+.job{padding-bottom:28px !important}
+.job h4{font-size:12px !important}
+.job .company{font-size:9px !important}
+.job p{font-size:8px !important;line-height:1.55 !important}
+.job .date{font-size:8px !important}
+.tag{font-size:7px !important;padding:4px 6px !important}
+
+/* Projects / Education / Work cards */
+.projects{gap:11px !important}
+.project,.do-card,.edu-card{
+  border-radius:13px !important;
+  padding:17px !important;
+}
+.project h4,.do-card h4,.edu-card h4{font-size:11px !important}
+.project p,.do-card p,.edu-card p{font-size:8px !important}
+.project-icon{width:35px !important;height:35px !important}
+
+/* Contact */
+.contact{
+  border-radius:18px !important;
+  padding:30px 22px !important;
+}
+.contact h3{font-size:22px !important}
+.contact p{font-size:9px !important}
+
+/* Footer */
+footer{margin-top:35px !important;padding:22px 0 !important}
+
+/* ---------- Dark mode card readability ---------- */
+:root:not(.light) .stack,
+:root:not(.light) .tech,
+:root:not(.light) .arch-card,
+:root:not(.light) .project,
+:root:not(.light) .do-card,
+:root:not(.light) .edu-card,
+:root:not(.light) .value,
+:root:not(.light) .contact{
+  background:rgba(10,29,49,.92) !important;
+  border-color:rgba(110,180,230,.20) !important;
+}
+:root:not(.light) .tech strong,
+:root:not(.light) .arch-card strong,
+:root:not(.light) .project h4,
+:root:not(.light) .do-card h4,
+:root:not(.light) .edu-card h4{
+  color:#f2f7ff !important;
+}
+:root:not(.light) .tech small,
+:root:not(.light) .arch-card small,
+:root:not(.light) .project p,
+:root:not(.light) .do-card p,
+:root:not(.light) .edu-card p{
+  color:#9eb5cc !important;
+}
+
+/* ---------- Mobile: same visual language, scaled cleanly ---------- */
+@media(max-width:620px){
+  header{height:62px !important;padding:0 12px !important}
+  .brand-badge{width:36px;height:36px}
+  .brand-copy strong{font-size:12px !important}
+  .brand-copy small{font-size:5px !important}
+  .nav-actions .btn{display:none}
+  .hero-grid{padding:34px 0 20px !important}
+  .hero h1{font-size:36px !important}
+  .hero h2{font-size:14px !important}
+  .hero p{font-size:10px !important}
+  .visual{height:315px !important}
+  .visual-stage{width:350px !important;height:290px !important}
+  .orbit,.orbit-items{width:205px !important;height:205px !important}
+  .orbit-pos1{transform:translate(-50%,-50%) rotate(0deg) translateY(-102px) !important}
+  .orbit-pos2{transform:translate(-50%,-50%) rotate(72deg) translateY(-102px) !important}
+  .orbit-pos3{transform:translate(-50%,-50%) rotate(144deg) translateY(-102px) !important}
+  .orbit-pos4{transform:translate(-50%,-50%) rotate(216deg) translateY(-102px) !important}
+  .orbit-pos5{transform:translate(-50%,-50%) rotate(288deg) translateY(-102px) !important}
+  .cloud-core{width:100px !important;height:100px !important}
+  .orbit-card .float-card{width:78px !important;min-height:70px !important}
+  .orbit-card .float-card img{width:30px !important;height:30px !important}
+  .stats{width:calc(100% - 24px) !important}
+  .section-head h3{font-size:19px !important}
+}
+
+
+/* ===== Final Header / Home polish ===== */
+header{
+  height:76px !important;
+  padding:0 28px !important;
+}
+.premium-brand{
+  gap:12px !important;
+}
+.brand-badge{
+  width:50px !important;
+  height:50px !important;
+  flex:0 0 50px;
+  font-size:14px !important;
+  background:linear-gradient(145deg,#0758ad,#159cf5) !important;
+  border:2px solid rgba(255,255,255,.95) !important;
+  box-shadow:
+    0 0 0 1px rgba(20,140,240,.30),
+    0 7px 20px rgba(8,124,240,.30),
+    inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+.brand-badge:after{
+  border-color:rgba(55,184,255,.28) !important;
+}
+.brand-copy{
+  gap:0 !important;
+}
+.brand-copy strong{
+  font-size:17px !important;
+  line-height:1.05 !important;
+  letter-spacing:-.5px !important;
+  font-weight:900 !important;
+}
+.brand-copy small{
+  margin-top:5px !important;
+  font-size:7px !important;
+  letter-spacing:2.2px !important;
+  font-weight:900 !important;
+}
+
+/* Home is intentionally the first, visually active navigation item. */
+nav a:first-child{
+  color:#087cf0 !important;
+  font-weight:850 !important;
+}
+nav a:first-child:after{
+  transform:scaleX(1) !important;
+}
+:root:not(.light) nav a:first-child{
+  color:#59c8ff !important;
+}
+:root:not(.light) nav a:first-child:after{
+  background:linear-gradient(90deg,#1da8ff,#36d7ff) !important;
+}
+
+/* Dark header exactly follows the premium navy visual language. */
+:root:not(.light) header{
+  background:rgba(3,14,27,.96) !important;
+  border-bottom:1px solid rgba(102,177,229,.20) !important;
+  box-shadow:0 8px 25px rgba(0,0,0,.18) !important;
+}
+:root:not(.light) .brand-copy strong{
+  color:#f5f9ff !important;
+}
+:root:not(.light) .brand-copy strong:after{
+  color:#22a8ff !important;
+}
+:root:not(.light) .brand-copy small{
+  color:#55caff !important;
+}
+
+/* Keep the header clean on small screens while retaining the same branding. */
+@media(max-width:620px){
+  header{
+    height:64px !important;
+    padding:0 14px !important;
+  }
+  .premium-brand{gap:9px !important}
+  .brand-badge{
+    width:40px !important;
+    height:40px !important;
+    flex-basis:40px;
+    font-size:12px !important;
+  }
+  .brand-copy strong{font-size:13px !important}
+  .brand-copy small{
+    margin-top:4px !important;
+    font-size:5.5px !important;
+    letter-spacing:1.7px !important;
+  }
+}
+
+
+/* ============================================================
+   FINAL REFERENCE STYLE
+   Colorful NK + reference-matched header / hero
+   ============================================================ */
+
+/* ---------- NK badge: more exciting / colorful ---------- */
+.brand-badge{
+  position:relative;
+  overflow:visible;
+  color:#fff !important;
+  background:
+    radial-gradient(circle at 30% 25%,#67e8ff 0%,transparent 24%),
+    linear-gradient(135deg,#ff4fd8 0%,#7b5cff 35%,#168cff 68%,#00d9c5 100%) !important;
+  border:2px solid #fff !important;
+  box-shadow:
+    0 0 0 2px rgba(92,195,255,.22),
+    0 7px 24px rgba(41,119,255,.35),
+    0 0 26px rgba(90,102,255,.22),
+    inset 0 1px 0 rgba(255,255,255,.50) !important;
+  text-shadow:0 1px 3px rgba(14,30,75,.40);
+}
+.brand-badge:before{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.30);
+  pointer-events:none;
+}
+.brand-badge:after{
+  border-color:rgba(89,211,255,.38) !important;
+}
+.premium-brand:hover .brand-badge{
+  transform:translateY(-2px) scale(1.06) rotate(-2deg);
+  box-shadow:
+    0 0 0 2px rgba(92,195,255,.26),
+    0 9px 30px rgba(41,119,255,.42),
+    0 0 34px rgba(90,102,255,.30),
+    inset 0 1px 0 rgba(255,255,255,.55) !important;
+}
+
+/* ---------- Light header reference ---------- */
+:root.light header{
+  background:rgba(255,255,255,.94) !important;
+  border-bottom:1px solid #d9e7f5 !important;
+  box-shadow:0 4px 18px rgba(35,82,130,.06) !important;
+}
+:root.light nav a{
+  color:#516987 !important;
+}
+:root.light nav a:hover,
+:root.light nav a.active{
+  color:#086fda !important;
+}
+:root.light nav a:after{
+  background:linear-gradient(90deg,#087cf0,#18c8f5) !important;
+}
+:root.light .theme-btn{
+  background:#fff !important;
+  color:#17365b !important;
+  border-color:#d4e4f3 !important;
+}
+:root.light .brand-copy strong{color:#142b4d !important}
+:root.light .brand-copy strong:after{color:#087cf0 !important}
+:root.light .brand-copy small{color:#0875d5 !important}
+
+/* ---------- Dark header reference ---------- */
+:root:not(.light) header{
+  background:rgba(3,14,27,.97) !important;
+  border-bottom:1px solid rgba(96,181,238,.20) !important;
+  box-shadow:0 7px 24px rgba(0,0,0,.20) !important;
+}
+:root:not(.light) nav a{color:#91abc5 !important}
+:root:not(.light) nav a:hover,
+:root:not(.light) nav a.active{color:#5bcaff !important}
+:root:not(.light) nav a:after{
+  background:linear-gradient(90deg,#1ca8ff,#35d8ff) !important;
+}
+:root:not(.light) .brand-copy strong{color:#f5f9ff !important}
+:root:not(.light) .brand-copy strong:after{color:#28b7ff !important}
+:root:not(.light) .brand-copy small{color:#5dd2ff !important}
+
+/* ---------- Reference hero composition ---------- */
+.hero{
+  min-height:490px !important;
+  background:
+    radial-gradient(circle at 76% 46%,rgba(37,166,255,.12),transparent 23%),
+    radial-gradient(circle at 15% 80%,rgba(100,190,255,.06),transparent 28%),
+    linear-gradient(125deg,#fbfdff 0%,#f1f8ff 58%,#e6f3ff 100%) !important;
+}
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 76% 46%,rgba(18,159,255,.20),transparent 23%),
+    radial-gradient(circle at 15% 80%,rgba(25,120,220,.09),transparent 28%),
+    linear-gradient(125deg,#061321 0%,#081c31 57%,#092946 100%) !important;
+}
+.hero-grid{
+  min-height:490px !important;
+  grid-template-columns:1.02fr .98fr !important;
+  padding:43px 0 30px !important;
+}
+.hero h1{
+  font-size:46px !important;
+  line-height:1.03 !important;
+  letter-spacing:-1.9px !important;
+  color:#10264a !important;
+}
+:root:not(.light) .hero h1{color:#f5f9ff !important}
+.hero h1 span{color:#087cf0 !important}
+:root:not(.light) .hero h1 span{
+  background:linear-gradient(90deg,#17a9ff,#19d1f2);
+  -webkit-background-clip:text;background-clip:text;color:transparent !important;
+}
+.hero h2{
+  font-size:13px !important;
+  letter-spacing:.25px !important;
+  font-weight:850 !important;
+  color:#0a73d7 !important;
+}
+:root:not(.light) .hero h2{color:#6ad2ff !important}
+.hero p{
+  font-size:11px !important;
+  max-width:475px !important;
+  line-height:1.72 !important;
+  color:#5f7592 !important;
+}
+:root:not(.light) .hero p{color:#9fb6cc !important}
+
+/* Reference-style handwritten note */
+.scribble{
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-weight:600 !important;
+  color:#173a86 !important;
+  font-size:15px !important;
+  line-height:1.05 !important;
+  transform:rotate(-5deg) !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.45);
+}
+:root:not(.light) .scribble{
+  color:#d4ecff !important;
+  text-shadow:0 1px 10px rgba(33,183,255,.20);
+}
+
+/* ---------- Reference orbit cards ---------- */
+.visual{height:370px !important}
+.visual-stage{width:500px !important;height:345px !important}
+.cloud-core{
+  width:104px !important;height:104px !important;
+  border-radius:29px !important;
+  box-shadow:
+    0 17px 40px rgba(30,80,130,.15),
+    0 0 0 1px rgba(30,151,255,.10) !important;
+}
+.cloud-core:after{
+  border-color:rgba(39,158,255,.24) !important;
+}
+.orbit{width:278px !important;height:278px !important}
+.orbit-items{width:278px !important;height:278px !important}
+.orbit-card .float-card{
+  width:88px !important;
+  min-height:79px !important;
+  border-radius:13px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid #d7e7f5 !important;
+  box-shadow:0 10px 27px rgba(31,80,125,.12) !important;
+  color:#17304f !important;
+}
+:root:not(.light) .orbit-card .float-card{
+  background:rgba(9,30,51,.96) !important;
+  border-color:rgba(92,177,231,.22) !important;
+  color:#edf7ff !important;
+}
+.orbit-card .float-card b{font-size:8px !important}
+.orbit-card .float-card img{width:34px !important;height:34px !important}
+
+/* ---------- Reference metrics ---------- */
+.stats{
+  width:min(820px,calc(100% - 36px)) !important;
+  margin:-18px auto 0 !important;
+  border-radius:15px !important;
+}
+.stat strong{font-size:21px !important}
+
+/* ---------- More reference-like section cards ---------- */
+section{padding:52px 0 !important}
+.stack,.project,.do-card,.edu-card{
+  border-radius:14px !important;
+}
+.stack-title strong{font-size:12px !important}
+.tech{min-height:84px !important}
+.arch-card{min-height:108px !important}
+.contact{border-radius:19px !important}
+
+/* ---------- Dark-mode readability ---------- */
+:root:not(.light) .stack,
+:root:not(.light) .tech,
+:root:not(.light) .arch-card,
+:root:not(.light) .project,
+:root:not(.light) .do-card,
+:root:not(.light) .edu-card,
+:root:not(.light) .value,
+:root:not(.light) .contact{
+  background:rgba(9,29,49,.94) !important;
+  border-color:rgba(104,182,234,.20) !important;
+}
+:root:not(.light) .tech strong,
+:root:not(.light) .arch-card strong,
+:root:not(.light) .project h4,
+:root:not(.light) .do-card h4,
+:root:not(.light) .edu-card h4{
+  color:#f4f9ff !important;
+}
+
+/* ---------- Mobile reference scaling ---------- */
+@media(max-width:620px){
+  header{height:65px !important;padding:0 13px !important}
+  .brand-badge{width:40px !important;height:40px !important;flex-basis:40px}
+  .brand-copy strong{font-size:13px !important}
+  .brand-copy small{font-size:5.5px !important}
+  .hero-grid{padding:34px 0 22px !important}
+  .hero h1{font-size:35px !important}
+  .hero h2{font-size:11px !important}
+  .hero p{font-size:9px !important}
+  .visual{height:315px !important}
+  .visual-stage{width:350px !important;height:290px !important}
+  .orbit,.orbit-items{width:205px !important;height:205px !important}
+  .orbit-pos1{transform:translate(-50%,-50%) rotate(0deg) translateY(-102px) !important}
+  .orbit-pos2{transform:translate(-50%,-50%) rotate(72deg) translateY(-102px) !important}
+  .orbit-pos3{transform:translate(-50%,-50%) rotate(144deg) translateY(-102px) !important}
+  .orbit-pos4{transform:translate(-50%,-50%) rotate(216deg) translateY(-102px) !important}
+  .orbit-pos5{transform:translate(-50%,-50%) rotate(288deg) translateY(-102px) !important}
+  .orbit-card .float-card{width:78px !important;min-height:70px !important}
+  .orbit-card .float-card img{width:30px !important;height:30px !important}
+  .scribble{font-size:12px !important;right:-2px !important}
+}
+
+
+/* ================================================================
+   EXACT REFERENCE DIRECTION — clean recruiter dashboard
+   ================================================================ */
+:root{
+  --ref-blue:#087cf0;
+  --ref-cyan:#18c8f5;
+  --ref-navy:#10264a;
+  --ref-muted:#607895;
+  --ref-bg:#f3f9ff;
+  --ref-card:rgba(255,255,255,.93);
+  --ref-border:#cfe2f5;
+}
+:root:not(.light){
+  --ref-navy:#f4f9ff;
+  --ref-muted:#9bb1c9;
+  --ref-bg:#061421;
+  --ref-card:rgba(8,28,47,.94);
+  --ref-border:rgba(93,178,231,.22);
+}
+
+/* Header */
+header{
+  height:70px !important;
+  padding:0 38px !important;
+  background:rgba(255,255,255,.90) !important;
+  border-bottom:1px solid #d5e5f4 !important;
+  backdrop-filter:blur(14px);
+  z-index:100;
+}
+:root:not(.light) header{
+  background:rgba(3,15,28,.94) !important;
+  border-bottom-color:rgba(91,175,230,.20) !important;
+}
+.premium-brand{gap:11px !important}
+.brand-badge{
+  width:42px !important;height:42px !important;flex-basis:42px;
+  font-size:13px !important;
+  background:linear-gradient(135deg,#ff45d6 0%,#765cff 34%,#118cff 68%,#00d9c5 100%) !important;
+  border:2px solid #fff !important;
+  box-shadow:0 0 0 2px rgba(54,166,255,.16),0 7px 20px rgba(28,120,245,.28) !important;
+}
+.brand-copy strong{font-size:14px !important;color:var(--ref-navy) !important}
+.brand-copy strong:after{color:var(--ref-blue) !important}
+.brand-copy small{font-size:6px !important;letter-spacing:1.8px !important;color:#0875d5 !important}
+:root:not(.light) .brand-copy small{color:#55caff !important}
+nav{gap:20px !important}
+nav a{font-size:10px !important;color:#4e6683 !important}
+:root:not(.light) nav a{color:#91abc4 !important}
+nav a.active,nav a:hover{color:var(--ref-blue) !important}
+nav a:after{background:linear-gradient(90deg,#087cf0,#18c8f5) !important}
+
+/* Hero with large soft rounded background rings */
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:485px !important;
+  background:
+    radial-gradient(circle at 76% 50%,rgba(36,164,255,.13),transparent 22%),
+    linear-gradient(125deg,#fbfdff 0%,#eef7ff 58%,#e4f2ff 100%) !important;
+}
+.hero:before,
+.hero:after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  border-radius:50%;
+}
+.hero:before{
+  width:850px;height:850px;
+  left:-230px;top:-570px;
+  border:95px solid rgba(36,142,232,.055);
+  box-shadow:0 0 0 55px rgba(36,142,232,.025);
+}
+.hero:after{
+  width:720px;height:720px;
+  right:-270px;bottom:-510px;
+  border:105px solid rgba(22,140,240,.045);
+}
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 76% 50%,rgba(13,164,255,.19),transparent 22%),
+    linear-gradient(125deg,#061321 0%,#081c31 58%,#0a2945 100%) !important;
+}
+:root:not(.light) .hero:before{
+  border-color:rgba(32,153,242,.065);
+  box-shadow:0 0 0 55px rgba(32,153,242,.025);
+}
+:root:not(.light) .hero:after{border-color:rgba(31,180,255,.045)}
+
+.hero-grid{
+  min-height:485px !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:4px !important;
+  padding:40px 0 28px !important;
+  position:relative;z-index:2;
+}
+.hero-copy{padding-left:4px !important}
+.eyebrow{
+  font-size:9px !important;
+  color:#0874d2 !important;
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+}
+:root:not(.light) .eyebrow{color:#62cbff !important}
+.hero h1{
+  margin-top:15px !important;
+  font-size:45px !important;
+  line-height:1.04 !important;
+  letter-spacing:-1.8px !important;
+  color:var(--ref-navy) !important;
+}
+.hero h1 span{color:#087cf0 !important}
+:root:not(.light) .hero h1 span{
+  color:#1bc8f6 !important;
+}
+.hero p{
+  max-width:490px !important;
+  font-size:11px !important;
+  line-height:1.7 !important;
+  color:var(--ref-muted) !important;
+  margin:12px 0 18px !important;
+}
+.pills{gap:7px !important;margin-bottom:18px !important}
+.pill{
+  font-size:8px !important;padding:7px 12px !important;
+  background:rgba(255,255,255,.65) !important;
+  border:1px solid #d6e5f2 !important;
+  color:#526985 !important;
+}
+:root:not(.light) .pill{
+  background:rgba(7,29,49,.65) !important;
+  border-color:rgba(100,180,232,.22) !important;
+  color:#a7bed4 !important;
+}
+.hero-buttons{gap:10px !important}
+.hero-buttons .btn{
+  min-height:40px !important;
+  padding:10px 15px !important;
+  font-size:9px !important;
+  border-radius:8px !important;
+}
+.hero-buttons .btn.primary{
+  background:linear-gradient(135deg,#087cf0,#0867d7) !important;
+  box-shadow:0 8px 20px rgba(8,124,240,.20) !important;
+}
+.hero-buttons .btn:not(.primary){
+  background:rgba(255,255,255,.58) !important;
+  border:1px solid #bfd5ea !important;
+  color:#173554 !important;
+}
+:root:not(.light) .hero-buttons .btn:not(.primary){
+  background:rgba(6,24,41,.70) !important;
+  color:#f0f7ff !important;
+  border-color:rgba(118,190,235,.35) !important;
+}
+
+/* Move handwritten message into the hero visual, like the reference */
+.hero-note{
+  position:absolute !important;
+  left:auto !important;
+  right:15px !important;
+  top:286px !important;
+  z-index:5;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-size:16px !important;
+  line-height:1.02 !important;
+  color:#153a86 !important;
+  transform:rotate(-5deg) !important;
+  text-align:left;
+}
+.hero-note:after{
+  content:"";
+  display:block;
+  width:92px;height:2px;
+  margin:7px 0 0 0;
+  background:#087cf0;
+  transform:rotate(-5deg);
+}
+:root:not(.light) .hero-note{color:#e3f3ff !important}
+:root:not(.light) .hero-note:after{background:#22baff}
+
+/* Orbit reference */
+.visual{height:370px !important;max-width:530px !important}
+.visual-stage{width:500px !important;height:350px !important}
+.cloud-core{
+  width:104px !important;height:104px !important;
+  border-radius:30px !important;
+  box-shadow:0 18px 42px rgba(25,79,130,.16),0 0 0 1px rgba(24,150,255,.15) !important;
+}
+.orbit,.orbit-items{width:280px !important;height:280px !important}
+.orbit-card .float-card{
+  width:90px !important;min-height:80px !important;
+  border-radius:13px !important;
+  box-shadow:0 12px 28px rgba(30,80,125,.12) !important;
+}
+.orbit-card .float-card img{width:35px !important;height:35px !important}
+.orbit-card .float-card b{font-size:8px !important}
+
+/* Stats exactly like reference */
+.stats{
+  position:relative !important;
+  z-index:10;
+  width:min(820px,calc(100% - 50px)) !important;
+  margin:-22px auto 0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+.stat{
+  padding:10px 14px !important;
+  text-align:left !important;
+}
+.stat strong{
+  display:block !important;
+  font-size:21px !important;
+  line-height:1 !important;
+  color:#087cf0 !important;
+}
+.stat span{
+  display:block !important;
+  margin-top:6px !important;
+  font-size:8px !important;
+  color:var(--ref-muted) !important;
+}
+
+/* Content as the reference's compact multi-column cards */
+section{padding:44px 0 !important}
+section#about{padding-top:22px !important}
+section#experience,section#education{background:var(--ref-bg) !important}
+.section-head h3{font-size:18px !important;color:var(--ref-navy) !important}
+.section-head p{font-size:9px !important;color:var(--ref-muted) !important}
+.about-grid{grid-template-columns:1fr 1.05fr !important;gap:12px !important}
+.about-copy,.stack,.project,.edu-card,.contact,.value{
+  background:var(--ref-card) !important;
+  border:1px solid var(--ref-border) !important;
+  box-shadow:0 8px 25px rgba(30,80,125,.07) !important;
+}
+.about-copy{border-radius:14px !important;padding:18px !important}
+.about-highlight{
+  margin-top:16px;
+  padding:14px;
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:8px;
+  border-radius:11px;
+  background:rgba(232,244,255,.72);
+  border:1px solid #d7e7f5;
+}
+:root:not(.light) .about-highlight{
+  background:rgba(10,35,57,.78);
+  border-color:rgba(104,184,234,.18);
+}
+.about-highlight-number{
+  font-size:18px;font-weight:900;color:#087cf0;line-height:1.1;
+}
+.about-highlight strong{font-size:8px;color:var(--ref-navy)}
+.about-highlight small{display:block;font-size:6px;color:var(--ref-muted)}
+.about-highlight blockquote{
+  grid-column:1/-1;margin:4px 0 0;padding:10px 8px;
+  border-radius:9px;background:rgba(255,255,255,.65);
+  color:#12377b;font-size:8px;line-height:1.4;font-weight:700;
+}
+:root:not(.light) .about-highlight blockquote{
+  background:rgba(3,18,31,.60);color:#bde8ff;
+}
+.stack{border-radius:14px !important;padding:14px !important}
+.stack-grid{
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:7px !important;
+}
+.tech{min-height:78px !important;border-radius:9px !important}
+.tech:hover{transform:translateY(-4px) !important}
+.experience-grid{gap:12px !important}
+.job{
+  padding:0 0 25px !important;
+}
+.job h4{font-size:11px !important}
+.job p{font-size:8px !important}
+.projects{grid-template-columns:repeat(3,1fr) !important;gap:10px !important}
+.project{border-radius:13px !important;min-height:145px !important}
+.education{grid-template-columns:1.25fr .75fr !important;gap:10px !important}
+.edu-card{border-radius:13px !important}
+.contact{border-radius:15px !important}
+
+/* Dark mode is a full dark canvas, including education */
+:root:not(.light) body{background:#061421 !important;color:#dcecff !important}
+:root:not(.light) section#about,
+:root:not(.light) section#projects,
+:root:not(.light) section#contact{
+  background:#061421 !important;
+}
+:root:not(.light) .about-copy,
+:root:not(.light) .stack,
+:root:not(.light) .project,
+:root:not(.light) .edu-card,
+:root:not(.light) .contact,
+:root:not(.light) .value{
+  background:rgba(8,28,47,.94) !important;
+  border-color:rgba(93,178,231,.22) !important;
+}
+:root:not(.light) .section-head h3,
+:root:not(.light) .about-copy h3,
+:root:not(.light) .stack-title strong,
+:root:not(.light) .project h4,
+:root:not(.light) .edu-card h4{
+  color:#f2f8ff !important;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  header{padding:0 18px !important}
+  nav{gap:12px !important}
+  .hero-grid{grid-template-columns:1fr !important}
+  .visual{margin-top:5px}
+  .hero-note{right:8px;top:315px}
+}
+@media(max-width:620px){
+  header{height:64px !important;padding:0 12px !important}
+  .brand-badge{width:39px !important;height:39px !important;flex-basis:39px}
+  .brand-copy strong{font-size:12px !important}
+  .brand-copy small{font-size:5px !important}
+  nav{display:none !important}
+  .hero{min-height:690px !important}
+  .hero-grid{min-height:690px !important;padding:32px 0 18px !important}
+  .hero h1{font-size:36px !important}
+  .hero p{font-size:9px !important}
+  .hero-note{right:5px !important;top:540px !important;font-size:12px !important}
+  .visual{height:325px !important;margin-top:12px !important}
+  .visual-stage{width:350px !important;height:295px !important}
+  .orbit,.orbit-items{width:205px !important;height:205px !important}
+  .orbit-pos1{transform:translate(-50%,-50%) rotate(0deg) translateY(-102px) !important}
+  .orbit-pos2{transform:translate(-50%,-50%) rotate(72deg) translateY(-102px) !important}
+  .orbit-pos3{transform:translate(-50%,-50%) rotate(144deg) translateY(-102px) !important}
+  .orbit-pos4{transform:translate(-50%,-50%) rotate(216deg) translateY(-102px) !important}
+  .orbit-pos5{transform:translate(-50%,-50%) rotate(288deg) translateY(-102px) !important}
+  .orbit-card .float-card{width:78px !important;min-height:70px !important}
+  .orbit-card .float-card img{width:30px !important;height:30px !important}
+  .stats{width:calc(100% - 26px) !important}
+  .stat{padding:8px 6px !important}
+  .stat strong{font-size:18px !important}
+  .stat span{font-size:7px !important}
+  .about-grid,.projects,.education{grid-template-columns:1fr !important}
+  .stack-grid{grid-template-columns:repeat(3,1fr) !important}
+}
+
+
+/* ============================================================
+   FINAL FIX — reference background rings + ONE theme switch
+   + ONE "Data Drives Possibilities"
+   ============================================================ */
+
+/* Soft circular/ring background visible in both themes */
+.hero{
+  isolation:isolate;
+}
+.hero .hero-grid{
+  position:relative;
+  z-index:3;
+}
+.hero .hero-ring-bg{
+  position:absolute;
+  width:760px;
+  height:760px;
+  border-radius:50%;
+  right:-90px;
+  top:-165px;
+  border:1px solid rgba(55,157,239,.18);
+  box-shadow:
+    0 0 0 58px rgba(55,157,239,.035),
+    0 0 0 116px rgba(55,157,239,.022),
+    0 0 0 174px rgba(55,157,239,.014);
+  pointer-events:none;
+  z-index:0;
+}
+.hero .hero-ring-bg:before{
+  content:"";
+  position:absolute;
+  inset:115px;
+  border-radius:50%;
+  border:1px dashed rgba(65,166,247,.22);
+}
+.hero .hero-ring-bg:after{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  border-radius:50%;
+  left:95px;top:120px;
+  background:radial-gradient(circle,rgba(50,170,255,.10),transparent 68%);
+}
+:root:not(.light) .hero .hero-ring-bg{
+  border-color:rgba(48,181,255,.22);
+  box-shadow:
+    0 0 0 58px rgba(30,145,230,.045),
+    0 0 0 116px rgba(30,145,230,.028),
+    0 0 0 174px rgba(30,145,230,.018);
+}
+:root:not(.light) .hero .hero-ring-bg:before{
+  border-color:rgba(58,190,255,.23);
+}
+
+/* Single theme control — no duplicate sun/moon buttons */
+.theme-btn{
+  display:grid !important;
+  place-items:center !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  border-radius:50% !important;
+  font-size:18px !important;
+  background:rgba(255,255,255,.88) !important;
+  color:#16385e !important;
+  border:1px solid #cfe1f1 !important;
+  box-shadow:0 5px 16px rgba(30,85,130,.08) !important;
+}
+:root:not(.light) .theme-btn{
+  background:#0a233b !important;
+  color:#eaf7ff !important;
+  border-color:rgba(91,184,237,.30) !important;
+  box-shadow:0 5px 18px rgba(0,0,0,.24) !important;
+}
+
+/* One handwritten message in the visual */
+.hero-note{
+  position:absolute !important;
+  right:12px !important;
+  top:268px !important;
+  z-index:8 !important;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-size:17px !important;
+  line-height:1.02 !important;
+  font-weight:600 !important;
+  color:#173d8a !important;
+  transform:rotate(-4deg) !important;
+  text-align:left !important;
+  pointer-events:none !important;
+}
+.hero-note:after{
+  content:"";
+  display:block;
+  width:104px;
+  height:2px;
+  margin-top:8px;
+  background:#087cf0;
+  transform:rotate(-4deg);
+  border-radius:2px;
+}
+:root:not(.light) .hero-note{
+  color:#dff4ff !important;
+  text-shadow:0 1px 10px rgba(37,188,255,.18);
+}
+:root:not(.light) .hero-note:after{
+  background:#25c7ff;
+}
+
+/* Make orbit area match the reference's airy circular composition */
+.visual-stage{
+  position:relative;
+  z-index:2;
+}
+.orbit{
+  box-shadow:0 0 38px rgba(50,166,245,.05);
+}
+.orbit:before{
+  border-color:rgba(60,168,247,.22) !important;
+}
+
+/* Dark cards in dark mode, bright cards in light mode */
+:root.light .orbit-card .float-card{
+  background:rgba(255,255,255,.96) !important;
+  color:#173452 !important;
+  border-color:#d3e5f4 !important;
+}
+:root:not(.light) .orbit-card .float-card{
+  background:rgba(7,28,48,.96) !important;
+  color:#f0f8ff !important;
+  border-color:rgba(79,177,235,.22) !important;
+}
+
+/* Mobile: keep the same single note and circular background without overlap */
+@media(max-width:620px){
+  .hero .hero-ring-bg{
+    width:520px;height:520px;
+    right:-150px;top:230px;
+    border-width:1px;
+  }
+  .hero .hero-ring-bg:before{inset:78px}
+  .hero .hero-ring-bg:after{
+    width:360px;height:360px;left:80px;top:80px;
+  }
+  .hero-note{
+    right:2px !important;
+    top:530px !important;
+    font-size:12px !important;
+  }
+  .hero-note:after{width:75px;margin-top:5px}
+}
+
+
+/* ============================================================
+   FINAL POLISH — reference rings, dark blue lighting, timeline
+   ============================================================ */
+
+/* ---------- Experience timeline: clean alignment ---------- */
+.timeline{
+  position:relative !important;
+  margin-left:8px !important;
+  padding-left:0 !important;
+}
+.timeline:before{
+  left:8px !important;
+  width:2px !important;
+}
+.timeline .job{
+  position:relative !important;
+  padding:0 0 30px 35px !important;
+  min-height:88px;
+}
+.timeline .dot{
+  left:2px !important;
+  top:4px !important;
+  z-index:3 !important;
+}
+.timeline .job-head{
+  padding-left:0 !important;
+}
+.timeline .job h4,
+.timeline .job .company,
+.timeline .job p,
+.timeline .job .tags{
+  position:relative;
+  z-index:2;
+}
+
+/* ---------- Hero: large soft rings behind the whole visual ---------- */
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+}
+.hero .hero-ring-bg{
+  position:absolute !important;
+  width:780px !important;
+  height:780px !important;
+  right:-90px !important;
+  top:-175px !important;
+  border-radius:50% !important;
+  border:1px solid rgba(56,160,244,.18) !important;
+  box-shadow:
+    0 0 0 70px rgba(56,160,244,.035),
+    0 0 0 140px rgba(56,160,244,.022),
+    0 0 0 210px rgba(56,160,244,.014) !important;
+  pointer-events:none !important;
+  z-index:0 !important;
+}
+.hero .hero-ring-bg:before{
+  content:"" !important;
+  position:absolute !important;
+  inset:120px !important;
+  border-radius:50% !important;
+  border:1px dashed rgba(65,166,247,.20) !important;
+}
+.hero .hero-ring-bg:after{
+  content:"" !important;
+  position:absolute !important;
+  width:570px !important;
+  height:570px !important;
+  left:105px !important;
+  top:105px !important;
+  border-radius:50% !important;
+  background:radial-gradient(circle,rgba(45,167,255,.11) 0%,rgba(45,167,255,.045) 30%,transparent 68%) !important;
+}
+
+/* ---------- Dark mode: blue atmospheric lighting ---------- */
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 71% 46%,rgba(0,190,255,.20) 0%,rgba(0,120,255,.10) 17%,transparent 34%),
+    radial-gradient(circle at 88% 18%,rgba(0,205,255,.10),transparent 25%),
+    radial-gradient(circle at 42% 76%,rgba(20,105,255,.08),transparent 30%),
+    linear-gradient(125deg,#020d1b 0%,#06182b 48%,#082844 100%) !important;
+}
+:root:not(.light) .hero:before{
+  background:radial-gradient(circle at 50% 50%,rgba(16,145,255,.08),transparent 65%) !important;
+}
+:root:not(.light) .hero .hero-ring-bg{
+  border-color:rgba(35,181,255,.26) !important;
+  box-shadow:
+    0 0 0 70px rgba(18,139,240,.055),
+    0 0 0 140px rgba(18,139,240,.035),
+    0 0 0 210px rgba(18,139,240,.022) !important;
+  filter:drop-shadow(0 0 20px rgba(0,166,255,.08));
+}
+:root:not(.light) .hero .hero-ring-bg:before{
+  border-color:rgba(45,194,255,.25) !important;
+}
+:root:not(.light) .hero .hero-ring-bg:after{
+  background:radial-gradient(circle,rgba(0,185,255,.15),rgba(15,107,255,.06) 35%,transparent 70%) !important;
+}
+
+/* Make the orbit itself glow slightly in dark mode, matching the reference. */
+:root:not(.light) .visual-stage:before{
+  content:"" !important;
+  position:absolute !important;
+  width:310px !important;
+  height:310px !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  background:radial-gradient(circle,rgba(0,184,255,.13),transparent 65%) !important;
+  pointer-events:none !important;
+  z-index:-1 !important;
+}
+:root:not(.light) .orbit{
+  border-color:rgba(35,181,255,.78) !important;
+  filter:drop-shadow(0 0 7px rgba(0,166,255,.18));
+}
+:root:not(.light) .cloud-core{
+  box-shadow:
+    0 0 0 1px rgba(53,189,255,.30),
+    0 0 24px rgba(0,175,255,.22),
+    0 18px 42px rgba(0,0,0,.30) !important;
+}
+
+/* ---------- Exactly one handwritten message ---------- */
+.hero-note{
+  right:10px !important;
+  top:266px !important;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-size:16px !important;
+  line-height:1.02 !important;
+  color:#173d8a !important;
+  transform:rotate(-4deg) !important;
+}
+.hero-note:after{
+  width:102px !important;
+  height:2px !important;
+  background:#087cf0 !important;
+}
+:root:not(.light) .hero-note{
+  color:#e1f5ff !important;
+  text-shadow:0 1px 12px rgba(0,185,255,.24) !important;
+}
+:root:not(.light) .hero-note:after{
+  background:#24c9ff !important;
+  box-shadow:0 0 7px rgba(36,201,255,.35);
+}
+
+/* ---------- Keep the single theme control ---------- */
+.theme-btn{
+  width:42px !important;
+  height:42px !important;
+  border-radius:50% !important;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:620px){
+  .timeline .job{
+    padding-left:31px !important;
+    padding-bottom:26px !important;
+  }
+  .timeline:before{left:7px !important}
+  .timeline .dot{left:1px !important}
+  .hero .hero-ring-bg{
+    width:540px !important;
+    height:540px !important;
+    right:-165px !important;
+    top:210px !important;
+  }
+  .hero .hero-ring-bg:before{inset:82px !important}
+  .hero .hero-ring-bg:after{
+    width:390px !important;height:390px !important;
+    left:74px !important;top:74px !important;
+  }
+  .hero-note{
+    right:3px !important;
+    top:528px !important;
+    font-size:12px !important;
+  }
+  .hero-note:after{width:74px !important}
+}
+
+
+/* ===== Metric / About card clarity fix ===== */
+
+/* Keep 100M+ completely separate from its label. */
+.about-highlight{
+  grid-template-columns:58px minmax(0,1fr) !important;
+  column-gap:10px !important;
+  row-gap:8px !important;
+}
+.about-highlight-number{
+  white-space:nowrap !important;
+  font-size:18px !important;
+  line-height:1 !important;
+  letter-spacing:-.3px !important;
+}
+.about-highlight > div:nth-of-type(2n){
+  min-width:0 !important;
+}
+.about-highlight strong{
+  display:block !important;
+  white-space:nowrap !important;
+  font-size:8px !important;
+}
+.about-highlight small{
+  display:block !important;
+  white-space:nowrap !important;
+  margin-top:4px !important;
+}
+
+/* The 100M+ metric in the hero should never collide with its label. */
+.stats{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+.stat{
+  min-width:0 !important;
+}
+.stat strong,
+.stat span{
+  white-space:nowrap !important;
+}
+
+/* One and only one handwritten message, positioned beside the orbit. */
+.hero-note{
+  right:8px !important;
+  top:266px !important;
+  z-index:8 !important;
+}
+
+/* Mobile: make the About metrics readable without overlap. */
+@media(max-width:620px){
+  .about-highlight{
+    grid-template-columns:54px minmax(0,1fr) !important;
+  }
+  .about-highlight-number{
+    font-size:16px !important;
+  }
+  .about-highlight strong{font-size:7px !important}
+  .about-highlight small{font-size:6px !important}
+  .stat strong{font-size:17px !important}
+  .stat span{font-size:6.5px !important}
+}
+
+
+/* ============================================================
+   REFERENCE THEME SWITCH
+   Two-state pill: Light icon + Dark icon
+   ============================================================ */
+.theme-btn{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  width:78px !important;
+  height:42px !important;
+  min-width:78px !important;
+  padding:4px !important;
+  border-radius:24px !important;
+  border:1px solid #d4e4f3 !important;
+  background:#f7fbff !important;
+  color:#17385e !important;
+  box-shadow:
+    0 5px 16px rgba(25,86,135,.10),
+    inset 0 1px 0 rgba(255,255,255,.95) !important;
+  overflow:hidden !important;
+  cursor:pointer !important;
+  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease !important;
+}
+.theme-btn .theme-icon{
+  position:relative !important;
+  z-index:2 !important;
+  width:34px !important;
+  height:34px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:all .25s ease !important;
+}
+.theme-btn .theme-light-icon{
+  background:#fff !important;
+  color:#1c4167 !important;
+  box-shadow:0 1px 5px rgba(32,80,120,.08) !important;
+}
+.theme-btn .theme-dark-icon{
+  background:#103a68 !important;
+  color:#dff5ff !important;
+  box-shadow:
+    0 3px 9px rgba(8,55,105,.20),
+    inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+
+/* Light mode: left/light state is selected. */
+:root.light .theme-btn{
+  background:#f4f9fd !important;
+  border-color:#cfe1f0 !important;
+}
+:root.light .theme-btn .theme-light-icon{
+  background:#0b80ee !important;
+  color:#fff !important;
+  box-shadow:0 3px 10px rgba(8,124,240,.24) !important;
+}
+:root.light .theme-btn .theme-dark-icon{
+  background:transparent !important;
+  color:#52708f !important;
+  box-shadow:none !important;
+}
+
+/* Dark mode: right/dark state is selected, matching the reference. */
+:root:not(.light) .theme-btn{
+  background:#071b2e !important;
+  border-color:rgba(93,184,237,.28) !important;
+  box-shadow:
+    0 5px 18px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+:root:not(.light) .theme-btn .theme-light-icon{
+  background:transparent !important;
+  color:#8eabc4 !important;
+  box-shadow:none !important;
+}
+:root:not(.light) .theme-btn .theme-dark-icon{
+  background:#103f70 !important;
+  color:#eaf8ff !important;
+  box-shadow:
+    0 3px 11px rgba(0,112,220,.30),
+    0 0 12px rgba(20,170,255,.12) !important;
+}
+.theme-btn:hover{
+  transform:translateY(-1px) !important;
+  border-color:#65b9f5 !important;
+}
+.theme-btn:focus-visible{
+  outline:2px solid #25aaf7 !important;
+  outline-offset:3px !important;
+}
+
+/* Reference-style spacing beside Resume button. */
+.nav-actions{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+.nav-actions .btn.primary{
+  min-height:42px !important;
+  padding:10px 17px !important;
+  border-radius:9px !important;
+}
+
+/* Mobile keeps the same switch shape. */
+@media(max-width:620px){
+  .theme-btn{
+    width:70px !important;
+    min-width:70px !important;
+    height:38px !important;
+  }
+  .theme-btn .theme-icon{
+    width:30px !important;
+    height:30px !important;
+    font-size:16px !important;
+  }
+  .nav-actions{gap:7px !important}
+}
+
+
+/* ============================================================
+   DARK MODE — TABLEAU ICON VISIBILITY
+   Keep the original Tableau logo in light mode and make the
+   dark logo visible against the navy tech-stack card.
+   ============================================================ */
+:root:not(.light) .tech img[alt*="Tableau" i],
+:root:not(.light) img[alt*="tableau" i]{
+  filter:brightness(0) invert(1) !important;
+  opacity:1 !important;
+}
+
+/* If the Tableau asset has no useful alt text, this class can
+   be applied by the existing tech-card markup as a fallback. */
+:root:not(.light) .tableau-icon{
+  filter:brightness(0) invert(1) !important;
+  opacity:1 !important;
+}
+
+/* Give the Tableau card a little extra contrast in dark mode. */
+:root:not(.light) .tech:has(img[alt*="Tableau" i]){
+  background:rgba(8,31,52,.98) !important;
+  border-color:rgba(92,184,239,.28) !important;
+}
+
+
+/* Cleaner Let's Connect icon */
+.connect-arrow{
+  display:inline-block !important;
+  margin-left:5px !important;
+  font-size:1.15em !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  transform:translateY(1px) !important;
+  transition:transform .2s ease !important;
+}
+.btn:hover .connect-arrow{
+  transform:translate(3px,1px) !important;
+}
+
+
+/* FINAL Let's Connect CTA icon fix */
+.btn .connect-arrow{
+  display:inline-block !important;
+  width:auto !important;
+  height:auto !important;
+  margin-left:6px !important;
+  font-family:Arial, sans-serif !important;
+  font-size:1.15em !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  opacity:1 !important;
+  transform:translateY(1px) !important;
+}
+.btn:hover .connect-arrow{
+  transform:translate(3px,1px) !important;
+}
+/* Prevent any old button pseudo-icon from appearing before the label. */
+.btn.connect::before,
+.btn.connect::after{
+  content:none !important;
+}
+
+</style>
+
 </head>
 <body>
+<header>
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+    <a class="brand premium-brand" href="#top" aria-label="Naveen Kumar home">
+  <span class="brand-badge" aria-hidden="true">NK</span>
+  <span class="brand-copy">
+    <strong>Naveen Kumar</strong>
+    <small>DATA ENGINEER</small>
+  </span>
+</a>
+    <nav>
+      <a href="#top" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme"><span class="theme-icon theme-light-icon" aria-hidden="true">☀</span> <span class="theme-icon theme-dark-icon" aria-hidden="true">☾</span> </button><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div> </div> </header> <main id="top"> <section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div> <div class="container hero-grid"> <div class="hero-copy"> <span class="eyebrow">DATA ENGINEER | GOOGLE CLOUD</span> <h1>Building Data<br>Solutions for a<br><span>Smarter Tomorrow</span></h1> <p>I design, build, and automate scalable data pipelines and analytics solutions on Google Cloud to turn data into meaningful insights.</p> <div class="pills"> <span class="pill">Google Cloud</span><span class="pill">Data Engineering</span> <span class="pill">Data Analytics</span><span class="pill">Automation</span> </div> <div class="hero-buttons"> <a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a> <a class="btn" href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener"> &nbsp;Let's Connect <span class="connect-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
 
-    <header>
-        <a href="#" class="logo">
-            <div class="logo-circle">NK</div>
-            <div class="logo-text"><h1>Naveen Kumar M</h1><span>Data Engineer</span></div>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <button id="themeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
-            <a href="Naveen_Kumar_resume.pdf" class="btn-primary" download><i class="fa-solid fa-download"></i> Download Resume</a>
-        </div>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <span class="hero-tag">Data Engineer | Google Cloud</span>
-            <h2>Building Data Solutions for a <br><span>Smarter Tomorrow</span></h2>
-            <p>I design, build, and automate scalable data pipelines and analytics solutions on Google Cloud to turn data into meaningful insights.</p>
-            <div class="hero-buttons">
-                <a href="Naveen_Kumar_resume.pdf" class="btn-primary" download><i class="fa-solid fa-download"></i> Download Resume</a>
-                <a href="#contact" class="btn-secondary">Let's Connect <i class="fa-solid fa-paper-plane"></i></a>
-            </div>
-        </div>
 
-        <div class="orbit-wrapper">
-            <!-- Center GCP Logo -->
-            <div class="glass-card orbit-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="GCP">
-            </div>
-            
-            <div class="orbit-track-1">
-                <div class="orbit-card track-1-node-1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="BigQuery">
-                    <span>BigQuery</span>
-                </div>
-                <div class="orbit-card track-1-node-2">
-                    <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="Cloud Storage">
-                    <span>Storage</span>
-                </div>
-            </div>
+  <div class="visual" aria-label="Google Cloud data engineering technology illustration">
+    <div class="visual-stage">
+      <div class="orbit"></div>
+      <div class="cloud-core">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud">
+      </div>
 
-            <div class="orbit-track-2">
-                <div class="orbit-card track-2-node-1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" alt="Airflow">
-                    <span>Airflow</span>
-                </div>
-                <div class="orbit-card track-2-node-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Looker_Logomark.svg" alt="Looker">
-                    <span>Looker</span>
-                </div>
-                <div class="orbit-card track-2-node-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Dataflow">
-                    <span>Dataflow</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main class="bento-grid">
-        
-        <div class="flex-col" style="flex: 1 1 300px;">
-            <div id="about" class="glass-card">
-                <div class="card-header"><i class="fa-solid fa-user"></i> About Me</div>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Passionate about Data Engineering, Cloud Technologies and building solutions that create real business value.</p>
-                <p style="font-weight: 700; color: var(--primary-blue); font-style: italic;">"Better Data. Brighter Decisions."</p>
-            </div>
-
-            <!-- Tech Stack with Hover Popups & Colorful Images -->
-            <div id="skills" class="glass-card">
-                <div class="card-header"><i class="fa-solid fa-layer-group"></i> Tech Stack</div>
-                <div class="tech-grid">
-                    
-                    <div class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="GCP">
-                        <span>Google Cloud</span>
-                        <div class="tooltip"><span class="tooltip-title">Google Cloud</span>Cloud Infrastructure</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" alt="Airflow">
-                        <span>Airflow</span>
-                        <div class="tooltip"><span class="tooltip-title">Apache Airflow</span>Workflow Orchestration</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" alt="PySpark">
-                        <span>PySpark</span>
-                        <div class="tooltip"><span class="tooltip-title">PySpark</span>Big Data Processing</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="BigQuery">
-                        <span>BigQuery</span>
-                        <div class="tooltip"><span class="tooltip-title">BigQuery</span>Data Warehouse</div>
-                    </div>
-
-                    <div class="tech-item">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
-                        <span>Python</span>
-                        <div class="tooltip"><span class="tooltip-title">Python</span>Scripting & Data Prep</div>
-                    </div>
-
-                    <div class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Looker_Logomark.svg" alt="Looker Studio">
-                        <span>Looker</span>
-                        <div class="tooltip"><span class="tooltip-title">Looker Studio</span>BI & Analytics</div>
-                    </div>
-
-                </div>
-            </div>
+      <div class="orbit-items" aria-label="Data engineering technologies rotating around Google Cloud">
+        <div class="orbit-card orbit-pos1">
+          <div class="float-card">
+            <img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery">
+            <b>BigQuery</b>
+          </div>
         </div>
 
-        <div id="experience" class="glass-card" style="flex: 2 1 400px;">
-            <div class="card-header"><i class="fa-solid fa-briefcase"></i> Experience</div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); position: absolute; right: 0;">Feb 2026 - Present</span>
-                    <div style="font-weight: 700; color: var(--primary-blue);">Senior Data Engineer</div>
-                    <div style="font-weight: 600; font-size: 0.85rem;">ACL Digital - Client: Iron Mountain</div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0;">Working on cloud data engineering initiatives, pipeline development, orchestration and analytics solutions.</p>
-                    <div class="tags"><span class="tag">GCP</span><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Airflow</span></div>
-                </div>
-
-                <div class="timeline-item">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); position: absolute; right: 0;">Mar 2024 - Nov 2025</span>
-                    <div style="font-weight: 700; color: var(--primary-blue);">GCP Data Engineer</div>
-                    <div style="font-weight: 600; font-size: 0.85rem;">Horizontal Integration - Client: Trane Technologies</div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0;">Designed and supported GCP data pipelines, transformations and analytics workflows.</p>
-                    <div class="tags"><span class="tag">GCS</span><span class="tag">BigQuery</span><span class="tag">Dataflow</span></div>
-                </div>
-            </div>
+        <div class="orbit-card orbit-pos2">
+          <div class="float-card">
+            <img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage">
+            <b>Cloud Storage</b>
+          </div>
         </div>
 
-        <div class="flex-col" style="flex: 1 1 300px;">
-            <div id="projects" class="glass-card">
-                <div class="card-header"><i class="fa-solid fa-laptop-code"></i> Projects</div>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div style="padding: 1rem; border-radius: 12px; border: 1px solid var(--card-border); background: var(--bg-color);">
-                        <strong style="display: block; margin-bottom: 5px;">Zuora Subscription Data Pipeline</strong>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">End-to-end pipeline using GCP, Airflow and BigQuery.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="education" class="glass-card">
-                <div class="card-header"><i class="fa-solid fa-graduation-cap"></i> Education</div>
-                <h4 style="font-size: 0.95rem;">Bachelor of Science</h4>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Mathematics, Electronics & Computer Science</p>
-                <p style="color: var(--primary-blue); font-weight: 600; font-size: 0.85rem;">Adi Kavi Nannaya University, 2019</p>
-            </div>
+        <div class="orbit-card orbit-pos3">
+          <div class="float-card">
+            <img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow">
+            <b>Dataflow</b>
+          </div>
         </div>
 
-    </main>
+        <div class="orbit-card orbit-pos4">
+          <div class="float-card">
+            <img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow">
+            <b>Airflow</b>
+          </div>
+        </div>
 
-    <script>
-        // Theme Toggle Logic handling standard vs dark mode
-        const themeBtn = document.getElementById('themeToggle');
-        const icon = themeBtn.querySelector('i');
+        <div class="orbit-card orbit-pos5">
+          <div class="float-card">
+            <img src="assets/icons/Looker-512-color.svg" alt="Looker Studio">
+            <b>Looker Studio</b>
+          </div>
+        </div>
+      </div>
 
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            }
-        }
+      <div class="scribble">Data<br>Drives<br>Possibilities</div>
+    </div>
+  </div>
+</div>
+</section>
 
-        themeBtn.addEventListener('click', () => {
-            let targetTheme = 'light';
-            if (document.documentElement.getAttribute('data-theme') === 'light' || !document.documentElement.hasAttribute('data-theme')) {
-                targetTheme = 'dark';
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-            document.documentElement.setAttribute('data-theme', targetTheme);
-            localStorage.setItem('theme', targetTheme);
-        });
-    </script>
+<div class="stats">
+      <div class="stat"><strong>4+</strong><span>Years Experience</span></div>
+      <div class="stat"><strong>10+</strong><span>Data Pipelines</span></div>
+      <div class="stat"><strong>100M+</strong><span>Records Processed</span></div>
+    </div>
+
+<section id="about" class="reveal"><div class="container">
+<div class="section-head"><span class="bar"></span><h3>About Me</h3><p>Data engineering with a focus on reliable, scalable and useful data solutions.</p></div>
+<div class="about-grid">
+<div class="about-copy"><h3 style="font-size:21px;line-height:1.2;margin-bottom:12px">Passionate about solving real-world problems with data</h3><p>I am a Data Engineer with 4+ years of experience in designing, building and maintaining scalable data pipelines and analytics solutions on Google Cloud Platform.</p><p>My experience includes extracting, transforming and loading data from diverse sources, automating workflows, and creating reliable data platforms that support business decisions.</p><div class="values"><div class="value"><div class="ico">◈</div><strong>Problem Solver</strong><small>Enjoy solving complex challenges</small></div><div class="value"><div class="ico">♟</div><strong>Team Player</strong><small>Collaborative by nature</small></div><div class="value"><div class="ico">◉</div><strong>Data Driven</strong><small>Focused on measurable impact</small></div><div class="value"><div class="ico">↗</div><strong>Continuous Learner</strong><small>Always learning new technology</small></div></div><div class="about-highlight">
+  <div class="about-highlight-number">4+</div>
+  <div><strong>Years Experience</strong><small>Data Engineering</small></div>
+  <div class="about-highlight-number">10+</div>
+  <div><strong>Data Pipelines</strong><small>Cloud & Analytics</small></div>
+  <div class="about-highlight-number">100M+</div>
+  <div><strong>Records Processed</strong><small>Scalable Workloads</small></div>
+  <blockquote>“Better Data.<br>Brighter Decisions.”</blockquote>
+</div>
+</div>
+<div id="skills" class="stack">
+  <div class="stack-title">
+    <strong>Tech Stack</strong>
+    <span><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt=""> Google Cloud</span>
+  </div>
+
+  <div class="stack-grid">
+    <div class="tech" data-tooltip="Cloud platform used to build, run and scale the complete data engineering solution."><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud"><strong>Google Cloud</strong><small>Cloud</small></div>
+    <div class="tech" data-tooltip="Serverless cloud data warehouse used to store, query and analyze large datasets with SQL."><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"><strong>BigQuery</strong><small>Warehouse</small></div>
+    <div class="tech" data-tooltip="Object storage used as a landing and staging area for files before processing and loading."><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage"><strong>Cloud Storage</strong><small>Storage</small></div>
+    <div class="tech" data-tooltip="Managed Airflow service used to schedule, orchestrate and monitor data pipelines."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Cloud Composer"><strong>Cloud Composer</strong><small>Orchestration</small></div>
+
+    <div class="tech" data-tooltip="Managed processing service used for scalable batch and streaming data transformations."><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow"><strong>Dataflow</strong><small>Processing</small></div>
+    <div class="tech" data-tooltip="Visual data integration service used to connect sources and build ETL pipelines."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Data-Fusion.svg" alt="Cloud Data Fusion"><strong>Data Fusion</strong><small>Integration</small></div>
+    <div class="tech" data-tooltip="Messaging service used to ingest and distribute real-time event and streaming data."><img src="https://icon.icepanel.io/GCP/svg/PubSub.svg" alt="Pub/Sub"><strong>Pub/Sub</strong><small>Streaming</small></div>
+    <div class="tech" data-tooltip="Serverless functions used to run lightweight event-driven automation and processing."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Functions.svg" alt="Cloud Functions"><strong>Cloud Functions</strong><small>Serverless</small></div>
+
+    <div class="tech" data-tooltip="Workflow orchestration framework used to schedule, sequence, monitor and retry pipeline tasks."><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow"><strong>Apache Airflow</strong><small>Scheduling</small></div>
+    <div class="tech" data-tooltip="Programming language used for data processing, automation, API integration and pipeline utilities."><img src="https://cdn.simpleicons.org/python" alt="Python"><strong>Python</strong><small>Automation</small></div>
+    <div class="tech" data-tooltip="Query language used for extraction, transformation, validation and analytical data preparation."><img src="https://cdn.simpleicons.org/sqlite" alt="SQL"><strong>SQL</strong><small>Analytics</small></div>
+    <div class="tech" data-tooltip="BI tool used to create dashboards and reports from curated analytical datasets."><img src="assets/icons/Looker-512-color.svg" alt="Looker Studio"><strong>Looker Studio</strong><small>BI</small></div>
+
+    <div class="tech" data-tooltip="Business intelligence platform used to build interactive dashboards and data visualizations."><img src="https://cdn.simpleicons.org/tableau" alt="Tableau" onerror="this.onerror=null;this.src='https://www.svgrepo.com/show/327399/logo-tableau.svg'"><strong>Tableau</strong><small>BI</small></div>
+    <div class="tech" data-tooltip="Relational database used as a source system for extracting structured application data."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"><strong>MySQL</strong><small>Database</small></div>
+    <div class="tech" data-tooltip="Relational database used as a source or operational store for structured data workloads."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/postgresql.svg" alt="PostgreSQL"><strong>PostgreSQL</strong><small>Database</small></div>
+    <div class="tech" data-tooltip="Distributed data processing framework used to transform and process large datasets at scale."><img src="https://cdn.simpleicons.org/apachespark" alt="PySpark"><strong>PySpark</strong><small>Processing</small></div>
+    <div class="tech" data-tooltip="Airflow platform used to develop, deploy and operate reliable data orchestration workflows."><img src="https://api.iconify.design/logos:astronomer.svg?height=64" alt="Astronomer"><strong>Astronomer</strong><small>Orchestration</small></div>
+    <div class="tech" data-tooltip="Design and prototyping tool used to create and refine user interface designs."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="Figma"><strong>Figma</strong><small>UI/UX</small></div>
+  </div>
+</div>
+</div></div></section>
+
+<section class="arch reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end data pipeline on Google Cloud Platform</p></div><div class="arch-grid">
+<div class="arch-card" data-tooltip="I extract structured data from Oracle, MySQL and APIs and prepare it for the cloud pipeline."><div class="arch-icon"><img src="https://cdn.simpleicons.org/oracle" alt="Data sources" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/Oracle%20Corporation%20logo.svg'"></div><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div><div class="arrow">→</div>
+<div class="arch-card" data-tooltip="I ingest source data into GCS for batch workloads and use Pub/Sub for event or streaming ingestion."><div class="arch-icon"><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"></div><strong>Ingestion Layer</strong><small>GCS · Pub/Sub</small></div><div class="arrow">→</div>
+<div class="arch-card" data-tooltip="I build and manage Airflow/Composer workflows, schedule dependencies, monitor runs and handle retries."><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer · Astronomer</small></div><div class="arrow">→</div>
+<div class="arch-card" data-tooltip="I transform, validate and enrich data using Dataflow, PySpark, Python and SQL before loading curated data."><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · PySpark · Python</small></div><div class="arrow">→</div>
+<div class="arch-card" data-tooltip="I load and organize curated datasets in BigQuery for scalable SQL analytics and downstream reporting."><div class="arch-icon"><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"></div><strong>Data Warehouse</strong><small>BigQuery</small></div><div class="arrow">→</div>
+<div class="arch-card" data-tooltip="I prepare reporting-ready datasets and support dashboards in Looker Studio and Tableau."><div class="arch-icon"><img src="assets/icons/Looker-512-color.svg" alt="Visualization"></div><strong>Visualization</strong><small>Looker · Tableau</small></div>
+</div></div></section>
+
+<section class="reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>What I Do</h3><p>Turning raw data into reliable platforms and actionable insights.</p></div><div class="do-grid"><div class="do-card"><div class="big-icon">⇄</div><h4>Build Data Pipelines</h4><p>Design and develop robust ETL/ELT pipelines for batch and cloud data workloads.</p></div><div class="do-card"><div class="big-icon">☁</div><h4>Cloud Data Solutions</h4><p>Build scalable GCP solutions using BigQuery, Cloud Storage, Composer and related services.</p></div><div class="do-card"><div class="big-icon">⚙</div><h4>Data Transformation</h4><p>Transform, validate and optimize data using SQL, Python and cloud processing services.</p></div><div class="do-card"><div class="big-icon">▥</div><h4>Analytics & Visualization</h4><p>Create reporting-ready datasets and dashboards with Looker Studio and Tableau.</p></div></div></div></section>
+
+<section id="experience" class="reveal" style="background:#f8fbff"><div class="container"><div class="section-head"><span class="bar"></span><h3>Experience</h3><p>Professional experience across data engineering and analytics.</p></div><div class="timeline">
+<div class="job"><span class="dot"></span><div class="job-head"><div><h4>Senior Data Engineer</h4><div class="company">ACL Digital · Client: Iron Mountain</div></div><div class="date">Feb 2026 – Present</div></div><p>Working on cloud data engineering initiatives, pipeline development, orchestration and analytics solutions.</p><div class="tags"><span class="tag">GCP</span><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Airflow</span></div></div>
+<div class="job"><span class="dot"></span><div class="job-head"><div><h4>GCP Data Engineer</h4><div class="company">Horizontal Integration India Pvt Ltd · Client: Trane Technologies</div></div><div class="date">Mar 2024 – Nov 2025</div></div><p>Designed and supported GCP data pipelines, relational database integrations, transformations and analytics workflows.</p><div class="tags"><span class="tag">GCS</span><span class="tag">BigQuery</span><span class="tag">Dataflow</span><span class="tag">Cloud Composer</span><span class="tag">MySQL</span></div></div>
+<div class="job"><span class="dot"></span><div class="job-head"><div><h4>Process Analyst</h4><div class="company">Invensis Technologies Pvt Ltd · Client: Davey Tree</div></div><div class="date">Jan 2021 – Mar 2023</div></div><p>Supported data and reporting processes, analysis, quality checks and operational workflows.</p><div class="tags"><span class="tag">Data Analysis</span><span class="tag">Reporting</span><span class="tag">SQL</span></div></div>
+</div></div></section>
+
+<section id="projects" class="reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Projects</h3><p>Selected data engineering and analytics work.</p></div><div class="projects">
+<div class="project"><div class="project-top"><h4>Relational Database → BigQuery</h4><div class="project-icon">⇄</div></div><p>Built cloud data pipelines to extract relational data, transform it and load curated datasets into BigQuery for analytics and reporting.</p><div class="tags"><span class="tag">Oracle</span><span class="tag">GCS</span><span class="tag">BigQuery</span><span class="tag">Airflow</span></div></div>
+<div class="project"><div class="project-top"><h4>IoT Telematics Data Platform</h4><div class="project-icon">⌁</div></div><p>Worked with streaming-oriented IoT data flows using Pub/Sub and BigQuery to support scalable analytics workloads.</p><div class="tags"><span class="tag">Pub/Sub</span><span class="tag">BigQuery</span><span class="tag">GCP</span></div></div>
+<div class="project"><div class="project-top"><h4>Multi-Source Cloud Migration</h4><div class="project-icon">☁</div></div><p>Supported migration and integration of data from multiple source systems into cloud-based analytical platforms.</p><div class="tags"><span class="tag">GCP</span><span class="tag">Data Fusion</span><span class="tag">SQL</span></div></div>
+<div class="project"><div class="project-top"><h4>Automated Reporting</h4><div class="project-icon">▥</div></div><p>Created reporting-ready datasets and automated workflows for business dashboards and recurring analytics.</p><div class="tags"><span class="tag">Looker Studio</span><span class="tag">Tableau</span><span class="tag">Python</span></div></div>
+</div></div></section>
+
+<section id="education" class="reveal" style="background:#f8fbff"><div class="container"><div class="section-head"><span class="bar"></span><h3>Education</h3></div><div class="education"><div class="edu-card"><h4>Bachelor of Science</h4><p>Mathematics, Electronics & Computer Science</p><p><strong>Adi Kavi Nannaya University, Andhra Pradesh</strong></p><p>2019</p></div><div class="edu-card"><h4>Core Focus</h4><p>Data Engineering · Cloud Computing · SQL · Python · Analytics · Data Visualization</p></div></div></div></section>
+
+<section id="contact" class="reveal"><div class="container"><div class="contact"><h3>Let's build something with data</h3><p>I'm interested in data engineering opportunities, cloud data platforms and projects where reliable data can create meaningful business impact.</p><div class="contact-links"><a href="mailto:mediboyinanaveen98@gmail.com">✉ Email Me</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">in LinkedIn</a><a href="Naveen_Kumar_resume.pdf" download>↓ Download Resume</a></div></div></div></section>
+</main>
+<footer><div class="container footer-inner"><div><div class="footer-brand">Naveen Kumar M</div><p>Data Engineer · Google Cloud · Data & Analytics</p></div><div class="footer-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+
+<script>
+/* Hero orbit animation
+   - Same animation on desktop, Android Chrome and iPhone Chrome.
+   - Uses requestAnimationFrame, which is supported by iOS Chrome (WebKit).
+   - Does NOT disable itself because of iOS Reduce Motion settings.
+   - Cards counter-rotate so logos and names stay upright. */
+(function(){
+  const orbit = document.querySelector('.orbit-items');
+  const cards = Array.from(document.querySelectorAll('.orbit-card'));
+  if (!orbit || cards.length === 0) return;
+
+  const angles = [0, 72, 144, 216, 288];
+  const duration = 18000;
+  let startTime = null;
+  let rafId = null;
+
+  function draw(now){
+    if (startTime === null) startTime = now;
+
+    const elapsed = now - startTime;
+    const rotation = (elapsed % duration) / duration * 360;
+
+    /* Rotate the complete orbit around its own center. */
+    orbit.style.transform =
+      'translate3d(-50%, -50%, 0) rotate(' + rotation + 'deg)';
+
+    /* Keep every card at exactly the same radius and upright. */
+    const radius = orbit.offsetWidth / 2;
+
+    cards.forEach(function(card, i){
+      const angle = angles[i];
+
+      card.style.transform =
+        'translate3d(-50%, -50%, 0) rotate(' + angle + 'deg) translateY(-' +
+        radius + 'px)';
+
+      const inner = card.querySelector('.float-card');
+      if(inner){
+        inner.style.transform =
+          'translate3d(-50%, -50%, 0) rotate(' +
+          (-(rotation + angle)) + 'deg)';
+      }
+    });
+
+    rafId = requestAnimationFrame(draw);
+  }
+
+  function start(){
+    if(rafId === null){
+      startTime = null;
+      rafId = requestAnimationFrame(draw);
+    }
+  }
+
+  function stop(){
+    if(rafId !== null){
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  /* Keep animation alive when returning to the Safari/Chrome tab. */
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible'){
+      start();
+    }else{
+      stop();
+    }
+  });
+
+  start();
+})();
+</script>
+
+
+<script>
+(function(){
+  const root=document.documentElement;
+  const button=document.getElementById('themeToggle');
+  const saved=localStorage.getItem('portfolio-theme');
+  const theme=saved || 'light';
+
+  function applyTheme(value){
+    root.classList.toggle('light',value==='light');
+    if(button){
+      button.title=value==='light'?'Switch to dark mode':'Switch to light mode';
+      button.setAttribute('aria-label',button.title);
+      button.dataset.theme=value;
+    }
+  }
+
+  applyTheme(theme);
+
+  if(button){
+    button.addEventListener('click',function(){
+      const next=root.classList.contains('light')?'dark':'light';
+      localStorage.setItem('portfolio-theme',next);
+      applyTheme(next);
+    });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  const links=[...document.querySelectorAll('header nav a')];
+  const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if(!links.length || !sections.length) return;
+
+  function setActive(id){
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+  }
+
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) setActive(entry.target.id);
+    });
+  },{rootMargin:'-30% 0px -55% 0px',threshold:0});
+
+  sections.forEach(section=>observer.observe(section));
+})();
+</script>
+
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
