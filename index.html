@@ -73,7 +73,7 @@ nav a:hover{color:var(--blue)}
 .orbit-items{
   position:absolute;left:50%;top:50%;width:250px;height:250px;
   transform:translate(-50%,-50%);z-index:4;
-  animation:orbitSpin 18s linear infinite;
+  /* Orbit movement is controlled by JavaScript for consistent desktop + iPhone Safari behavior. */
 }
 .orbit-card{
   position:absolute;
@@ -90,7 +90,7 @@ nav a:hover{color:var(--blue)}
   padding:9px 11px;text-align:center;
   box-shadow:0 10px 25px rgba(40,80,120,.10);
   font-size:9px;color:#334155;
-  animation:cardKeepUpright 18s linear infinite;
+  /* Card counter-rotation is controlled by JavaScript. */
   will-change:transform;
 }
 .orbit-card .float-card img{
@@ -122,13 +122,6 @@ nav a:hover{color:var(--blue)}
   transform:translate(-50%,-50%) rotate(var(--orbit-angle)) translateY(-125px);
 }
 
-@keyframes orbitSpin{
-  from{transform:translate(-50%,-50%) rotate(0deg)}
-  to{transform:translate(-50%,-50%) rotate(360deg)}
-}
-
-@keyframes cardKeepUpright{
-  from{transform:translate(-50%,-50%) rotate(var(--counter-start))}
   to{transform:translate(-50%,-50%) rotate(calc(var(--counter-start) - 360deg))}
 }
 
@@ -284,10 +277,6 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 .footer-links a:hover{color:#fff}
 .reveal{opacity:0;transform:translateY(18px);transition:.65s}
 .reveal.show{opacity:1;transform:none}
-
-@media(prefers-reduced-motion:reduce){
-  .orbit-items,.orbit-card .float-card{animation:none!important}
-}
 
 @media(max-width:900px){
   nav{display:none}
@@ -517,6 +506,81 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 <section id="contact" class="reveal"><div class="container"><div class="contact"><h3>Let's build something with data</h3><p>I'm interested in data engineering opportunities, cloud data platforms and projects where reliable data can create meaningful business impact.</p><div class="contact-links"><a href="mailto:mediboyinanaveen98@gmail.com">✉ Email Me</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">in LinkedIn</a><a href="Naveen_Kumar_resume.pdf" download>↓ Download Resume</a></div></div></div></section>
 </main>
 <footer><div class="container footer-inner"><div><div class="footer-brand">Naveen Kumar M</div><p>Data Engineer · Google Cloud · Data & Analytics</p></div><div class="footer-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+
+<script>
+/* Hero orbit animation
+   - Same animation on desktop, Android Chrome and iPhone Chrome.
+   - Uses requestAnimationFrame, which is supported by iOS Chrome (WebKit).
+   - Does NOT disable itself because of iOS Reduce Motion settings.
+   - Cards counter-rotate so logos and names stay upright. */
+(function(){
+  const orbit = document.querySelector('.orbit-items');
+  const cards = Array.from(document.querySelectorAll('.orbit-card'));
+  if (!orbit || cards.length === 0) return;
+
+  const angles = [0, 72, 144, 216, 288];
+  const duration = 18000;
+  let startTime = null;
+  let rafId = null;
+
+  function draw(now){
+    if (startTime === null) startTime = now;
+
+    const elapsed = now - startTime;
+    const rotation = (elapsed % duration) / duration * 360;
+
+    /* Rotate the complete orbit around its own center. */
+    orbit.style.transform =
+      'translate3d(-50%, -50%, 0) rotate(' + rotation + 'deg)';
+
+    /* Keep every card at exactly the same radius and upright. */
+    const radius = orbit.offsetWidth / 2;
+
+    cards.forEach(function(card, i){
+      const angle = angles[i];
+
+      card.style.transform =
+        'translate3d(-50%, -50%, 0) rotate(' + angle + 'deg) translateY(-' +
+        radius + 'px)';
+
+      const inner = card.querySelector('.float-card');
+      if(inner){
+        inner.style.transform =
+          'translate3d(-50%, -50%, 0) rotate(' +
+          (-(rotation + angle)) + 'deg)';
+      }
+    });
+
+    rafId = requestAnimationFrame(draw);
+  }
+
+  function start(){
+    if(rafId === null){
+      startTime = null;
+      rafId = requestAnimationFrame(draw);
+    }
+  }
+
+  function stop(){
+    if(rafId !== null){
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  /* Keep animation alive when returning to the Safari/Chrome tab. */
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible'){
+      start();
+    }else{
+      stop();
+    }
+  });
+
+  start();
+})();
+</script>
+
 <script>
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
