@@ -77,18 +77,18 @@ nav a:hover{color:var(--blue)}
 }
 .float-card img{width:34px;height:34px;display:block;margin:0 auto 5px;object-fit:contain}
 .float-card b{display:block;white-space:nowrap;font-size:9px}
-.fc1{left:calc(50% - 46px);top:0}
-.fc2{left:0;top:92px}
-.fc3{right:0;top:92px}
-.fc4{left:43px;bottom:0}
-.fc5{right:43px;bottom:0}
+.fc1{left:calc(47% - 46px);top:0}
+.fc2{left:20px;top:100px}
+.fc3{right:24px;top:100px}
+.fc4{left:68px;bottom:0}
+.fc5{right:72px;bottom:0}
 .scribble{
   position:absolute;right:-2px;top:205px;transform:rotate(-5deg);
   font-family:cursive;color:#41607f;font-size:14px;line-height:1.08;
   width:105px;text-align:center;z-index:2
 }
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(30,60,90,.04)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(30,60,90,.04)}
 .stat{padding:17px 15px;text-align:center;border-right:1px solid var(--line)}
 .stat:last-child{border:0}
 .stat strong{display:block;color:var(--blue);font-size:21px}
@@ -114,13 +114,13 @@ section{padding:62px 0}
 .stack-title span{font-size:10px;color:#8290a5;display:flex;align-items:center;gap:5px}
 .stack-title img{width:15px;height:15px;object-fit:contain}
 .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.tech{
+.tech{overflow:hidden;
   border:1px solid #e1e8f1;border-radius:10px;min-height:92px;padding:10px 5px;
   text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
   transition:.2s;background:#fff
 }
 .tech:hover{transform:translateY(-3px);box-shadow:0 7px 17px rgba(35,65,100,.1)}
-.tech img{width:38px;height:38px;object-fit:contain;margin-bottom:6px}
+.tech img{width:38px;height:38px;object-fit:contain;margin-bottom:6px;display:block;font-size:0}
 .tech strong{font-size:9px}
 .tech small{font-size:7px;color:#8792a3;margin-top:1px}
 
@@ -194,7 +194,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
   .hero h2{font-size:21px}
   .hero-grid{padding:38px 0 20px}
   .visual{height:310px}
-  .visual-stage{transform:scale(.82);transform-origin:center}
+  .visual-stage{transform:scale(.78);transform-origin:center}
   .stack-grid{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}
@@ -242,7 +242,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
     <div class="visual-stage">
       <div class="orbit"></div>
       <div class="cloud-core">
-        <img src="https://cdn.simpleicons.org/googlecloud" alt="Google Cloud">
+        <img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/google-cloud.svg" alt="Google Cloud">
       </div>
 
       <div class="float-card fc1">
@@ -256,7 +256,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
       </div>
 
       <div class="float-card fc3">
-        <img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow">
+        <img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-dataflow.svg" alt="Dataflow">
         <b>Dataflow</b>
       </div>
 
@@ -276,7 +276,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 </div>
 </section>
 
-<div class="stats"><div class="stat"><strong>4+</strong><span>Years Experience</span></div><div class="stat"><strong>3</strong><span>Companies</span></div><div class="stat"><strong>GCP</strong><span>Cloud Platform</span></div><div class="stat"><strong>End-to-End</strong><span>Data Pipelines</span></div></div>
+<div class="stats"><div class="stat"><strong>4+</strong><span>Years Experience</span></div><div class="stat"><strong>GCP</strong><span>Cloud Platform</span></div><div class="stat"><strong>End-to-End</strong><span>Data Pipelines</span></div></div>
 
 <section id="about" class="reveal"><div class="container">
 <div class="section-head"><span class="bar"></span><h3>About Me</h3><p>Data engineering with a focus on reliable, scalable and useful data solutions.</p></div>
@@ -285,23 +285,23 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 <div id="skills" class="stack">
   <div class="stack-title">
     <strong>Tech Stack</strong>
-    <span><img src="https://cdn.simpleicons.org/googlecloud" alt=""> Google Cloud</span>
+    <span><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/google-cloud.svg" alt=""> Google Cloud</span>
   </div>
 
   <div class="stack-grid">
-    <div class="tech"><img src="https://cdn.simpleicons.org/googlecloud" alt="Google Cloud"><strong>Google Cloud</strong><small>Cloud</small></div>
+    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/google-cloud.svg" alt="Google Cloud"><strong>Google Cloud</strong><small>Cloud</small></div>
     <div class="tech"><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"><strong>BigQuery</strong><small>Warehouse</small></div>
     <div class="tech"><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage"><strong>Cloud Storage</strong><small>Storage</small></div>
-    <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/Cloud_Composer.svg" alt="Cloud Composer"><strong>Cloud Composer</strong><small>Orchestration</small></div>
+    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-cloud-composer.svg" alt="Cloud Composer"><strong>Cloud Composer</strong><small>Orchestration</small></div>
 
-    <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow"><strong>Dataflow</strong><small>Processing</small></div>
-    <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/Cloud_Data_Fusion.svg" alt="Cloud Data Fusion"><strong>Data Fusion</strong><small>Integration</small></div>
-    <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/PubSub.svg" alt="Pub/Sub"><strong>Pub/Sub</strong><small>Streaming</small></div>
-    <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/Cloud_Functions.svg" alt="Cloud Functions"><strong>Cloud Functions</strong><small>Serverless</small></div>
+    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-dataflow.svg" alt="Dataflow"><strong>Dataflow</strong><small>Processing</small></div>
+    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-cloud-data-fusion.svg" alt="Cloud Data Fusion"><strong>Data Fusion</strong><small>Integration</small></div>
+    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-pubsub.svg" alt="Pub/Sub"><strong>Pub/Sub</strong><small>Streaming</small></div>
+    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-cloud-functions.svg" alt="Cloud Functions"><strong>Cloud Functions</strong><small>Serverless</small></div>
 
     <div class="tech"><img src="https://cdn.simpleicons.org/apacheairflow" alt="Apache Airflow"><strong>Apache Airflow</strong><small>Scheduling</small></div>
     <div class="tech"><img src="https://cdn.simpleicons.org/python" alt="Python"><strong>Python</strong><small>Automation</small></div>
-    <div class="tech"><img src="https://cdn.simpleicons.org/postgresql" alt="SQL"><strong>SQL</strong><small>Analytics</small></div>
+    <div class="tech"><img src="https://cdn.simpleicons.org/mysql" alt="SQL"><strong>SQL</strong><small>Analytics</small></div>
     <div class="tech"><img src="assets/icons/Looker-512-color.svg" alt="Looker Studio"><strong>Looker Studio</strong><small>BI</small></div>
 
     <div class="tech"><img src="https://cdn.simpleicons.org/tableau" alt="Tableau"><strong>Tableau</strong><small>BI</small></div>
@@ -315,8 +315,8 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 <section class="arch reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end data pipeline on Google Cloud Platform</p></div><div class="arch-grid">
 <div class="arch-card"><div class="arch-icon"><img src="https://cdn.simpleicons.org/oracle" alt="Data sources"></div><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"></div><strong>Ingestion Layer</strong><small>GCS · Pub/Sub</small></div><div class="arrow">→</div>
-<div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Cloud_Composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer</small></div><div class="arrow">→</div>
-<div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · Python</small></div><div class="arrow">→</div>
+<div class="arch-card"><div class="arch-icon"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-cloud-composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer</small></div><div class="arrow">→</div>
+<div class="arch-card"><div class="arch-icon"><img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/gcp-dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · Python</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"></div><strong>Data Warehouse</strong><small>BigQuery</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/Looker-512-color.svg" alt="Visualization"></div><strong>Visualization</strong><small>Looker · Tableau</small></div>
 </div></div></section>
