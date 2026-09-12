@@ -126,7 +126,8 @@ section{padding:62px 0}
 
 .arch{background:var(--bg)}
 .arch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:center}
-.arch-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 8px;text-align:center;min-height:120px;box-shadow:0 5px 17px rgba(30,60,90,.04)}
+.arch-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 8px;text-align:center;min-height:120px;box-shadow:0 5px 17px rgba(30,60,90,.04);transition:.2s}
+.arch-card:hover{transform:translateY(-3px);box-shadow:0 7px 17px rgba(35,65,100,.1)}
 .arch-card .arch-icon{width:38px;height:38px;margin:0 auto 9px;border-radius:10px;background:#edf5ff;display:grid;place-items:center;color:var(--blue)}
 .arch-card img{width:30px;height:30px;object-fit:contain}
 .arch-card strong{display:block;font-size:10px}
@@ -307,6 +308,8 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
     <div class="tech"><img src="https://cdn.simpleicons.org/tableau" alt="Tableau" onerror="this.onerror=null;this.src='https://www.svgrepo.com/show/327399/logo-tableau.svg'"><strong>Tableau</strong><small>BI</small></div>
     <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"><strong>MySQL</strong><small>Database</small></div>
     <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/postgresql.svg" alt="PostgreSQL"><strong>PostgreSQL</strong><small>Database</small></div>
+    <div class="tech"><img src="https://cdn.simpleicons.org/apachespark" alt="PySpark"><strong>PySpark</strong><small>Processing</small></div>
+    <div class="tech"><img src="https://cdn.simpleicons.org/astronomer" alt="Astronomer"><strong>Astronomer</strong><small>Orchestration</small></div>
     <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="Figma"><strong>Figma</strong><small>UI/UX</small></div>
   </div>
 </div>
@@ -315,8 +318,8 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 <section class="arch reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end data pipeline on Google Cloud Platform</p></div><div class="arch-grid">
 <div class="arch-card"><div class="arch-icon"><img src="https://cdn.simpleicons.org/oracle" alt="Data sources" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/Oracle%20Corporation%20logo.svg'"></div><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"></div><strong>Ingestion Layer</strong><small>GCS · Pub/Sub</small></div><div class="arrow">→</div>
-<div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer</small></div><div class="arrow">→</div>
-<div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · Python</small></div><div class="arrow">→</div>
+<div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer · Astronomer</small></div><div class="arrow">→</div>
+<div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · PySpark · Python</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"></div><strong>Data Warehouse</strong><small>BigQuery</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/Looker-512-color.svg" alt="Visualization"></div><strong>Visualization</strong><small>Looker · Tableau</small></div>
 </div></div></section>
