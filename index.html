@@ -55,7 +55,7 @@ nav a:hover{color:var(--blue)}
   display:flex;align-items:center;justify-content:center
 }
 .visual-stage{
-  position:relative;width:430px;height:300px;margin:0 auto
+  position:relative;width:470px;height:300px;margin:0 auto
 }
 .cloud-core{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
@@ -83,9 +83,9 @@ nav a:hover{color:var(--blue)}
 .fc4{left:68px;bottom:0}
 .fc5{right:72px;bottom:0}
 .scribble{
-  position:absolute;right:-2px;top:205px;transform:rotate(-5deg);
+  position:absolute;right:-32px;top:4px;transform:rotate(-4deg);
   font-family:cursive;color:#41607f;font-size:14px;line-height:1.08;
-  width:105px;text-align:center;z-index:2
+  width:145px;text-align:center;z-index:6
 }
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(30,60,90,.04)}
@@ -261,7 +261,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
       </div>
 
       <div class="float-card fc4">
-        <img src="https://airflow.apache.org/images/airflow-logo-small.svg" alt="Apache Airflow">
+        <img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow">
         <b>Airflow</b>
       </div>
 
@@ -299,12 +299,12 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
     <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/PubSub.svg" alt="Pub/Sub"><strong>Pub/Sub</strong><small>Streaming</small></div>
     <div class="tech"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Functions.svg" alt="Cloud Functions"><strong>Cloud Functions</strong><small>Serverless</small></div>
 
-    <div class="tech"><img src="https://airflow.apache.org/images/airflow-logo-small.svg" alt="Apache Airflow"><strong>Apache Airflow</strong><small>Scheduling</small></div>
+    <div class="tech"><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow"><strong>Apache Airflow</strong><small>Scheduling</small></div>
     <div class="tech"><img src="https://cdn.simpleicons.org/python" alt="Python"><strong>Python</strong><small>Automation</small></div>
     <div class="tech"><img src="https://cdn.simpleicons.org/sqlite" alt="SQL"><strong>SQL</strong><small>Analytics</small></div>
     <div class="tech"><img src="assets/icons/Looker-512-color.svg" alt="Looker Studio"><strong>Looker Studio</strong><small>BI</small></div>
 
-    <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/tableau.svg" alt="Tableau"><strong>Tableau</strong><small>BI</small></div>
+    <div class="tech"><img src="https://cdn.simpleicons.org/tableau" alt="Tableau" onerror="this.onerror=null;this.src='https://www.svgrepo.com/show/327399/logo-tableau.svg'"><strong>Tableau</strong><small>BI</small></div>
     <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"><strong>MySQL</strong><small>Database</small></div>
     <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/postgresql.svg" alt="PostgreSQL"><strong>PostgreSQL</strong><small>Database</small></div>
     <div class="tech"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="Figma"><strong>Figma</strong><small>UI/UX</small></div>
@@ -313,7 +313,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 </div></div></section>
 
 <section class="arch reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end data pipeline on Google Cloud Platform</p></div><div class="arch-grid">
-<div class="arch-card"><div class="arch-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/oracle.svg" alt="Data sources"></div><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div><div class="arrow">→</div>
+<div class="arch-card"><div class="arch-icon"><img src="https://cdn.simpleicons.org/oracle" alt="Data sources" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/Oracle%20Corporation%20logo.svg'"></div><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"></div><strong>Ingestion Layer</strong><small>GCS · Pub/Sub</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer</small></div><div class="arrow">→</div>
 <div class="arch-card"><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · Python</small></div><div class="arrow">→</div>
