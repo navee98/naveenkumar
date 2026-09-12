@@ -357,6 +357,137 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
   .footer-inner{flex-direction:column;text-align:center}
   .scribble{display:none}
 }
+
+/* ===== Option 2 Professional Theme ===== */
+:root{
+  --blue:#168cff;--cyan:#21d4fd;--violet:#9b6cff;
+  --ink:#eaf3ff;--muted:#91a4bf;--line:rgba(120,170,220,.18);
+  --bg:#06111f;--bg2:#091a2e;--card:rgba(12,30,51,.82);
+}
+:root.light{
+  --ink:#13233d;--muted:#627189;--line:#dbe7f4;
+  --bg:#f5f9ff;--bg2:#edf6ff;--card:rgba(255,255,255,.9);
+}
+body{
+  color:var(--ink);
+  background:var(--bg);
+  transition:background .3s,color .3s;
+}
+body:before{
+  background:
+    radial-gradient(circle at 85% 10%,rgba(33,212,253,.12),transparent 28%),
+    radial-gradient(circle at 10% 35%,rgba(22,140,255,.10),transparent 30%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+}
+header{
+  background:rgba(6,17,31,.82);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+:root.light header{background:rgba(255,255,255,.84)}
+nav{color:var(--muted)}
+.hero{
+  background:
+    radial-gradient(circle at 75% 48%,rgba(22,140,255,.12),transparent 25%),
+    radial-gradient(circle at 90% 25%,rgba(33,212,253,.10),transparent 24%);
+  border-bottom:1px solid var(--line);
+}
+.hero h1{font-size:52px;line-height:1.02;letter-spacing:-2.4px}
+.hero h1 span{color:var(--blue)}
+.hero h2{color:#63c9ff}
+.hero p,.hero-note{color:var(--muted)}
+.eyebrow{
+  background:rgba(22,140,255,.10);
+  border:1px solid rgba(22,140,255,.25);
+  color:#4ca9ff;
+}
+.pill,.stack,.tech,.arch-card,.do-card,.project,.edu-card,.value,.contact{
+  background:var(--card);
+  border-color:var(--line);
+}
+.btn{
+  background:rgba(255,255,255,.03);
+  border-color:rgba(33,212,253,.3);
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--blue),#0967e8);
+  border-color:transparent;
+}
+.stats{background:var(--card);border-color:var(--line)}
+.stat{border-color:var(--line)}
+.stat strong{color:#49b4ff}
+.stat span,.section-head p,.about-copy p,.tech small,.arch-card small,.do-card p,
+.job .date,.job p,.project p,.edu-card p,.stack-title span{color:var(--muted)}
+.section-head .bar{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.value .ico,.arch-card .arch-icon,.project-icon{background:rgba(22,140,255,.10);color:#55baff}
+.tech:hover,.arch-card:hover{box-shadow:0 12px 28px rgba(22,140,255,.16)}
+.tag{background:rgba(22,140,255,.09);color:#55baff}
+.arch{background:rgba(8,25,43,.35);border-color:var(--line)}
+:root.light .arch{background:rgba(237,246,255,.65)}
+.contact{background:linear-gradient(135deg,rgba(22,140,255,.12),rgba(33,212,253,.05))}
+footer{background:#030b15}
+.theme-btn{
+  width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+  background:var(--card);color:var(--ink);display:grid;place-items:center;
+  cursor:pointer;font-size:16px;transition:.25s;
+}
+.theme-btn:hover{transform:translateY(-2px);border-color:rgba(33,212,253,.5)}
+.cloud-core{
+  background:rgba(255,255,255,.96);
+  box-shadow:0 0 0 1px rgba(80,170,255,.15),0 20px 55px rgba(0,0,0,.22);
+}
+.cloud-core:after{border-color:rgba(33,212,253,.23)}
+.orbit{border-color:rgba(55,164,255,.65)}
+.orbit:before{border-color:rgba(85,182,255,.18)}
+.orbit-card .float-card{
+  background:rgba(10,27,47,.94);
+  border-color:rgba(110,180,235,.18);
+  color:var(--ink);
+  box-shadow:0 14px 35px rgba(0,0,0,.28);
+}
+:root.light .orbit-card .float-card{
+  background:rgba(255,255,255,.96);
+  box-shadow:0 14px 35px rgba(30,70,110,.12);
+}
+.scribble{color:#70cfff}
+
+
+@media(max-width:620px){
+  .hero h1{font-size:38px;letter-spacing:-1.5px}
+  .hero p{font-size:13px}
+  .hero-buttons .btn{padding:11px 13px}
+  .theme-btn{width:34px;height:34px}
+}
+
+
+/* Dark mode: give monochrome technology logos a clean light treatment so they
+   remain clearly visible against the dark cards. Colored brand logos stay unchanged. */
+:root:not(.light) .tech img[src*="simpleicons.org"],
+:root:not(.light) .tech img[src*="simple-icons"]{
+  filter:brightness(0) invert(1);
+  opacity:.96;
+}
+:root:not(.light) .tech img[src*="astronomer"]{
+  filter:none;
+  opacity:1;
+}
+:root:not(.light) .tech{
+  background:rgba(13,34,57,.92);
+  border-color:rgba(113,190,240,.25);
+}
+:root:not(.light) .tech strong{
+  color:#ffffff;
+  text-shadow:0 1px 8px rgba(33,160,255,.12);
+}
+:root:not(.light) .tech small{
+  color:#9fc0dc;
+}
+:root:not(.light) .tech:hover{
+  background:rgba(16,43,70,.98);
+  border-color:rgba(72,190,255,.45);
+}
+
 </style>
 
 </head>
@@ -367,7 +498,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
     <nav>
       <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
-    <div class="nav-actions"><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div>
+    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme">☀</button><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div>
   </div>
 </header>
 
@@ -376,8 +507,8 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 <div class="container hero-grid">
   <div class="hero-copy">
     <span class="eyebrow">Data Engineer</span>
-    <h1>Naveen Kumar M</h1>
-    <h2>Data Engineer</h2>
+    <h1>From Data to<br><span>Real Impact</span></h1>
+    <h2>Data Engineer · Google Cloud</h2>
     <p>Building scalable data pipelines and analytics solutions on Google Cloud Platform to turn data into meaningful insights.</p>
     <div class="pills">
       <span class="pill">Google Cloud</span><span class="pill">Data Engineering</span>
@@ -471,7 +602,7 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
     <div class="tech" data-tooltip="Relational database used as a source system for extracting structured application data."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"><strong>MySQL</strong><small>Database</small></div>
     <div class="tech" data-tooltip="Relational database used as a source or operational store for structured data workloads."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/postgresql.svg" alt="PostgreSQL"><strong>PostgreSQL</strong><small>Database</small></div>
     <div class="tech" data-tooltip="Distributed data processing framework used to transform and process large datasets at scale."><img src="https://cdn.simpleicons.org/apachespark" alt="PySpark"><strong>PySpark</strong><small>Processing</small></div>
-    <div class="tech" data-tooltip="Airflow platform used to develop, deploy and operate reliable data orchestration workflows."><img src="https://api.iconify.design/logos:astronomer.svg" alt="Astronomer"><strong>Astronomer</strong><small>Orchestration</small></div>
+    <div class="tech" data-tooltip="Airflow platform used to develop, deploy and operate reliable data orchestration workflows."><img src="https://api.iconify.design/logos:astronomer.svg?height=64" alt="Astronomer"><strong>Astronomer</strong><small>Orchestration</small></div>
     <div class="tech" data-tooltip="Design and prototyping tool used to create and refine user interface designs."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="Figma"><strong>Figma</strong><small>UI/UX</small></div>
   </div>
 </div>
@@ -578,6 +709,35 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
   });
 
   start();
+})();
+</script>
+
+
+<script>
+(function(){
+  const root=document.documentElement;
+  const button=document.getElementById('themeToggle');
+  const saved=localStorage.getItem('portfolio-theme');
+  const theme=saved || 'dark';
+
+  function applyTheme(value){
+    root.classList.toggle('light',value==='light');
+    if(button){
+      button.textContent=value==='light'?'☾':'☀';
+      button.title=value==='light'?'Switch to dark mode':'Switch to light mode';
+      button.setAttribute('aria-label',button.title);
+    }
+  }
+
+  applyTheme(theme);
+
+  if(button){
+    button.addEventListener('click',function(){
+      const next=root.classList.contains('light')?'dark':'light';
+      localStorage.setItem('portfolio-theme',next);
+      applyTheme(next);
+    });
+  }
 })();
 </script>
 
