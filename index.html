@@ -70,18 +70,38 @@ nav a:hover{color:var(--blue)}
 .orbit:before{
   content:"";position:absolute;inset:34px;border:1px dashed #b8d6ff;border-radius:50%
 }
+.orbit-items{
+  position:absolute;left:50%;top:50%;width:250px;height:250px;
+  transform:translate(-50%,-50%);z-index:4;
+  animation:orbitSpin 18s linear infinite;
+}
 .float-card{
   position:absolute;background:#fff;border:1px solid #e6edf5;border-radius:12px;
   padding:9px 11px;width:92px;min-height:82px;text-align:center;
-  box-shadow:0 10px 25px rgba(40,80,120,.10);font-size:9px;color:#334155;z-index:4
+  box-shadow:0 10px 25px rgba(40,80,120,.10);font-size:9px;color:#334155;
+  transform-origin:center center;
+  animation:cardKeepUpright 18s linear infinite;
 }
 .float-card img{width:36px;height:36px;display:block;margin:0 auto 5px;object-fit:contain}
 .float-card b{display:block;white-space:nowrap;font-size:9px}
-.fc1{left:calc(47% - 46px);top:0}
-.fc2{left:20px;top:100px}
-.fc3{right:24px;top:100px}
-.fc4{left:68px;bottom:0}
-.fc5{right:72px;bottom:0}
+
+/* Each card starts at a different point on the orbit. The whole group rotates,
+   while every card counter-rotates so its icon and name stay upright. */
+.fc1{left:50%;top:0;transform:translate(-50%,-50%)}
+.fc2{left:0;top:50%;transform:translate(-50%,-50%)}
+.fc3{left:100%;top:50%;transform:translate(-50%,-50%)}
+.fc4{left:22%;top:100%;transform:translate(-50%,-50%)}
+.fc5{left:78%;top:100%;transform:translate(-50%,-50%)}
+
+@keyframes orbitSpin{
+  from{transform:translate(-50%,-50%) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+
+@keyframes cardKeepUpright{
+  from{rotate:0deg}
+  to{rotate:-360deg}
+}
 .scribble{
   position:absolute;right:-32px;top:4px;transform:rotate(-4deg);
   font-family:cursive;color:#41607f;font-size:14px;line-height:1.08;
@@ -230,6 +250,10 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
 .reveal{opacity:0;transform:translateY(18px);transition:.65s}
 .reveal.show{opacity:1;transform:none}
 
+@media(prefers-reduced-motion:reduce){
+  .orbit-items,.float-card{animation:none!important}
+}
+
 @media(max-width:900px){
   nav{display:none}
   .hero-grid,.about-grid,.education{grid-template-columns:1fr}
@@ -301,29 +325,31 @@ footer{background:#13233d;color:#c9d4e4;padding:28px 0;margin-top:60px}
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud">
       </div>
 
-      <div class="float-card fc1">
-        <img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery">
-        <b>BigQuery</b>
-      </div>
+      <div class="orbit-items" aria-label="Data engineering technologies rotating around Google Cloud">
+        <div class="float-card fc1">
+          <img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery">
+          <b>BigQuery</b>
+        </div>
 
-      <div class="float-card fc2">
-        <img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage">
-        <b>Cloud Storage</b>
-      </div>
+        <div class="float-card fc2">
+          <img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage">
+          <b>Cloud Storage</b>
+        </div>
 
-      <div class="float-card fc3">
-        <img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow">
-        <b>Dataflow</b>
-      </div>
+        <div class="float-card fc3">
+          <img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow">
+          <b>Dataflow</b>
+        </div>
 
-      <div class="float-card fc4">
-        <img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow">
-        <b>Airflow</b>
-      </div>
+        <div class="float-card fc4">
+          <img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow">
+          <b>Airflow</b>
+        </div>
 
-      <div class="float-card fc5">
-        <img src="assets/icons/Looker-512-color.svg" alt="Looker Studio">
-        <b>Looker Studio</b>
+        <div class="float-card fc5">
+          <img src="assets/icons/Looker-512-color.svg" alt="Looker Studio">
+          <b>Looker Studio</b>
+        </div>
       </div>
 
       <div class="scribble">Transforming<br>Data into<br>Opportunities</div>
