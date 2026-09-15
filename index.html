@@ -52,10 +52,82 @@ nav a:hover{color:var(--blue)}
 
 .visual{
   position:relative;height:330px;width:100%;max-width:500px;margin:auto;
-  display:flex;align-items:center;justify-content:center
+  display:flex;align-items:center;justify-content:center;
 }
 .visual-stage{
-  position:relative;width:470px;height:300px;margin:0 auto
+  position:relative;width:470px;height:300px;margin:0 auto;
+  isolation:isolate;
+  overflow:visible;
+}
+
+/* Cinematic Google-Cloud-style orbital background inspired by the supplied reference.
+   It is CSS-generated, so there is no external background image to break. */
+.visual-stage::before{
+  content:"";
+  position:absolute;
+  inset:-28px -36px;
+  z-index:-3;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.96) 0 5%,rgba(62,171,255,.20) 6%,transparent 18%),
+    radial-gradient(circle at 16% 24%,rgba(0,194,255,.95) 0 2px,transparent 3px),
+    radial-gradient(circle at 82% 22%,rgba(0,194,255,.85) 0 2px,transparent 3px),
+    radial-gradient(circle at 90% 72%,rgba(0,194,255,.75) 0 2px,transparent 3px),
+    radial-gradient(circle at 12% 76%,rgba(0,194,255,.75) 0 2px,transparent 3px),
+    radial-gradient(circle at 30% 8%,rgba(70,164,255,.65) 0 1.5px,transparent 3px),
+    radial-gradient(circle at 72% 91%,rgba(70,164,255,.65) 0 1.5px,transparent 3px),
+    radial-gradient(ellipse at center,rgba(6,83,150,.56) 0%,rgba(3,31,58,.80) 48%,rgba(1,15,29,.97) 100%);
+  border:1px solid rgba(60,180,255,.22);
+  box-shadow:
+    inset 0 0 70px rgba(0,116,255,.18),
+    0 0 70px rgba(0,110,255,.12);
+  animation:heroSpaceDrift 16s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+.visual-stage::after{
+  content:"";
+  position:absolute;
+  left:50%;top:50%;
+  width:420px;height:420px;
+  transform:translate(-50%,-50%);
+  z-index:-2;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,transparent 0 27%,rgba(56,173,255,.34) 27.2%,transparent 27.7%,
+      transparent 38%,rgba(56,173,255,.25) 38.2%,transparent 38.7%,
+      transparent 49%,rgba(56,173,255,.19) 49.2%,transparent 49.7%,
+      transparent 60%,rgba(56,173,255,.12) 60.2%,transparent 60.7%);
+  filter:drop-shadow(0 0 8px rgba(0,164,255,.18));
+  animation:heroRings 22s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes heroSpaceDrift{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(0,-6px,0) scale(1.018)}
+}
+@keyframes heroRings{
+  from{transform:translate(-50%,-50%) rotate(0deg) scale(1)}
+  to{transform:translate(-50%,-50%) rotate(360deg) scale(1.015)}
+}
+
+:root.light .visual-stage::before{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.98) 0 8%,rgba(92,181,255,.18) 9%,transparent 24%),
+    radial-gradient(circle at 16% 24%,rgba(26,115,232,.70) 0 2px,transparent 3px),
+    radial-gradient(circle at 82% 22%,rgba(26,115,232,.55) 0 2px,transparent 3px),
+    radial-gradient(circle at 90% 72%,rgba(26,115,232,.50) 0 2px,transparent 3px),
+    radial-gradient(circle at 12% 76%,rgba(26,115,232,.50) 0 2px,transparent 3px),
+    radial-gradient(ellipse at center,#edf7ff 0%,#e4f2ff 54%,#d7ecff 100%);
+  border-color:rgba(26,115,232,.16);
+  box-shadow:inset 0 0 70px rgba(26,115,232,.10),0 0 55px rgba(26,115,232,.08);
+}
+:root.light .visual-stage::after{
+  background:
+    radial-gradient(circle,transparent 0 27%,rgba(26,115,232,.24) 27.2%,transparent 27.7%,
+      transparent 38%,rgba(26,115,232,.18) 38.2%,transparent 38.7%,
+      transparent 49%,rgba(26,115,232,.13) 49.2%,transparent 49.7%,
+      transparent 60%,rgba(26,115,232,.09) 60.2%,transparent 60.7%);
 }
 .cloud-core{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
@@ -434,8 +506,11 @@ footer{background:#030b15}
 }
 .theme-btn:hover{transform:translateY(-2px);border-color:rgba(33,212,253,.5)}
 .cloud-core{
-  background:rgba(255,255,255,.96);
-  box-shadow:0 0 0 1px rgba(80,170,255,.15),0 20px 55px rgba(0,0,0,.22);
+  background:rgba(255,255,255,.97);
+  box-shadow:
+    0 0 0 1px rgba(80,170,255,.15),
+    0 0 28px rgba(33,164,255,.25),
+    0 20px 55px rgba(0,0,0,.22);
 }
 .cloud-core:after{border-color:rgba(33,212,253,.23)}
 .orbit{border-color:rgba(55,164,255,.65)}
@@ -3129,6 +3204,38 @@ section#experience,section#education{background:var(--ref-bg) !important}
 }
 
 
+
+/* ============================================================
+   HERO-ONLY GLOWING PARTICLES
+   These particles exist ONLY inside .visual-stage.
+   They sit behind the orbit/cards and never affect other sections.
+   ============================================================ */
+.visual-stage .hero-particles{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  overflow:visible !important;
+  display:block !important;
+}
+
+:root.light .visual-stage .hero-particles{
+  opacity:.48;
+}
+
+:root:not(.light) .visual-stage .hero-particles{
+  opacity:.9;
+  filter:drop-shadow(0 0 5px rgba(0,185,255,.22));
+}
+
+@media(max-width:620px){
+  .visual-stage .hero-particles{
+    opacity:.72;
+  }
+}
+
 /* ============================================================
    FINAL ORBIT FIX
    Orbit rotates. Cards stay upright. GCP stays fixed in center.
@@ -3618,6 +3725,277 @@ section#experience,section#education{background:var(--ref-bg) !important}
 @media(prefers-reduced-motion:reduce){.reveal,.reveal .section-head,.reveal .tech,.reveal .do-card,.reveal .job,.reveal .project,.reveal .edu-card,.reveal .contact,.reveal .arch-security span,.reveal .arch-caption,.hero .hero-copy,.hero .visual-stage,.hero .stats .stat{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}}
 
 </style>
+
+<style id="section-background-upgrade">
+/* =========================================================
+   SECTION-SPECIFIC FUTURISTIC BACKGROUNDS
+   Hero = cinematic cloud/orbit (already present)
+   About = soft flowing data waves
+   Skills = subtle animated technical grid
+   Experience = moving engineering grid / light sweep
+   Architecture = futuristic layered data-network backdrop
+   No extra particle canvas is used outside the Hero.
+   ========================================================= */
+
+/* Keep every decorated section as a clean stacking context. */
+#about,
+#experience,
+.architecture-modern{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+#about > .container,
+#experience > .container,
+.architecture-modern > .container{
+  position:relative;
+  z-index:2;
+}
+
+/* ---------- ABOUT: soft flowing data waves ---------- */
+#about{
+  background:
+    radial-gradient(ellipse at 12% 15%,rgba(40,157,255,.10),transparent 34%),
+    radial-gradient(ellipse at 88% 78%,rgba(0,196,255,.08),transparent 38%),
+    linear-gradient(180deg,#f7fbff 0%,#eef7ff 100%);
+}
+#about::before{
+  content:"";
+  position:absolute;
+  inset:-35% -10%;
+  z-index:0;
+  opacity:.72;
+  background:
+    repeating-radial-gradient(ellipse at 20% 70%,transparent 0 34px,rgba(34,145,230,.10) 35px 36px,transparent 37px 74px),
+    repeating-linear-gradient(168deg,transparent 0 46px,rgba(47,154,235,.055) 47px 48px,transparent 49px 94px);
+  transform:translate3d(-2%,3%,0) rotate(-3deg);
+  animation:aboutWaves 18s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+#about::after{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  right:-220px;bottom:-270px;
+  z-index:0;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(24,161,255,.14),rgba(24,161,255,.035) 38%,transparent 70%);
+  filter:blur(2px);
+  animation:aboutGlow 10s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes aboutWaves{
+  from{transform:translate3d(-2%,3%,0) rotate(-3deg) scale(1)}
+  to{transform:translate3d(3%,-2%,0) rotate(-1deg) scale(1.035)}
+}
+@keyframes aboutGlow{
+  from{transform:translate3d(0,0,0) scale(.92);opacity:.65}
+  to{transform:translate3d(-35px,-25px,0) scale(1.08);opacity:1}
+}
+
+/* ---------- SKILLS: technical grid + slow cyan sweep ---------- */
+#skills{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 90%,rgba(26,115,232,.12),transparent 32%),
+    radial-gradient(circle at 92% 10%,rgba(0,196,255,.09),transparent 30%),
+    linear-gradient(135deg,rgba(255,255,255,.96),rgba(242,249,255,.96));
+}
+#skills::before{
+  content:"";
+  position:absolute;
+  inset:-45%;
+  z-index:-1;
+  background:
+    linear-gradient(rgba(36,126,202,.075) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(36,126,202,.075) 1px,transparent 1px),
+    radial-gradient(circle at center,transparent 0 28%,rgba(33,151,237,.06) 29%,transparent 30% 48%,rgba(33,151,237,.045) 49%,transparent 50%);
+  background-size:34px 34px,34px 34px,100% 100%;
+  transform:translate3d(-2%,0,0) rotate(-3deg);
+  animation:skillsGrid 24s linear infinite;
+}
+#skills::after{
+  content:"";
+  position:absolute;
+  top:-20%;bottom:-20%;left:-30%;
+  width:24%;
+  z-index:-1;
+  background:linear-gradient(90deg,transparent,rgba(32,172,255,.12),transparent);
+  filter:blur(18px);
+  transform:skewX(-18deg);
+  animation:skillsSweep 11s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes skillsGrid{
+  from{transform:translate3d(-2%,0,0) rotate(-3deg)}
+  to{transform:translate3d(2%,3%,0) rotate(-1deg)}
+}
+@keyframes skillsSweep{
+  0%,20%{left:-30%;opacity:0}
+  38%{opacity:1}
+  65%{left:105%;opacity:.8}
+  100%{left:120%;opacity:0}
+}
+
+/* ---------- EXPERIENCE: engineering grid + horizontal light flow ---------- */
+#experience{
+  background:
+    radial-gradient(circle at 82% 30%,rgba(22,140,255,.11),transparent 28%),
+    radial-gradient(circle at 8% 80%,rgba(33,212,253,.07),transparent 30%),
+    linear-gradient(180deg,#f5faff,#edf6ff) !important;
+}
+#experience::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    linear-gradient(rgba(40,135,210,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(40,135,210,.055) 1px,transparent 1px);
+  background-size:46px 46px;
+  mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent);
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent);
+  animation:experienceGrid 20s linear infinite;
+  pointer-events:none;
+}
+#experience::after{
+  content:"";
+  position:absolute;
+  left:-20%;right:-20%;top:42%;height:2px;
+  z-index:1;
+  background:linear-gradient(90deg,transparent,rgba(24,151,255,0),rgba(24,151,255,.55),rgba(33,212,253,.9),rgba(24,151,255,.1),transparent);
+  filter:blur(.4px);
+  animation:experienceBeam 8s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes experienceGrid{
+  from{background-position:0 0,0 0}
+  to{background-position:46px 46px,-46px 46px}
+}
+@keyframes experienceBeam{
+  0%,18%{transform:translateX(-20%);opacity:0}
+  35%{opacity:.8}
+  70%{transform:translateX(20%);opacity:.35}
+  100%{transform:translateX(45%);opacity:0}
+}
+
+/* ---------- ARCHITECTURE: futuristic layered data-network backdrop ---------- */
+.architecture-modern{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(0,182,255,.13),transparent 30%),
+    radial-gradient(circle at 8% 85%,rgba(22,140,255,.11),transparent 32%),
+    radial-gradient(circle at 92% 72%,rgba(33,212,253,.08),transparent 30%),
+    linear-gradient(180deg,#f5faff 0%,#edf7ff 50%,#f7fbff 100%);
+}
+.architecture-modern::before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  z-index:0;
+  background:
+    linear-gradient(rgba(31,129,207,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(31,129,207,.055) 1px,transparent 1px),
+    radial-gradient(circle at 50% 50%,transparent 0 19%,rgba(25,156,236,.075) 19.2%,transparent 19.8% 34%,rgba(25,156,236,.05) 34.2%,transparent 34.8% 52%,rgba(25,156,236,.035) 52.2%,transparent 52.8%);
+  background-size:42px 42px,42px 42px,100% 100%;
+  animation:architectureGrid 28s linear infinite;
+  pointer-events:none;
+}
+.architecture-modern::after{
+  content:"";
+  position:absolute;
+  width:720px;height:720px;
+  left:50%;top:48%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+  border-radius:50%;
+  background:
+    conic-gradient(from 0deg,transparent 0 14%,rgba(0,186,255,.09) 15%,transparent 18% 38%,rgba(0,186,255,.07) 39%,transparent 42% 66%,rgba(0,186,255,.08) 67%,transparent 70% 100%);
+  filter:blur(.2px);
+  animation:architectureHalo 32s linear infinite;
+  pointer-events:none;
+}
+@keyframes architectureGrid{
+  from{transform:translate3d(0,0,0) rotate(0deg) scale(1)}
+  to{transform:translate3d(18px,22px,0) rotate(.8deg) scale(1.025)}
+}
+@keyframes architectureHalo{
+  from{transform:translate(-50%,-50%) rotate(0deg) scale(.96)}
+  to{transform:translate(-50%,-50%) rotate(360deg) scale(1.03)}
+}
+
+/* Dark-mode versions: richer navy atmosphere, but still restrained. */
+:root:not(.light) #about{
+  background:
+    radial-gradient(ellipse at 12% 15%,rgba(0,181,255,.12),transparent 34%),
+    radial-gradient(ellipse at 88% 78%,rgba(0,196,255,.09),transparent 38%),
+    linear-gradient(180deg,#071827 0%,#06121f 100%);
+}
+:root:not(.light) #about::before{
+  background:
+    repeating-radial-gradient(ellipse at 20% 70%,transparent 0 34px,rgba(0,178,255,.075) 35px 36px,transparent 37px 74px),
+    repeating-linear-gradient(168deg,transparent 0 46px,rgba(31,162,238,.045) 47px 48px,transparent 49px 94px);
+}
+:root:not(.light) #skills{
+  background:
+    radial-gradient(circle at 10% 90%,rgba(22,140,255,.12),transparent 32%),
+    radial-gradient(circle at 92% 10%,rgba(33,212,253,.09),transparent 30%),
+    linear-gradient(135deg,#071827,#081d31);
+  border-color:rgba(91,180,235,.18);
+}
+:root:not(.light) #skills::before{
+  background:
+    linear-gradient(rgba(64,176,235,.075) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(64,176,235,.075) 1px,transparent 1px),
+    radial-gradient(circle at center,transparent 0 28%,rgba(33,180,255,.07) 29%,transparent 30% 48%,rgba(33,180,255,.045) 49%,transparent 50%);
+  background-size:34px 34px,34px 34px,100% 100%;
+}
+:root:not(.light) #experience{
+  background:
+    radial-gradient(circle at 82% 30%,rgba(22,140,255,.12),transparent 28%),
+    radial-gradient(circle at 8% 80%,rgba(33,212,253,.08),transparent 30%),
+    linear-gradient(180deg,#071827,#06111f) !important;
+}
+:root:not(.light) #experience::before{
+  background:
+    linear-gradient(rgba(63,169,232,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(63,169,232,.055) 1px,transparent 1px);
+}
+:root:not(.light) .architecture-modern{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(0,182,255,.14),transparent 30%),
+    radial-gradient(circle at 8% 85%,rgba(22,140,255,.12),transparent 32%),
+    radial-gradient(circle at 92% 72%,rgba(33,212,253,.08),transparent 30%),
+    linear-gradient(180deg,#061624,#06111f 52%,#071827);
+  border-top:1px solid rgba(76,176,235,.13);
+  border-bottom:1px solid rgba(76,176,235,.13);
+}
+:root:not(.light) .architecture-modern::before{
+  background:
+    linear-gradient(rgba(64,176,235,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(64,176,235,.055) 1px,transparent 1px),
+    radial-gradient(circle at 50% 50%,transparent 0 19%,rgba(0,185,255,.09) 19.2%,transparent 19.8% 34%,rgba(0,185,255,.06) 34.2%,transparent 34.8% 52%,rgba(0,185,255,.04) 52.2%,transparent 52.8%);
+  background-size:42px 42px,42px 42px,100% 100%;
+}
+:root:not(.light) .architecture-modern::after{
+  background:conic-gradient(from 0deg,transparent 0 14%,rgba(0,194,255,.12) 15%,transparent 18% 38%,rgba(0,194,255,.08) 39%,transparent 42% 66%,rgba(0,194,255,.10) 67%,transparent 70% 100%);
+}
+
+/* The animated backgrounds must never cover text/cards or intercept hover. */
+#about::before,#about::after,#skills::before,#skills::after,
+#experience::before,#experience::after,.architecture-modern::before,.architecture-modern::after{
+  pointer-events:none;
+}
+
+@media(prefers-reduced-motion:reduce){
+  #about::before,#about::after,#skills::before,#skills::after,
+  #experience::before,#experience::after,.architecture-modern::before,.architecture-modern::after{
+    animation:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -3666,6 +4044,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
   <div class="visual" aria-label="Google Cloud data engineering technology illustration">
     <div class="visual-stage">
+      <canvas class="hero-particles" aria-hidden="true"></canvas>
       <div class="orbit"></div>
       <div class="cloud-core">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud">
@@ -3821,6 +4200,118 @@ section#experience,section#education{background:var(--ref-bg) !important}
 <section id="contact" class="reveal"><div class="container"><div class="contact"><h3>Let's build something with data</h3><p>I'm interested in data engineering opportunities, cloud data platforms and projects where reliable data can create meaningful business impact.</p><div class="contact-links"><a href="mailto:mediboyinanaveen98@gmail.com">✉ Email Me</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">in LinkedIn</a><a href="Naveen_Kumar_resume.pdf" download>↓ Download Resume</a></div></div></div></section>
 </main>
 <footer><div class="container footer-inner"><div><div class="footer-brand">Naveen Kumar M</div><p>Data Engineer · Google Cloud · Data & Analytics</p></div><div class="footer-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+
+<script>
+/* Hero-only glowing particles — contained strictly inside .visual-stage. */
+(function(){
+  const stage = document.querySelector('.visual-stage');
+  const canvas = stage && stage.querySelector('.hero-particles');
+  if(!stage || !canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  if(!ctx) return;
+
+  let particles = [];
+  let raf = null;
+  let width = 0, height = 0;
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    const rect = stage.getBoundingClientRect();
+    width = Math.max(1, rect.width);
+    height = Math.max(1, rect.height);
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    const count = width < 420 ? 22 : 34;
+    const cx = width / 2;
+    const cy = height / 2;
+    const maxR = Math.min(width, height) * .44;
+
+    particles = Array.from({length:count}, (_,i) => {
+      const angle = Math.random() * Math.PI * 2;
+      const radius = maxR * (.62 + Math.random() * .38);
+      return {
+        angle,
+        radius,
+        speed: (.00010 + Math.random() * .00016) * (i % 2 ? 1 : -1),
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: .018 + Math.random() * .022,
+        size: 1.1 + Math.random() * 1.7,
+        alpha: .35 + Math.random() * .5,
+        offsetX: (Math.random() - .5) * 16,
+        offsetY: (Math.random() - .5) * 16,
+        cx, cy
+      };
+    });
+  }
+
+  function draw(now){
+    ctx.clearRect(0,0,width,height);
+
+    const dark = !document.documentElement.classList.contains('light');
+
+    particles.forEach(p => {
+      p.angle += p.speed;
+      p.pulse += p.pulseSpeed;
+
+      const breathe = Math.sin(p.pulse) * 4;
+      const r = p.radius + breathe;
+      const x = p.cx + Math.cos(p.angle) * r + p.offsetX;
+      const y = p.cy + Math.sin(p.angle) * r * .76 + p.offsetY;
+
+      const twinkle = .58 + .42 * (Math.sin(p.pulse) * .5 + .5);
+      const a = p.alpha * twinkle;
+
+      const glow = ctx.createRadialGradient(x,y,0,x,y,p.size*7);
+      glow.addColorStop(0, dark
+        ? `rgba(24,205,255,${a})`
+        : `rgba(28,142,255,${a*.75})`);
+      glow.addColorStop(.25, dark
+        ? `rgba(0,169,255,${a*.48})`
+        : `rgba(30,130,245,${a*.25})`);
+      glow.addColorStop(1, 'rgba(0,120,255,0)');
+
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(x,y,p.size*7,0,Math.PI*2);
+      ctx.fill();
+
+      ctx.fillStyle = dark
+        ? `rgba(112,229,255,${Math.min(1,a+.12)})`
+        : `rgba(53,153,255,${Math.min(1,a+.05)})`;
+      ctx.beginPath();
+      ctx.arc(x,y,p.size,0,Math.PI*2);
+      ctx.fill();
+    });
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  function start(){
+    if(raf === null) raf = requestAnimationFrame(draw);
+  }
+  function stop(){
+    if(raf !== null){
+      cancelAnimationFrame(raf);
+      raf = null;
+    }
+  }
+
+  resize();
+  start();
+
+  window.addEventListener('resize', resize, {passive:true});
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible') start();
+    else stop();
+  });
+})();
+</script>
 
 <script>
 /* Hero orbit animation — continuously rotates, with upright cards. */
