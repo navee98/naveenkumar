@@ -4134,7 +4134,36 @@ section#experience,section#education{background:var(--ref-bg) !important}
   .pipeline-status-dot.running{animation:none}
   #experience .timeline::after{transition:none!important}
 }
-</style>\n\n</head>
+</style>\n\n
+<style id="final-clarity-fixes">
+/* Keep skill tooltips fully visible instead of clipping them inside the card. */
+.tech{
+  overflow:visible !important;
+}
+.tech[data-tooltip]::after{
+  z-index:999 !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  line-height:1.45 !important;
+  padding:10px 12px !important;
+  box-sizing:border-box !important;
+}
+/* Keep the skill card title readable on narrow cards. */
+.tech strong{
+  white-space:normal !important;
+  line-height:1.2 !important;
+  max-width:100% !important;
+}
+/* Professional architecture closing statement. */
+.arch-caption{
+  font-family:Inter,system-ui,sans-serif !important;
+  font-style:normal !important;
+  font-weight:700 !important;
+  letter-spacing:.2px !important;
+  transform:none !important;
+}
+</style>
+</head>
 <body>
 <header>
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%">
@@ -4320,7 +4349,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
     </article>
   </div>
   <div class="arch-security"><span><b>▣</b> IAM & Secrets</span><span><b>◉</b> Monitoring & Alerts</span><span><b>⚙</b> CI/CD Automation</span><span><b>↻</b> Retries & Recovery</span></div>
-  <div class="arch-caption">Data Drives Possibilities</div>
+  <div class="arch-caption">Engineering Data. Enabling Decisions.</div>
 </div></section>
 
 <section class="reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>What I Do</h3><p>Turning raw data into reliable platforms and actionable insights.</p></div><div class="do-grid"><div class="do-card"><div class="big-icon">⇄</div><h4>Build Data Pipelines</h4><p>Design and develop robust ETL/ELT pipelines for batch and cloud data workloads.</p></div><div class="do-card"><div class="big-icon">☁</div><h4>Cloud Data Solutions</h4><p>Build scalable GCP solutions using BigQuery, Cloud Storage, Composer and related services.</p></div><div class="do-card"><div class="big-icon">⚙</div><h4>Data Transformation</h4><p>Transform, validate and optimize data using SQL, Python and cloud processing services.</p></div><div class="do-card"><div class="big-icon">▥</div><h4>Analytics & Visualization</h4><p>Create reporting-ready datasets and dashboards with Looker Studio and Tableau.</p></div></div></div></section>
