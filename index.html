@@ -4214,10 +4214,36 @@ section#experience,section#education{background:var(--ref-bg) !important}
   z-index:9999 !important;
 }
 .tech[data-tooltip]:hover{z-index:1000 !important;}
+/* Right-edge cards: open the tooltip inward so the full sentence stays inside the viewport. */
+.stack-grid .tech:nth-child(3n)[data-tooltip]::after{
+  left:auto !important;
+  right:0 !important;
+  transform:translateY(8px) !important;
+}
+.stack-grid .tech:nth-child(3n)[data-tooltip]::before{
+  left:auto !important;
+  right:18px !important;
+  transform:translateY(8px) !important;
+}
+.stack-grid .tech:nth-child(3n)[data-tooltip]:hover::after{
+  transform:translateY(0) !important;
+}
+.stack-grid .tech:nth-child(3n)[data-tooltip]:hover::before{
+  transform:translateY(0) !important;
+}
+
 @media(max-width:620px){
   .tech[data-tooltip]::after{
     width:190px !important;
     max-width:calc(100vw - 24px) !important;
+  }
+  .stack-grid .tech:nth-child(3n)[data-tooltip]::after{
+    right:0 !important;
+    left:auto !important;
+  }
+  .stack-grid .tech:nth-child(3n)[data-tooltip]::before{
+    right:14px !important;
+    left:auto !important;
   }
 }
 </style>
