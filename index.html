@@ -4022,7 +4022,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
 }
 
 /* ---------- 2. SKILLS: scanning hover effect ---------- */
-.tech{overflow:hidden !important;isolation:isolate}
+.tech{overflow:visible !important;isolation:isolate}
 .tech::after{
   content:"";position:absolute;left:-120%;top:0;width:55%;height:100%;
   background:linear-gradient(90deg,transparent,rgba(33,212,253,.18),transparent);
@@ -4075,20 +4075,59 @@ section#experience,section#education{background:var(--ref-bg) !important}
 #experience .timeline .dot{z-index:3;transition:box-shadow .25s ease,transform .25s ease}
 #experience .job.timeline-active .dot{box-shadow:0 0 0 5px rgba(33,212,253,.13),0 0 20px rgba(33,212,253,.48);transform:scale(1.12)}
 
-/* ---------- 5. PROJECTS: premium 3D tilt + reflection ---------- */
-.project{
-  transform-style:preserve-3d;will-change:transform;perspective:900px;overflow:hidden !important;
-  transition:transform .12s ease-out,box-shadow .25s ease,border-color .25s ease !important;
+/* ---------- 5. PROJECTS + WHAT I DO + ABOUT ME: one consistent premium hover interaction ---------- */
+.project,
+.do-card,
+.about-copy,
+.stack{
+  position:relative;overflow:hidden !important;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease !important;
 }
-.project::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.18) 45%,transparent 65%);
-  transform:translateX(-120%);transition:transform .7s ease;opacity:0;
+.project::before,
+.do-card::before,
+.about-copy::before,
+.stack::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  opacity:0;transform:scaleX(.35);transform-origin:center;
+  transition:opacity .25s ease,transform .3s ease;pointer-events:none;
 }
-.project.tilt-active::after{transform:translateX(120%);opacity:1}
-.project .project-top,.project>p,.project>.tags{transform:translateZ(14px)}
-.project .project-icon{transform:translateZ(24px);transition:transform .25s ease}
-.project.tilt-active .project-icon{transform:translateZ(28px) scale(1.08)}
+.project:hover,
+.do-card:hover,
+.about-copy:hover,
+.stack:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 35px rgba(30,80,125,.12) !important;
+  border-color:rgba(22,140,255,.22);
+}
+.project:hover::before,
+.do-card:hover::before,
+.about-copy:hover::before,
+.stack:hover::before{opacity:.65;transform:scaleX(1)}
+.project .project-icon,
+.do-card .big-icon,
+.value .ico{transition:transform .25s ease,box-shadow .25s ease}
+.project:hover .project-icon,
+.do-card:hover .big-icon,
+.value:hover .ico{transform:translateY(-2px) scale(1.06);box-shadow:0 8px 18px rgba(22,140,255,.12)}
+
+/* About Me's four value cards use the same motion without changing their layout. */
+.value{
+  position:relative;overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease !important;
+}
+.value::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  opacity:0;transform:scaleX(.35);transform-origin:center;
+  transition:opacity .25s ease,transform .3s ease;pointer-events:none;
+}
+.value:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px rgba(30,80,125,.10);
+  border-color:rgba(22,140,255,.22);
+}
+.value:hover::before{opacity:.65;transform:scaleX(1)}
 
 /* ---------- LIVE PIPELINE MODE UI ---------- */
 .pipeline-control{
@@ -4161,6 +4200,25 @@ section#experience,section#education{background:var(--ref-bg) !important}
   font-weight:700 !important;
   letter-spacing:.2px !important;
   transform:none !important;
+}
+
+
+/* ===== Professional skill tooltip visibility =====
+   Keep the full description visible even for cards near the grid edges. */
+.tech[data-tooltip]{overflow:visible !important;z-index:2;}
+.tech[data-tooltip]::after{
+  width:220px !important;
+  max-width:min(220px,calc(100vw - 28px)) !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  z-index:9999 !important;
+}
+.tech[data-tooltip]:hover{z-index:1000 !important;}
+@media(max-width:620px){
+  .tech[data-tooltip]::after{
+    width:190px !important;
+    max-width:calc(100vw - 24px) !important;
+  }
 }
 </style>
 </head>
@@ -4692,25 +4750,8 @@ document.querySelectorAll('img').forEach(img=>{
     updateTimeline();
   }
 
-  /* 5. Projects: cursor-based 3D tilt. */
-  const projects=[...document.querySelectorAll('.project')];
-  if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
-    projects.forEach(card=>{
-      card.addEventListener('mousemove',function(e){
-        const r=card.getBoundingClientRect();
-        const x=(e.clientX-r.left)/r.width-.5;
-        const y=(e.clientY-r.top)/r.height-.5;
-        card.classList.add('tilt-active');
-        card.style.transform='perspective(900px) rotateX('+(-y*5)+'deg) rotateY('+(x*6)+'deg) translateY(-5px) scale(1.012)';
-        card.style.boxShadow='0 22px 46px rgba(22,140,255,.16)';
-      });
-      card.addEventListener('mouseleave',function(){
-        card.classList.remove('tilt-active');
-        card.style.transform='';
-        card.style.boxShadow='';
-      });
-    });
-  }
+  /* 5. Projects: use the same subtle lift/glow hover interaction as What I Do. */
+  /* Mouse-position 3D tilt is intentionally removed for a cleaner professional feel. */
 
   /* 6. Live Pipeline Mode: animate one glowing data point through the real architecture layers. */
   const arch=document.querySelector('.architecture-modern');
