@@ -3478,43 +3478,110 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
 /* ===== FINAL: metrics only in Hero ===== */
 .about-highlight{display:none !important}
-/* ===== NEW DATA ENGINEERING ARCHITECTURE ===== */
-.architecture-modern{position:relative;overflow:hidden;padding:10px 0 30px}
-.architecture-modern .arch-canvas{position:relative;min-height:390px;border-radius:22px;border:1px solid #d9eafb;background:linear-gradient(135deg,#f8fcff 0%,#edf7ff 52%,#e2f2ff 100%);box-shadow:0 18px 50px rgba(31,105,165,.10);overflow:hidden}
-.architecture-modern .arch-canvas:before{content:"";position:absolute;inset:-30% -10%;background:radial-gradient(circle at 50% 48%,rgba(47,171,255,.17),transparent 25%),radial-gradient(circle at 10% 100%,rgba(79,167,239,.10),transparent 30%);pointer-events:none}
-.architecture-modern .arch-canvas:after{content:"";position:absolute;width:720px;height:360px;left:50%;top:55%;transform:translate(-50%,-50%);border:1px solid rgba(61,167,241,.13);border-radius:50%;box-shadow:0 0 0 70px rgba(78,174,244,.035),0 0 0 140px rgba(78,174,244,.025);pointer-events:none}
-.arch-flow{position:absolute;inset:0;z-index:2}
-.arch-node{position:absolute;width:138px;min-height:92px;padding:13px 12px;border-radius:16px;background:rgba(255,255,255,.94);border:1px solid #cfe4f6;box-shadow:0 12px 28px rgba(32,91,133,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5;transition:.25s ease}
-.arch-node:hover{transform:translateY(-5px);border-color:#55b9ff;box-shadow:0 16px 34px rgba(25,139,225,.18)}
-.arch-node img{width:38px;height:38px;object-fit:contain;margin-bottom:7px}
-.arch-node strong{font-size:11px;color:#102e50}
-.arch-node small{font-size:8px;color:#71849a;margin-top:3px;line-height:1.3}
-.arch-node.source{left:4%;top:50%;transform:translateY(-50%)}
-.arch-node.ingest{left:23%;top:18%}
-.arch-node.process{left:42%;top:50%;transform:translateY(-50%)}
-.arch-node.warehouse{right:23%;top:18%}
-.arch-node.analytics{right:4%;top:50%;transform:translateY(-50%)}
-.arch-node.orchestration{left:23%;bottom:10%}
-.arch-node.orchestration img{width:34px;height:34px}
-.arch-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:#fff;border:2px solid #72c2ff;display:grid;place-items:center;z-index:6;box-shadow:0 0 0 10px rgba(67,178,248,.07),0 0 34px rgba(47,170,248,.23),0 18px 35px rgba(33,99,142,.15)}
-.arch-center img{width:70px;height:70px;object-fit:contain}
-.arch-center span{position:absolute;bottom:-28px;font-size:9px;font-weight:800;color:#1c4e80;white-space:nowrap}
-.arch-svg{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
-.arch-svg path{fill:none;stroke:#55b5fb;stroke-width:2.5;stroke-dasharray:7 7;filter:drop-shadow(0 0 2px rgba(50,163,239,.15))}
-.arch-svg circle{fill:#159bf1;filter:drop-shadow(0 0 4px rgba(0,157,255,.35))}
-.arch-label{position:absolute;right:4%;bottom:9%;z-index:7;width:155px;color:#183c7d;font-family:"Segoe Print","Bradley Hand",cursive;font-size:17px;line-height:1.02;font-weight:700;transform:rotate(-4deg);text-align:center}
-.arch-label:after{content:"";display:block;width:110px;height:3px;margin:7px auto 0;background:#169bf2;transform:rotate(-4deg);border-radius:3px}
-:root:not(.light) .architecture-modern .arch-canvas{background:radial-gradient(circle at 50% 48%,rgba(0,193,255,.20),transparent 25%),radial-gradient(circle at 88% 20%,rgba(20,115,255,.14),transparent 30%),linear-gradient(135deg,#031221,#062846 58%,#073b5d);border-color:rgba(70,174,238,.22);box-shadow:0 18px 55px rgba(0,0,0,.30)}
-:root:not(.light) .architecture-modern .arch-canvas:before{background:radial-gradient(circle at 50% 48%,rgba(0,207,255,.20),transparent 27%),radial-gradient(circle at 10% 90%,rgba(20,112,255,.12),transparent 32%)}
-:root:not(.light) .architecture-modern .arch-canvas:after{border-color:rgba(35,177,244,.18);box-shadow:0 0 0 70px rgba(20,150,235,.055),0 0 0 140px rgba(20,150,235,.035)}
-:root:not(.light) .arch-node{background:rgba(5,29,49,.95);border-color:rgba(69,180,240,.24);box-shadow:0 15px 32px rgba(0,0,0,.30)}
-:root:not(.light) .arch-node strong{color:#f0f8ff}.arch-node small{color:#91b2ca}
-:root:not(.light) .arch-node:hover{border-color:#16baff;box-shadow:0 16px 35px rgba(0,171,255,.18)}
-:root:not(.light) .arch-center{background:#fff;border-color:#20b8ff;box-shadow:0 0 0 10px rgba(0,185,255,.07),0 0 36px rgba(0,190,255,.30),0 18px 38px rgba(0,0,0,.34)}
-:root:not(.light) .arch-center span{color:#9fe5ff}.arch-svg path{stroke:#12baff}.arch-svg circle{fill:#0bd1ff}.arch-label{color:#e7f8ff;text-shadow:0 0 10px rgba(0,194,255,.24)}
-@media(max-width:800px){.architecture-modern .arch-canvas{min-height:600px}.arch-node{width:112px;min-height:78px}.arch-node.source{left:3%;top:50%}.arch-node.ingest{left:8%;top:10%}.arch-node.process{left:50%;top:37%}.arch-node.warehouse{right:8%;top:10%}.arch-node.analytics{right:3%;top:50%}.arch-node.orchestration{left:8%;bottom:9%}.arch-center{width:100px;height:100px}.arch-center img{width:60px;height:60px}.arch-label{right:5%;bottom:8%;font-size:14px;width:120px}}
-@media(max-width:520px){.architecture-modern .arch-canvas{min-height:650px}.arch-node{width:105px;padding:10px 7px}.arch-node img{width:32px;height:32px}.arch-node strong{font-size:9px}.arch-node small{font-size:7px}.arch-node.source{left:2%;top:48%}.arch-node.ingest{left:5%;top:8%}.arch-node.process{left:50%;top:42%}.arch-node.warehouse{right:5%;top:8%}.arch-node.analytics{right:2%;top:48%}.arch-node.orchestration{left:5%;bottom:7%}.arch-center{width:88px;height:88px}.arch-center img{width:54px;height:54px}.arch-label{right:3%;bottom:5%;font-size:12px;width:100px}}
+/* ===== OPTION 3: LAYERED DATA ENGINEERING ARCHITECTURE ===== */
+.architecture-modern{position:relative;overflow:hidden;padding:12px 0 46px}
+.architecture-modern .section-head{margin-bottom:20px}
+.layered-architecture{position:relative;padding:12px 0 18px}
+.layered-architecture:before{content:"";position:absolute;left:34px;top:28px;bottom:28px;width:2px;background:linear-gradient(to bottom,rgba(26,115,232,.12),rgba(26,115,232,.45),rgba(26,115,232,.10));z-index:0}
+.arch-layer{position:relative;z-index:2;display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:stretch;margin:0 0 16px;padding:20px 22px;border:1px solid #d9e8f7;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(242,249,255,.94));box-shadow:0 14px 34px rgba(31,92,138,.09);overflow:hidden;opacity:0;transform:translateY(76px) scale(.94);filter:blur(2px);transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .82s cubic-bezier(.22,.61,.36,1),filter .72s ease,box-shadow .3s ease,border-color .3s ease}
+.arch-layer.show{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+.arch-layer:nth-child(1){transition-delay:.02s}.arch-layer:nth-child(2){transition-delay:.10s}.arch-layer:nth-child(3){transition-delay:.18s}.arch-layer:nth-child(4){transition-delay:.26s}.arch-layer:nth-child(5){transition-delay:.34s}
+.arch-layer:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(26,115,232,.10),transparent 28%),linear-gradient(90deg,transparent 0 72%,rgba(26,115,232,.035));pointer-events:none}
+.arch-layer:hover{transform:translateY(-5px) scale(1.008);border-color:#8bcaff;box-shadow:0 20px 44px rgba(30,117,185,.15)}
+.arch-layer-label{position:relative;display:flex;align-items:center;gap:13px;min-width:0}
+.arch-layer-number{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;flex:0 0 46px;background:linear-gradient(135deg,#0b57d0,#1a9cf0);color:#fff;font-size:13px;font-weight:900;box-shadow:0 8px 20px rgba(26,115,232,.25)}
+.arch-layer-label h4{margin:0;color:#12355b;font-size:15px;letter-spacing:-.2px}
+.arch-layer-label p{margin:4px 0 0;color:#6c8097;font-size:9px;line-height:1.35}
+.arch-layer-content{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:stretch}
+.arch-node{position:relative;display:flex;align-items:center;gap:10px;min-height:66px;padding:10px 12px;border-radius:15px;background:rgba(255,255,255,.90);border:1px solid #dceaf7;box-shadow:0 7px 18px rgba(40,92,130,.07);transition:.25s ease}
+.arch-node:hover{transform:translateY(-4px);border-color:#65bfff;box-shadow:0 12px 25px rgba(25,139,225,.14);z-index:4}
+.arch-node .arch-icon-wrap{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:0 0 40px;background:#edf6ff}
+.arch-node img{width:28px;height:28px;object-fit:contain}
+.arch-node strong{display:block;font-size:10px;color:#14395f;line-height:1.2}
+.arch-node small{display:block;margin-top:3px;font-size:7.5px;color:#71849a;line-height:1.25}
+.arch-layer-arrow{position:relative;z-index:3;height:14px;margin:-3px 0 1px 34px;display:flex;align-items:center;justify-content:center;color:#3daaf5;font-size:15px;opacity:.72}
+.arch-layer-arrow span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid #cfe5f8;box-shadow:0 5px 12px rgba(39,111,161,.08)}
+.arch-caption{margin:18px auto 0;max-width:700px;text-align:center;font-family:"Segoe Print","Bradley Hand",cursive;font-size:17px;font-weight:700;color:#1a5d91;transform:rotate(-1deg)}
+.arch-caption:after{content:"";display:block;width:120px;height:3px;margin:7px auto 0;border-radius:5px;background:#19a5f5;transform:rotate(-2deg)}
+.arch-security{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:17px}
+.arch-security span{padding:7px 11px;border-radius:999px;border:1px solid #d8e8f5;background:#f7fbff;color:#4d6c88;font-size:8px;font-weight:800;box-shadow:0 5px 13px rgba(35,92,133,.06)}
+.arch-security b{color:#168ee3;margin-right:4px}
+:root:not(.light) .architecture-modern .section-head p{color:#9bb5c9}
+:root:not(.light) .layered-architecture:before{background:linear-gradient(to bottom,rgba(0,193,255,.10),rgba(0,193,255,.50),rgba(0,193,255,.08))}
+:root:not(.light) .arch-layer{background:linear-gradient(135deg,rgba(5,29,49,.97),rgba(5,38,65,.95));border-color:rgba(75,180,239,.22);box-shadow:0 16px 38px rgba(0,0,0,.28)}
+:root:not(.light) .arch-layer:before{background:radial-gradient(circle at 15% 50%,rgba(0,190,255,.11),transparent 28%),linear-gradient(90deg,transparent 0 72%,rgba(0,174,255,.035))}
+:root:not(.light) .arch-layer:hover{border-color:#13b9ff;box-shadow:0 20px 44px rgba(0,167,255,.13)}
+:root:not(.light) .arch-layer-label h4{color:#e9f7ff}.arch-layer-label p{color:#8faec3}
+:root:not(.light) .arch-node{background:rgba(7,31,51,.92);border-color:rgba(77,179,239,.19);box-shadow:0 8px 20px rgba(0,0,0,.24)}
+:root:not(.light) .arch-node:hover{border-color:#14b9ff;box-shadow:0 12px 25px rgba(0,177,255,.14)}
+:root:not(.light) .arch-node .arch-icon-wrap{background:rgba(0,170,255,.10)}
+:root:not(.light) .arch-node strong{color:#effaff}.arch-node small{color:#8faec3}
+:root:not(.light) .arch-layer-arrow span{background:#082b47;border-color:rgba(80,180,238,.25);color:#57c9ff}
+:root:not(.light) .arch-caption{color:#dff7ff;text-shadow:0 0 12px rgba(0,193,255,.20)}
+:root:not(.light) .arch-security span{background:rgba(5,30,49,.86);border-color:rgba(76,176,235,.18);color:#9db8ca}
+@media(max-width:900px){
+  .arch-layer{grid-template-columns:150px 1fr;gap:15px;padding:16px}
+  .arch-layer-content{grid-template-columns:1fr 1fr}
+  .arch-layer-content .arch-node:last-child{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .architecture-modern{padding-bottom:34px}
+  .layered-architecture:before{left:22px}
+  .arch-layer{grid-template-columns:1fr;gap:13px;padding:15px;border-radius:18px}
+  .arch-layer-label{padding-left:3px}
+  .arch-layer-number{width:40px;height:40px;flex-basis:40px;border-radius:13px;font-size:11px}
+  .arch-layer-label h4{font-size:13px}.arch-layer-label p{font-size:8px}
+  .arch-layer-content{grid-template-columns:1fr;gap:8px}
+  .arch-layer-content .arch-node:last-child{grid-column:auto}
+  .arch-node{min-height:58px;padding:9px 10px}
+  .arch-node .arch-icon-wrap{width:36px;height:36px;flex-basis:36px}
+  .arch-node img{width:25px;height:25px}
+  .arch-layer-arrow{margin-left:22px}
+  .arch-caption{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.arch-layer{opacity:1;transform:none;filter:none;transition:none}.arch-layer-arrow,.arch-layer-content,.arch-layer-label{animation:none!important}}
+</style>
 
+
+<style id="final-animation-fixes">
+/* ===== FINAL MOTION FIXES ===== */
+/* The orbit cards are positioned by JS. These overrides intentionally remove the
+   earlier !important static transforms so the circular motion can be seen. */
+.visual-stage .orbit-card{will-change:transform;}
+.visual-stage .orbit-card .float-card{will-change:transform;}
+
+/* Option 3: replayable, reversible stacked-layer reveal. */
+.architecture-modern .scroll-layer{
+  opacity:0;
+  transform:translate3d(0,72px,0) scale(.965);
+  filter:blur(2px);
+  transition:
+    opacity .68s cubic-bezier(.22,.61,.36,1),
+    transform .78s cubic-bezier(.22,.61,.36,1),
+    filter .68s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+  transition-delay:var(--layer-delay,0ms);
+}
+.architecture-modern .scroll-layer.show{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:blur(0);
+}
+.architecture-modern .arch-layer-arrow{
+  opacity:0;
+  transform:translate3d(0,28px,0) scale(.9);
+  transition:opacity .45s ease,transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.architecture-modern .arch-layer-arrow.show{
+  opacity:.72;
+  transform:translate3d(0,0,0) scale(1);
+}
+@media(prefers-reduced-motion:reduce){
+  .architecture-modern .scroll-layer,.architecture-modern .arch-layer-arrow{
+    opacity:1!important;transform:none!important;filter:none!important;transition:none!important;
+  }
+}
 </style>
 
 </head>
@@ -3649,17 +3716,57 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </div>
 </div></div></section>
 
-<section class="architecture-modern reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end pipeline showing how I move data from source systems to business insights.</p></div><div class="arch-canvas"><div class="arch-flow">
-<div class="arch-node source" data-tooltip="I extract structured data from Oracle, MySQL and APIs and prepare it for cloud ingestion."><img src="https://cdn.simpleicons.org/oracle" alt="Data Sources"><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div>
-<div class="arch-node ingest" data-tooltip="I land incoming data in Cloud Storage and use Pub/Sub when event-driven ingestion is required."><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"><strong>Ingestion</strong><small>GCS · Pub/Sub</small></div>
-<div class="arch-node orchestration" data-tooltip="I schedule, monitor, retry and coordinate pipeline dependencies with Airflow, Composer and Astronomer."><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Orchestration"><strong>Orchestration</strong><small>Airflow · Composer · Astronomer</small></div>
-<div class="arch-node process" data-tooltip="I clean, validate, transform and enrich data using Dataflow, PySpark, Python and SQL."><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"><strong>Processing</strong><small>Dataflow · PySpark · Python · SQL</small></div>
-<div class="arch-node warehouse" data-tooltip="I organize curated datasets in BigQuery for scalable analytics and downstream consumption."><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"><strong>Data Warehouse</strong><small>BigQuery</small></div>
-<div class="arch-node analytics" data-tooltip="I publish reporting-ready datasets and support dashboards for business users."><img src="assets/icons/Looker-512-color.svg" alt="Analytics"><strong>Analytics</strong><small>Looker Studio · Tableau</small></div>
-<div class="arch-center"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud"><span>Google Cloud Platform</span></div>
-<svg class="arch-svg" viewBox="0 0 1000 390" preserveAspectRatio="none" aria-hidden="true"><path d="M145 195 C205 195 205 110 285 110 S400 195 500 195 S600 110 715 110 S810 195 855 195"/><path d="M285 110 C300 190 350 290 500 195"/><path d="M500 195 C650 100 700 100 715 110"/><circle cx="145" cy="195" r="4"/><circle cx="285" cy="110" r="4"/><circle cx="500" cy="195" r="5"/><circle cx="715" cy="110" r="4"/><circle cx="855" cy="195" r="4"/></svg>
-<div class="arch-label">Data<br>Drives<br>Possibilities</div>
-</div></div></div></section>
+<section class="architecture-modern reveal"><div class="container">
+  <div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>Layered end-to-end architecture showing how I move data from source systems to business insights.</p></div>
+  <div class="layered-architecture" aria-label="Layered data engineering architecture">
+    <article class="arch-layer scroll-layer" data-tooltip="I connect operational and external sources and prepare data for reliable cloud ingestion.">
+      <div class="arch-layer-label"><span class="arch-layer-number">01</span><div><h4>Source Layer</h4><p>Where the data originates</p></div></div>
+      <div class="arch-layer-content">
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/oracle" alt="Oracle"></span><div><strong>Oracle</strong><small>Enterprise source</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"></span><div><strong>MySQL / Zuora</strong><small>Subscription DBs</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/postman" alt="APIs"></span><div><strong>APIs / Files</strong><small>External feeds</small></div></div>
+      </div>
+    </article>
+    <div class="arch-layer-arrow"><span>↓</span></div>
+    <article class="arch-layer scroll-layer" data-tooltip="I land incoming data in cloud storage and support event-driven ingestion when required.">
+      <div class="arch-layer-label"><span class="arch-layer-number">02</span><div><h4>Ingestion Layer</h4><p>Reliable landing zone</p></div></div>
+      <div class="arch-layer-content">
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Storage.svg" alt="Cloud Storage"></span><div><strong>Cloud Storage</strong><small>Raw / landing files</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/Pub-Sub.svg" alt="Pub/Sub"></span><div><strong>Pub/Sub</strong><small>Event ingestion</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Airflow"></span><div><strong>Ingestion Jobs</strong><small>Batch workflows</small></div></div>
+      </div>
+    </article>
+    <div class="arch-layer-arrow"><span>↓</span></div>
+    <article class="arch-layer scroll-layer" data-tooltip="I orchestrate, clean, validate and transform data using Airflow, Dataflow, Python, SQL and PySpark.">
+      <div class="arch-layer-label"><span class="arch-layer-number">03</span><div><h4>Processing Layer</h4><p>Transform and validate</p></div></div>
+      <div class="arch-layer-content">
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:astronomer.svg?height=64" alt="Astronomer"></span><div><strong>Airflow + Astronomer</strong><small>Orchestration</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow"></span><div><strong>Dataflow</strong><small>Scalable processing</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/apachespark" alt="PySpark"></span><div><strong>PySpark / Python / SQL</strong><small>Business transformations</small></div></div>
+      </div>
+    </article>
+    <div class="arch-layer-arrow"><span>↓</span></div>
+    <article class="arch-layer scroll-layer" data-tooltip="I organize curated datasets in BigQuery using layered data models and performance-focused table design.">
+      <div class="arch-layer-label"><span class="arch-layer-number">04</span><div><h4>Storage Layer</h4><p>Curated analytical data</p></div></div>
+      <div class="arch-layer-content">
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/BigQuery.svg" alt="BigQuery"></span><div><strong>BigQuery</strong><small>Data warehouse</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><span style="font-size:18px">▦</span></span><div><strong>Partitioned Tables</strong><small>Efficient queries</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><span style="font-size:17px">↔</span></span><div><strong>Ingestion → Silver → Reporting</strong><small>Layered data model</small></div></div>
+      </div>
+    </article>
+    <div class="arch-layer-arrow"><span>↓</span></div>
+    <article class="arch-layer scroll-layer" data-tooltip="I publish reporting-ready datasets and dashboards so business users can consume trusted insights.">
+      <div class="arch-layer-label"><span class="arch-layer-number">05</span><div><h4>Analytics Layer</h4><p>Insights and reporting</p></div></div>
+      <div class="arch-layer-content">
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:looker-icon.svg?height=64" alt="Looker Studio"></span><div><strong>Looker Studio</strong><small>Dashboards</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/tableau" alt="Tableau"></span><div><strong>Tableau</strong><small>Visualization</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><span style="font-size:18px">✓</span></span><div><strong>Business Insights</strong><small>Reporting & decisions</small></div></div>
+      </div>
+    </article>
+  </div>
+  <div class="arch-security"><span><b>▣</b> IAM & Secrets</span><span><b>◉</b> Monitoring & Alerts</span><span><b>⚙</b> CI/CD Automation</span><span><b>↻</b> Retries & Recovery</span></div>
+  <div class="arch-caption">Data Drives Possibilities</div>
+</div></section>
 
 <section class="reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>What I Do</h3><p>Turning raw data into reliable platforms and actionable insights.</p></div><div class="do-grid"><div class="do-card"><div class="big-icon">⇄</div><h4>Build Data Pipelines</h4><p>Design and develop robust ETL/ELT pipelines for batch and cloud data workloads.</p></div><div class="do-card"><div class="big-icon">☁</div><h4>Cloud Data Solutions</h4><p>Build scalable GCP solutions using BigQuery, Cloud Storage, Composer and related services.</p></div><div class="do-card"><div class="big-icon">⚙</div><h4>Data Transformation</h4><p>Transform, validate and optimize data using SQL, Python and cloud processing services.</p></div><div class="do-card"><div class="big-icon">▥</div><h4>Analytics & Visualization</h4><p>Create reporting-ready datasets and dashboards with Looker Studio and Tableau.</p></div></div></div></section>
 
@@ -3683,41 +3790,37 @@ section#experience,section#education{background:var(--ref-bg) !important}
 <footer><div class="container footer-inner"><div><div class="footer-brand">Naveen Kumar M</div><p>Data Engineer · Google Cloud · Data & Analytics</p></div><div class="footer-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
 
 <script>
-/* Hero orbit animation — stable cards, moving positions.
-   The orbit ring stays fixed. JavaScript moves each card around the circle.
-   Each card counter-rotates so the card itself always remains upright.
-   This avoids CSS-animation/inline-transform conflicts on Safari/iPhone. */
+/* Hero orbit animation — continuously rotates, with upright cards. */
 (function(){
-  const stage = document.querySelector('.visual-stage');
-  const orbit = document.querySelector('.orbit');
-  const cards = Array.from(document.querySelectorAll('.orbit-card'));
-  if (!stage || !orbit || cards.length === 0) return;
+  const orbit = document.querySelector('.visual-stage .orbit');
+  const cards = Array.from(document.querySelectorAll('.visual-stage .orbit-card'));
+  if (!orbit || !cards.length) return;
 
-  const duration = 18000;
-  const baseAngles = [0, 72, 144, 216, 288];
-  let startTime = null;
+  const duration = 18000; // one full revolution
+  const baseAngles = cards.map((_, i) => i * (360 / cards.length));
+  let startTime = performance.now();
   let rafId = null;
 
   function draw(now){
-    if (startTime === null) startTime = now;
-
     const elapsed = now - startTime;
     const rotation = ((elapsed % duration) / duration) * 360;
-    const radius = Math.max(70, orbit.getBoundingClientRect().width / 2);
+    const radius = Math.max(72, orbit.getBoundingClientRect().width / 2);
 
-    cards.forEach(function(card, i){
+    cards.forEach((card, i) => {
       const angle = baseAngles[i] + rotation;
+      card.style.setProperty(
+        'transform',
+        'translate3d(-50%, -50%, 0) rotate(' + angle + 'deg) translateY(-' + radius + 'px)',
+        'important'
+      );
 
-      // Position the card on the circular path.
-      card.style.transform =
-        'translate3d(-50%, -50%, 0) rotate(' + angle + 'deg) translateY(-' +
-        radius + 'px)';
-
-      // Counter-rotate the actual card so it stays perfectly upright.
       const inner = card.querySelector('.float-card');
       if (inner) {
-        inner.style.transform =
-          'translate3d(-50%, -50%, 0) rotate(' + (-angle) + 'deg)';
+        inner.style.setProperty(
+          'transform',
+          'translate3d(-50%, -50%, 0) rotate(' + (-angle) + 'deg)',
+          'important'
+        );
       }
     });
 
@@ -3726,11 +3829,10 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
   function start(){
     if (rafId === null) {
-      startTime = null;
+      startTime = performance.now();
       rafId = requestAnimationFrame(draw);
     }
   }
-
   function stop(){
     if (rafId !== null) {
       cancelAnimationFrame(rafId);
@@ -3742,11 +3844,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
     if (document.visibilityState === 'visible') start();
     else stop();
   });
-
-  window.addEventListener('resize', function(){
-    // The next animation frame recalculates the radius automatically.
-  }, {passive:true});
-
+  window.addEventListener('resize', function(){}, {passive:true});
   start();
 })();
 </script>
@@ -3802,7 +3900,38 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </script>
 
 <script>
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+/* General section reveals remain one-way. */
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add('show');
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* Architecture reveals are deliberately reversible/replayable:                 *
+   scroll down  -> layers rise in;
+   scroll up    -> layers leave/reveal again in the same direction;
+   re-enter     -> animation plays again. */
+const archLayers=[...document.querySelectorAll('.architecture-modern .scroll-layer')];
+const archArrows=[...document.querySelectorAll('.architecture-modern .arch-layer-arrow')];
+archLayers.forEach((el,i)=>el.style.setProperty('--layer-delay',(i*110)+'ms'));
+
+const layerObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    const el=entry.target;
+    if(entry.isIntersecting){
+      el.classList.add('show');
+    }else{
+      el.classList.remove('show');
+    }
+  });
+},{threshold:0.18,rootMargin:'-8% 0px -12% 0px'});
+archLayers.forEach(el=>layerObserver.observe(el));
+
+const arrowObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    entry.target.classList.toggle('show',entry.isIntersecting);
+  });
+},{threshold:0.15,rootMargin:'-4% 0px -12% 0px'});
+archArrows.forEach(el=>arrowObserver.observe(el));
 </script>
 </body>
 </html>
