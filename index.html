@@ -3994,9 +3994,147 @@ section#experience,section#education{background:var(--ref-bg) !important}
     animation:none!important;
   }
 }
-</style>
+<style id="premium-interactions">
+/* =========================================================
+   PREMIUM INTERACTIONS — 1 to 5 + LIVE PIPELINE MODE
+   1. Hero mouse-follow glow + subtle parallax
+   2. Skills interactive scan/glow cards
+   3. Architecture animated data flow
+   4. Experience scroll-driven timeline progress
+   5. Projects 3D tilt + light reflection
+   6. Live Pipeline Mode — replayable end-to-end flow
+   ========================================================= */
 
-</head>
+/* ---------- 1. HERO: interactive cursor atmosphere ---------- */
+.hero{--mx:50%;--my:50%}
+.hero::before{
+  background:radial-gradient(circle at var(--mx) var(--my),rgba(34,199,255,.13),transparent 19%),
+             radial-gradient(circle at 78% 45%,rgba(22,140,255,.14),transparent 22%) !important;
+  transition:background-position .18s ease;
+}
+.hero-copy,.visual-stage{transition:transform .35s cubic-bezier(.22,.75,.2,1)}
+.hero-cursor-glow{
+  position:absolute;width:240px;height:240px;border-radius:50%;pointer-events:none;z-index:1;
+  left:0;top:0;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(33,212,253,.16),rgba(22,140,255,.06) 35%,transparent 70%);
+  filter:blur(2px);mix-blend-mode:screen;opacity:.75;
+  will-change:transform;transition:opacity .25s ease;
+}
+
+/* ---------- 2. SKILLS: scanning hover effect ---------- */
+.tech{overflow:hidden !important;isolation:isolate}
+.tech::after{
+  content:"";position:absolute;left:-120%;top:0;width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(33,212,253,.18),transparent);
+  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none;z-index:-1;
+}
+.tech:hover::after{left:125%}
+.tech:hover img{transform:translateY(-2px) scale(1.10);filter:drop-shadow(0 0 9px rgba(33,190,255,.28))}
+.tech img{transition:transform .28s ease,filter .28s ease}
+.tech:hover{border-color:rgba(33,190,255,.52) !important;box-shadow:0 14px 32px rgba(22,140,255,.15) !important}
+.tech::before{
+  content:"";position:absolute;left:8%;right:8%;top:-2px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  transform:translateX(-120%);opacity:0;pointer-events:none;
+}
+.tech:hover::before{opacity:1;animation:skillScan .9s ease forwards}
+@keyframes skillScan{to{transform:translateX(120%)}}
+
+/* ---------- 3. ARCHITECTURE: flowing data particles ---------- */
+.architecture-modern .layered-architecture{position:relative}
+.architecture-modern .pipeline-runner{
+  position:absolute;left:34px;top:28px;width:10px;height:10px;border-radius:50%;
+  background:#20d8ff;box-shadow:0 0 8px #20d8ff,0 0 22px rgba(0,190,255,.8);
+  transform:translate(-50%,-50%);opacity:0;z-index:8;pointer-events:none;
+}
+.architecture-modern.pipeline-active .pipeline-runner{opacity:1}
+.arch-layer.pipeline-active-layer{
+  border-color:#1bbdff !important;
+  box-shadow:0 0 0 1px rgba(27,189,255,.12),0 20px 48px rgba(0,167,255,.18) !important;
+}
+.arch-layer.pipeline-active-layer .arch-layer-number{
+  box-shadow:0 0 0 3px rgba(33,212,253,.12),0 0 22px rgba(33,212,253,.45) !important;
+}
+.arch-node.pipeline-active-node{
+  border-color:#25c6ff !important;
+  box-shadow:0 0 0 1px rgba(37,198,255,.08),0 0 20px rgba(0,177,255,.15) !important;
+}
+.arch-layer-arrow.pipeline-active-arrow span{
+  border-color:#21caff !important;color:#21caff !important;
+  box-shadow:0 0 18px rgba(0,190,255,.25) !important;
+}
+
+/* ---------- 4. EXPERIENCE: scroll-driven progress ---------- */
+#experience .timeline{--timeline-progress:0%}
+#experience .timeline::after{
+  content:"";position:absolute;left:8px;top:5px;width:2px;height:var(--timeline-progress);
+  max-height:calc(100% - 10px);background:linear-gradient(180deg,#21d4fd,#168cff);
+  box-shadow:0 0 10px rgba(33,212,253,.35);z-index:1;transform-origin:top;
+  pointer-events:none;
+}
+#experience .timeline .dot{z-index:3;transition:box-shadow .25s ease,transform .25s ease}
+#experience .job.timeline-active .dot{box-shadow:0 0 0 5px rgba(33,212,253,.13),0 0 20px rgba(33,212,253,.48);transform:scale(1.12)}
+
+/* ---------- 5. PROJECTS: premium 3D tilt + reflection ---------- */
+.project{
+  transform-style:preserve-3d;will-change:transform;perspective:900px;overflow:hidden !important;
+  transition:transform .12s ease-out,box-shadow .25s ease,border-color .25s ease !important;
+}
+.project::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.18) 45%,transparent 65%);
+  transform:translateX(-120%);transition:transform .7s ease;opacity:0;
+}
+.project.tilt-active::after{transform:translateX(120%);opacity:1}
+.project .project-top,.project>p,.project>.tags{transform:translateZ(14px)}
+.project .project-icon{transform:translateZ(24px);transition:transform .25s ease}
+.project.tilt-active .project-icon{transform:translateZ(28px) scale(1.08)}
+
+/* ---------- LIVE PIPELINE MODE UI ---------- */
+.pipeline-control{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  margin:0 0 18px;padding:12px 14px;border:1px solid rgba(22,140,255,.18);
+  border-radius:16px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);
+  box-shadow:0 10px 28px rgba(25,90,140,.07)
+}
+.pipeline-control-copy{display:flex;align-items:center;gap:9px;min-width:0}
+.pipeline-status-dot{width:8px;height:8px;border-radius:50%;background:#91a4bf;box-shadow:0 0 0 4px rgba(145,164,191,.12);flex:0 0 8px}
+.pipeline-status-dot.running{background:#21d4fd;box-shadow:0 0 0 4px rgba(33,212,253,.12),0 0 14px rgba(33,212,253,.55);animation:pipelinePulse 1s ease-in-out infinite}
+.pipeline-status-dot.done{background:#31c48d;box-shadow:0 0 0 4px rgba(49,196,141,.12)}
+.pipeline-status{font-size:9px;font-weight:800;color:#536b84;letter-spacing:.2px}
+.pipeline-btn{
+  border:1px solid #b9daf4;border-radius:10px;padding:9px 13px;background:#fff;color:#087cf0;
+  font-size:9px;font-weight:900;cursor:pointer;transition:.25s ease;white-space:nowrap;
+}
+.pipeline-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,140,255,.14);border-color:#5ab9f5}
+.pipeline-btn.running{background:linear-gradient(135deg,#087cf0,#18bff4);color:#fff;border-color:transparent}
+.pipeline-progress{height:3px;border-radius:99px;background:rgba(22,140,255,.09);overflow:hidden;margin:-4px 0 18px}
+.pipeline-progress>span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#087cf0,#21d4fd);box-shadow:0 0 12px rgba(33,212,253,.35);transition:width .25s ease}
+.pipeline-complete{display:none;margin-left:7px;color:#21a879;font-size:8px;font-weight:900}
+.pipeline-complete.show{display:inline}
+@keyframes pipelinePulse{50%{transform:scale(1.35);opacity:.72}}
+
+:root:not(.light) .pipeline-control{background:rgba(7,31,51,.82);border-color:rgba(76,176,235,.20);box-shadow:0 12px 32px rgba(0,0,0,.22)}
+:root:not(.light) .pipeline-status{color:#9db8ca}
+:root:not(.light) .pipeline-btn{background:#08243c;color:#63d5ff;border-color:rgba(80,185,235,.30)}
+:root:not(.light) .pipeline-btn:hover{border-color:#21caff;box-shadow:0 8px 24px rgba(0,180,255,.14)}
+:root:not(.light) .pipeline-progress{background:rgba(80,180,235,.10)}
+
+@media(max-width:640px){
+  .hero-cursor-glow{display:none}
+  #experience .timeline::after{left:8px}
+  .pipeline-control{align-items:flex-start}
+  .pipeline-control-copy{flex:1}
+  .pipeline-btn{width:100%}
+  .architecture-modern .pipeline-runner{left:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-copy,.visual-stage,.tech img,.project,.project .project-icon{transition:none!important}
+  .hero-cursor-glow{display:none}
+  .pipeline-status-dot.running{animation:none}
+  #experience .timeline::after{transition:none!important}
+}
+</style>\n\n</head>
 <body>
 <header>
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%">
@@ -4018,7 +4156,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </header>
 
 <main id="top">
-<section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div>
+<section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div><div class="hero-cursor-glow" id="heroCursorGlow" aria-hidden="true"></div>
 <div class="container hero-grid">
   <div class="hero-copy">
     <span class="eyebrow">DATA ENGINEER | GOOGLE CLOUD</span>
@@ -4130,7 +4268,12 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
 <section class="architecture-modern reveal"><div class="container">
   <div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>Layered end-to-end architecture showing how I move data from source systems to business insights.</p></div>
-  <div class="layered-architecture" aria-label="Layered data engineering architecture">
+  <div class="pipeline-control" aria-label="Live Pipeline Mode controls">
+  <div class="pipeline-control-copy"><span class="pipeline-status-dot" id="pipelineStatusDot"></span><span class="pipeline-status" id="pipelineStatus">Pipeline ready · Source → Analytics</span><span class="pipeline-complete" id="pipelineComplete">✓ Completed</span></div>
+  <button class="pipeline-btn" id="runPipeline" type="button">▶ Run Pipeline</button>
+</div>
+<div class="pipeline-progress" aria-hidden="true"><span id="pipelineProgress"></span></div>
+<div class="layered-architecture" aria-label="Layered data engineering architecture">
     <article class="arch-layer scroll-layer" data-tooltip="I connect operational and external sources and prepare data for reliable cloud ingestion.">
       <div class="arch-layer-label"><span class="arch-layer-number">01</span><div><h4>Source Layer</h4><p>Where the data originates</p></div></div>
       <div class="arch-layer-content">
@@ -4467,6 +4610,161 @@ document.querySelectorAll('img').forEach(img=>{
     this.style.display='none';
   });
 });
+</script>
+<script>
+/* =========================================================
+   PREMIUM INTERACTION ENGINE
+   ========================================================= */
+(function(){
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 1. Hero mouse-follow glow + subtle parallax */
+  const hero = document.querySelector('.hero');
+  const glow = document.getElementById('heroCursorGlow');
+  const heroCopy = document.querySelector('.hero-copy');
+  const visualStage = document.querySelector('.visual-stage');
+  if(hero && glow && !reduceMotion && window.matchMedia('(pointer:fine)').matches){
+    hero.addEventListener('mousemove', function(e){
+      const r=hero.getBoundingClientRect();
+      const x=e.clientX-r.left, y=e.clientY-r.top;
+      hero.style.setProperty('--mx',x+'px');
+      hero.style.setProperty('--my',y+'px');
+      glow.style.transform='translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%)';
+      const rx=((x/r.width)-.5)*5, ry=((y/r.height)-.5)*5;
+      if(heroCopy) heroCopy.style.transform='translate3d('+(-rx*.35)+'px,'+(-ry*.35)+'px,0)';
+      if(visualStage) visualStage.style.transform='translate3d('+(rx*.55)+'px,'+(ry*.55)+'px,0)';
+    });
+    hero.addEventListener('mouseleave', function(){
+      glow.style.opacity='.45';
+      if(heroCopy) heroCopy.style.transform='';
+      if(visualStage) visualStage.style.transform='';
+    });
+    hero.addEventListener('mouseenter',function(){glow.style.opacity='.75'});
+  }
+
+  /* 4. Experience timeline progress follows scroll position. */
+  const exp=document.querySelector('#experience');
+  const timeline=exp && exp.querySelector('.timeline');
+  if(exp && timeline){
+    const jobs=[...timeline.querySelectorAll('.job')];
+    function updateTimeline(){
+      const r=timeline.getBoundingClientRect();
+      const viewport=window.innerHeight || document.documentElement.clientHeight;
+      const focus=viewport*.62;
+      const progress=Math.max(0,Math.min(1,(focus-r.top)/(Math.max(1,r.height))));
+      timeline.style.setProperty('--timeline-progress',(progress*100)+'%');
+      jobs.forEach(job=>{
+        const jr=job.getBoundingClientRect();
+        job.classList.toggle('timeline-active',jr.top < focus && jr.bottom > r.top);
+      });
+    }
+    window.addEventListener('scroll',updateTimeline,{passive:true});
+    window.addEventListener('resize',updateTimeline,{passive:true});
+    updateTimeline();
+  }
+
+  /* 5. Projects: cursor-based 3D tilt. */
+  const projects=[...document.querySelectorAll('.project')];
+  if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
+    projects.forEach(card=>{
+      card.addEventListener('mousemove',function(e){
+        const r=card.getBoundingClientRect();
+        const x=(e.clientX-r.left)/r.width-.5;
+        const y=(e.clientY-r.top)/r.height-.5;
+        card.classList.add('tilt-active');
+        card.style.transform='perspective(900px) rotateX('+(-y*5)+'deg) rotateY('+(x*6)+'deg) translateY(-5px) scale(1.012)';
+        card.style.boxShadow='0 22px 46px rgba(22,140,255,.16)';
+      });
+      card.addEventListener('mouseleave',function(){
+        card.classList.remove('tilt-active');
+        card.style.transform='';
+        card.style.boxShadow='';
+      });
+    });
+  }
+
+  /* 6. Live Pipeline Mode: animate one glowing data point through the real architecture layers. */
+  const arch=document.querySelector('.architecture-modern');
+  const archWrap=arch && arch.querySelector('.layered-architecture');
+  const runBtn=document.getElementById('runPipeline');
+  const status=document.getElementById('pipelineStatus');
+  const statusDot=document.getElementById('pipelineStatusDot');
+  const progress=document.getElementById('pipelineProgress');
+  const complete=document.getElementById('pipelineComplete');
+  if(arch && archWrap && runBtn){
+    const layers=[...archWrap.querySelectorAll('.scroll-layer')];
+    const arrows=[...archWrap.querySelectorAll('.arch-layer-arrow')];
+    const runner=archWrap.querySelector('.pipeline-runner') || document.createElement('span');
+    if(!runner.classList.contains('pipeline-runner')){
+      runner.className='pipeline-runner'; runner.setAttribute('aria-hidden','true'); archWrap.appendChild(runner);
+    }
+    let running=false, raf=null, runId=0;
+    const duration=6200;
+
+    function centers(){
+      const br=archWrap.getBoundingClientRect();
+      return layers.map(l=>{const r=l.getBoundingClientRect();return {x:r.left-br.left+34,y:r.top-br.top+r.height/2}});
+    }
+    function reset(){
+      layers.forEach(l=>l.classList.remove('pipeline-active-layer'));
+      arrows.forEach(a=>a.classList.remove('pipeline-active-arrow'));
+      archWrap.querySelectorAll('.pipeline-active-node').forEach(n=>n.classList.remove('pipeline-active-node'));
+      runner.style.opacity='0';
+      progress.style.width='0%';
+      complete.classList.remove('show');
+      statusDot.className='pipeline-status-dot';
+      status.textContent='Pipeline ready · Source → Analytics';
+      runBtn.classList.remove('running'); runBtn.textContent='▶ Run Pipeline';
+    }
+    function finish(){
+      running=false; arch.classList.remove('pipeline-active');
+      layers.forEach(l=>l.classList.add('pipeline-active-layer'));
+      runner.style.opacity='0'; progress.style.width='100%';
+      statusDot.className='pipeline-status-dot done';
+      status.textContent='Pipeline completed · Data reached Analytics';
+      complete.classList.add('show'); runBtn.classList.remove('running'); runBtn.textContent='↻ Run Again';
+    }
+    function run(){
+      if(reduceMotion){
+        layers.forEach(l=>l.classList.add('pipeline-active-layer'));
+        status.textContent='Pipeline completed · Data reached Analytics';
+        statusDot.className='pipeline-status-dot done'; progress.style.width='100%';
+        complete.classList.add('show'); runBtn.textContent='↻ Run Again'; return;
+      }
+      if(running) return;
+      running=true; runId++;
+      const thisRun=runId;
+      arch.classList.add('pipeline-active');
+      layers.forEach(l=>l.classList.remove('pipeline-active-layer'));
+      arrows.forEach(a=>a.classList.remove('pipeline-active-arrow'));
+      archWrap.querySelectorAll('.pipeline-active-node').forEach(n=>n.classList.remove('pipeline-active-node'));
+      statusDot.className='pipeline-status-dot running'; status.textContent='Pipeline running · moving data through layers';
+      complete.classList.remove('show'); runBtn.classList.add('running'); runBtn.textContent='● Running…';
+      const pts=centers();
+      const start=performance.now();
+      function frame(now){
+        if(thisRun!==runId) return;
+        const t=Math.min(1,(now-start)/duration);
+        const eased=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+        const scaled=eased*(pts.length-1);
+        const idx=Math.min(pts.length-1,Math.floor(scaled));
+        const local=scaled-idx;
+        const a=pts[idx], b=pts[Math.min(pts.length-1,idx+1)];
+        const x=a.x+(b.x-a.x)*local, y=a.y+(b.y-a.y)*local;
+        runner.style.left=x+'px'; runner.style.top=y+'px'; runner.style.opacity='1';
+        progress.style.width=(t*100)+'%';
+        layers.forEach((l,i)=>l.classList.toggle('pipeline-active-layer',i<=idx));
+        arrows.forEach((aEl,i)=>aEl.classList.toggle('pipeline-active-arrow',i<idx));
+        layers[idx].querySelectorAll('.arch-node').forEach((n,i)=>n.classList.toggle('pipeline-active-node',i===Math.floor(local*layers[idx].querySelectorAll('.arch-node').length)%layers[idx].querySelectorAll('.arch-node').length));
+        if(t<1){raf=requestAnimationFrame(frame)}else{finish()}
+      }
+      cancelAnimationFrame(raf); raf=requestAnimationFrame(frame);
+    }
+    runBtn.addEventListener('click',function(){if(running)return; reset(); setTimeout(run,80)});
+    window.addEventListener('resize',function(){if(!running) runner.style.opacity='0'},{passive:true});
+    reset();
+  }
+})();
 </script>
 </body>
 </html>
