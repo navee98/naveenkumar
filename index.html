@@ -3584,6 +3584,40 @@ section#experience,section#education{background:var(--ref-bg) !important}
 }
 </style>
 
+<style>
+
+/* =========================================================
+   PORTFOLIO-WIDE SCROLL REVEAL SYSTEM
+   Replays in BOTH directions: scroll down and scroll up.
+   ========================================================= */
+.reveal{opacity:0;transform:translate3d(0,58px,0) scale(.985);filter:blur(2px);transition:opacity .72s ease,transform .72s cubic-bezier(.22,.75,.2,1),filter .72s ease;will-change:opacity,transform,filter}
+.reveal.show{opacity:1;transform:none;filter:none}
+.reveal .section-head{opacity:0;transform:translateY(24px);transition:opacity .55s ease .04s,transform .55s ease .04s}
+.reveal.show .section-head{opacity:1;transform:none}
+.reveal .tech,.reveal .do-card,.reveal .job,.reveal .project,.reveal .edu-card,.reveal .contact,.reveal .arch-security span,.reveal .arch-caption{opacity:0;transform:translateY(32px) scale(.97);transition:opacity .58s ease,transform .65s cubic-bezier(.22,.75,.2,1)}
+.reveal.show .tech,.reveal.show .do-card,.reveal.show .job,.reveal.show .project,.reveal.show .edu-card,.reveal.show .contact,.reveal.show .arch-security span,.reveal.show .arch-caption{opacity:1;transform:none}
+.reveal.show .tech:nth-child(1),.reveal.show .do-card:nth-child(1),.reveal.show .job:nth-child(1),.reveal.show .project:nth-child(1),.reveal.show .edu-card:nth-child(1),.reveal.show .arch-security span:nth-child(1){transition-delay:.08s}
+.reveal.show .tech:nth-child(2),.reveal.show .do-card:nth-child(2),.reveal.show .job:nth-child(2),.reveal.show .project:nth-child(2),.reveal.show .edu-card:nth-child(2),.reveal.show .arch-security span:nth-child(2){transition-delay:.16s}
+.reveal.show .tech:nth-child(3),.reveal.show .do-card:nth-child(3),.reveal.show .job:nth-child(3),.reveal.show .project:nth-child(3),.reveal.show .arch-security span:nth-child(3){transition-delay:.24s}
+.reveal.show .tech:nth-child(4),.reveal.show .do-card:nth-child(4),.reveal.show .project:nth-child(4),.reveal.show .arch-security span:nth-child(4){transition-delay:.32s}
+.reveal.show .tech:nth-child(5){transition-delay:.40s}.reveal.show .tech:nth-child(6){transition-delay:.48s}.reveal.show .tech:nth-child(7){transition-delay:.56s}.reveal.show .tech:nth-child(8){transition-delay:.64s}
+.reveal.show .tech:nth-child(9){transition-delay:.72s}.reveal.show .tech:nth-child(10){transition-delay:.80s}.reveal.show .tech:nth-child(11){transition-delay:.88s}.reveal.show .tech:nth-child(12){transition-delay:.96s}
+.reveal.show .tech:nth-child(13){transition-delay:1.04s}.reveal.show .tech:nth-child(14){transition-delay:1.12s}.reveal.show .tech:nth-child(15){transition-delay:1.20s}
+/* Hero entrance: polished on every page load, while the orbit itself stays continuous. */
+.hero .hero-copy{animation:heroIn .9s cubic-bezier(.22,.75,.2,1) both}
+.hero .visual-stage{animation:heroVisualIn 1s .12s cubic-bezier(.22,.75,.2,1) both}
+.hero .stats .stat{animation:statIn .65s cubic-bezier(.22,.75,.2,1) both}
+.hero .stats .stat:nth-child(2){animation-delay:.12s}.hero .stats .stat:nth-child(3){animation-delay:.24s}
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes heroVisualIn{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes statIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* Never show a broken image icon. A failed remote logo gets a compact text mark. */
+.icon-fallback{display:grid!important;place-items:center!important;font-weight:900!important;color:#7fcfff!important;font-size:10px!important;letter-spacing:-.02em}
+.icon-fallback::after{content:attr(data-fallback);display:block}
+.icon-fallback img{display:none!important}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal .section-head,.reveal .tech,.reveal .do-card,.reveal .job,.reveal .project,.reveal .edu-card,.reveal .contact,.reveal .arch-security span,.reveal .arch-caption,.hero .hero-copy,.hero .visual-stage,.hero .stats .stat{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}}
+
+</style>
 </head>
 <body>
 <header>
@@ -3640,14 +3674,14 @@ section#experience,section#education{background:var(--ref-bg) !important}
       <div class="orbit-items" aria-label="Data engineering technologies rotating around Google Cloud">
         <div class="orbit-card orbit-pos1">
           <div class="float-card">
-            <img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery">
+            <img src="https://icon.icepanel.io/GCP/svg/BigQuery.svg" alt="BigQuery">
             <b>BigQuery</b>
           </div>
         </div>
 
         <div class="orbit-card orbit-pos2">
           <div class="float-card">
-            <img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage">
+            <img src="https://icon.icepanel.io/GCP/svg/Cloud-Storage.svg" alt="Cloud Storage">
             <b>Cloud Storage</b>
           </div>
         </div>
@@ -3668,7 +3702,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
         <div class="orbit-card orbit-pos5">
           <div class="float-card">
-            <img src="assets/icons/Looker-512-color.svg" alt="Looker Studio">
+            <img src="https://api.iconify.design/logos:looker.svg?height=64" alt="Looker Studio">
             <b>Looker Studio</b>
           </div>
         </div>
@@ -3692,26 +3726,25 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
   <div class="stack-grid">
     <div class="tech" data-tooltip="Cloud platform used to build, run and scale the complete data engineering solution."><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud"><strong>Google Cloud</strong><small>Cloud</small></div>
-    <div class="tech" data-tooltip="Serverless cloud data warehouse used to store, query and analyze large datasets with SQL."><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"><strong>BigQuery</strong><small>Warehouse</small></div>
-    <div class="tech" data-tooltip="Object storage used as a landing and staging area for files before processing and loading."><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Cloud Storage"><strong>Cloud Storage</strong><small>Storage</small></div>
+    <div class="tech" data-tooltip="Serverless cloud data warehouse used to store, query and analyze large datasets with SQL."><img src="https://icon.icepanel.io/GCP/svg/BigQuery.svg" alt="BigQuery"><strong>BigQuery</strong><small>Warehouse</small></div>
+    <div class="tech" data-tooltip="Object storage used as a landing and staging area for files before processing and loading."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Storage.svg" alt="Cloud Storage"><strong>Cloud Storage</strong><small>Storage</small></div>
     <div class="tech" data-tooltip="Managed Airflow service used to schedule, orchestrate and monitor data pipelines."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Cloud Composer"><strong>Cloud Composer</strong><small>Orchestration</small></div>
 
     <div class="tech" data-tooltip="Managed processing service used for scalable batch and streaming data transformations."><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow"><strong>Dataflow</strong><small>Processing</small></div>
     <div class="tech" data-tooltip="Visual data integration service used to connect sources and build ETL pipelines."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Data-Fusion.svg" alt="Cloud Data Fusion"><strong>Data Fusion</strong><small>Integration</small></div>
-    <div class="tech" data-tooltip="Messaging service used to ingest and distribute real-time event and streaming data."><img src="https://icon.icepanel.io/GCP/svg/PubSub.svg" alt="Pub/Sub"><strong>Pub/Sub</strong><small>Streaming</small></div>
+    <div class="tech" data-tooltip="Messaging service used to ingest and distribute real-time event and streaming data."><img src="https://airflow.apache.org/docs/apache-airflow/stable/_images/Cloud-PubSub.png" alt="Pub/Sub"><strong>Pub/Sub</strong><small>Streaming</small></div>
     <div class="tech" data-tooltip="Serverless functions used to run lightweight event-driven automation and processing."><img src="https://icon.icepanel.io/GCP/svg/Cloud-Functions.svg" alt="Cloud Functions"><strong>Cloud Functions</strong><small>Serverless</small></div>
 
     <div class="tech" data-tooltip="Workflow orchestration framework used to schedule, sequence, monitor and retry pipeline tasks."><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Apache Airflow"><strong>Apache Airflow</strong><small>Scheduling</small></div>
-    <div class="tech" data-tooltip="Programming language used for data processing, automation, API integration and pipeline utilities."><img src="https://cdn.simpleicons.org/python" alt="Python"><strong>Python</strong><small>Automation</small></div>
+    <div class="tech" data-tooltip="Programming language used for data processing, automation, API integration and pipeline utilities."><img src="https://api.iconify.design/logos:python.svg?height=64" alt="Python"><strong>Python</strong><small>Automation</small></div>
     <div class="tech" data-tooltip="Query language used for extraction, transformation, validation and analytical data preparation."><img src="https://cdn.simpleicons.org/sqlite" alt="SQL"><strong>SQL</strong><small>Analytics</small></div>
-    <div class="tech" data-tooltip="BI tool used to create dashboards and reports from curated analytical datasets."><img src="assets/icons/Looker-512-color.svg" alt="Looker Studio"><strong>Looker Studio</strong><small>BI</small></div>
+    <div class="tech" data-tooltip="BI tool used to create dashboards and reports from curated analytical datasets."><img src="https://api.iconify.design/logos:looker.svg?height=64" alt="Looker Studio"><strong>Looker Studio</strong><small>BI</small></div>
 
-    <div class="tech" data-tooltip="Business intelligence platform used to build interactive dashboards and data visualizations."><img src="https://cdn.simpleicons.org/tableau" alt="Tableau" onerror="this.onerror=null;this.src='https://www.svgrepo.com/show/327399/logo-tableau.svg'"><strong>Tableau</strong><small>BI</small></div>
-    <div class="tech" data-tooltip="Relational database used as a source system for extracting structured application data."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"><strong>MySQL</strong><small>Database</small></div>
-    <div class="tech" data-tooltip="Relational database used as a source or operational store for structured data workloads."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/postgresql.svg" alt="PostgreSQL"><strong>PostgreSQL</strong><small>Database</small></div>
-    <div class="tech" data-tooltip="Distributed data processing framework used to transform and process large datasets at scale."><img src="https://cdn.simpleicons.org/apachespark" alt="PySpark"><strong>PySpark</strong><small>Processing</small></div>
+    <div class="tech" data-tooltip="Business intelligence platform used to build interactive dashboards and data visualizations."><img src="https://brandlogos.sgp1.digitaloceanspaces.com/svg/logos/tableau-icon.svg" alt="Tableau"><strong>Tableau</strong><small>BI</small></div>
+    <div class="tech" data-tooltip="Relational database used as a source system for extracting structured application data."><img src="https://api.iconify.design/logos:mysql-icon.svg?height=64" alt="MySQL"><strong>MySQL</strong><small>Database</small></div>
+    <div class="tech" data-tooltip="Relational database used as a source or operational store for structured data workloads."><img src="https://api.iconify.design/logos:postgresql.svg?height=64" alt="PostgreSQL"><strong>PostgreSQL</strong><small>Database</small></div>
+    <div class="tech" data-tooltip="Distributed data processing framework used to transform and process large datasets at scale."><img src="https://api.iconify.design/logos:apache-spark.svg?height=64" alt="PySpark"><strong>PySpark</strong><small>Processing</small></div>
     <div class="tech" data-tooltip="Airflow platform used to develop, deploy and operate reliable data orchestration workflows."><img src="https://api.iconify.design/logos:astronomer.svg?height=64" alt="Astronomer"><strong>Astronomer</strong><small>Orchestration</small></div>
-    <div class="tech" data-tooltip="Design and prototyping tool used to create and refine user interface designs."><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="Figma"><strong>Figma</strong><small>UI/UX</small></div>
   </div>
 </div>
 </div></div></section>
@@ -3722,9 +3755,9 @@ section#experience,section#education{background:var(--ref-bg) !important}
     <article class="arch-layer scroll-layer" data-tooltip="I connect operational and external sources and prepare data for reliable cloud ingestion.">
       <div class="arch-layer-label"><span class="arch-layer-number">01</span><div><h4>Source Layer</h4><p>Where the data originates</p></div></div>
       <div class="arch-layer-content">
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/oracle" alt="Oracle"></span><div><strong>Oracle</strong><small>Enterprise source</small></div></div>
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/mysql.svg" alt="MySQL"></span><div><strong>MySQL / Zuora</strong><small>Subscription DBs</small></div></div>
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/postman" alt="APIs"></span><div><strong>APIs / Files</strong><small>External feeds</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:oracle.svg?height=64" alt="Oracle"></span><div><strong>Oracle</strong><small>Enterprise source</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:mysql-icon.svg?height=64" alt="MySQL"></span><div><strong>MySQL / Zuora</strong><small>Subscription DBs</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:postman.svg?height=64" alt="APIs"></span><div><strong>APIs / Files</strong><small>External feeds</small></div></div>
       </div>
     </article>
     <div class="arch-layer-arrow"><span>↓</span></div>
@@ -3732,7 +3765,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
       <div class="arch-layer-label"><span class="arch-layer-number">02</span><div><h4>Ingestion Layer</h4><p>Reliable landing zone</p></div></div>
       <div class="arch-layer-content">
         <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Storage.svg" alt="Cloud Storage"></span><div><strong>Cloud Storage</strong><small>Raw / landing files</small></div></div>
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/Pub-Sub.svg" alt="Pub/Sub"></span><div><strong>Pub/Sub</strong><small>Event ingestion</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://airflow.apache.org/docs/apache-airflow/stable/_images/Cloud-PubSub.png" alt="Pub/Sub"></span><div><strong>Pub/Sub</strong><small>Event ingestion</small></div></div>
         <div class="arch-node"><span class="arch-icon-wrap"><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Airflow"></span><div><strong>Ingestion Jobs</strong><small>Batch workflows</small></div></div>
       </div>
     </article>
@@ -3742,7 +3775,7 @@ section#experience,section#education{background:var(--ref-bg) !important}
       <div class="arch-layer-content">
         <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:astronomer.svg?height=64" alt="Astronomer"></span><div><strong>Airflow + Astronomer</strong><small>Orchestration</small></div></div>
         <div class="arch-node"><span class="arch-icon-wrap"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Dataflow"></span><div><strong>Dataflow</strong><small>Scalable processing</small></div></div>
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/apachespark" alt="PySpark"></span><div><strong>PySpark / Python / SQL</strong><small>Business transformations</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:apache-spark.svg?height=64" alt="PySpark"></span><div><strong>PySpark / Python / SQL</strong><small>Business transformations</small></div></div>
       </div>
     </article>
     <div class="arch-layer-arrow"><span>↓</span></div>
@@ -3758,8 +3791,8 @@ section#experience,section#education{background:var(--ref-bg) !important}
     <article class="arch-layer scroll-layer" data-tooltip="I publish reporting-ready datasets and dashboards so business users can consume trusted insights.">
       <div class="arch-layer-label"><span class="arch-layer-number">05</span><div><h4>Analytics Layer</h4><p>Insights and reporting</p></div></div>
       <div class="arch-layer-content">
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:looker-icon.svg?height=64" alt="Looker Studio"></span><div><strong>Looker Studio</strong><small>Dashboards</small></div></div>
-        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://cdn.simpleicons.org/tableau" alt="Tableau"></span><div><strong>Tableau</strong><small>Visualization</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://api.iconify.design/logos:looker.svg?height=64" alt="Looker Studio"></span><div><strong>Looker Studio</strong><small>Dashboards</small></div></div>
+        <div class="arch-node"><span class="arch-icon-wrap"><img src="https://brandlogos.sgp1.digitaloceanspaces.com/svg/logos/tableau-icon.svg" alt="Tableau"></span><div><strong>Tableau</strong><small>Visualization</small></div></div>
         <div class="arch-node"><span class="arch-icon-wrap"><span style="font-size:18px">✓</span></span><div><strong>Business Insights</strong><small>Reporting & decisions</small></div></div>
       </div>
     </article>
@@ -3900,38 +3933,49 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </script>
 
 <script>
-/* General section reveals remain one-way. */
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting) e.target.classList.add('show');
-}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+/* Portfolio-wide reveal: every section/card replays when it leaves and re-enters
+   the viewport, so scrolling DOWN and UP both trigger the animation. */
+(function(){
+  const revealItems=[...document.querySelectorAll('.reveal')];
+  if(!revealItems.length) return;
+  const revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      entry.target.classList.toggle('show',entry.isIntersecting);
+    });
+  },{threshold:.10,rootMargin:'-7% 0px -10% 0px'});
+  revealItems.forEach(el=>revealObserver.observe(el));
+})();
 
-/* Architecture reveals are deliberately reversible/replayable:                 *
-   scroll down  -> layers rise in;
-   scroll up    -> layers leave/reveal again in the same direction;
-   re-enter     -> animation plays again. */
-const archLayers=[...document.querySelectorAll('.architecture-modern .scroll-layer')];
-const archArrows=[...document.querySelectorAll('.architecture-modern .arch-layer-arrow')];
-archLayers.forEach((el,i)=>el.style.setProperty('--layer-delay',(i*110)+'ms'));
-
-const layerObserver=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    const el=entry.target;
-    if(entry.isIntersecting){
-      el.classList.add('show');
-    }else{
-      el.classList.remove('show');
-    }
-  });
-},{threshold:0.18,rootMargin:'-8% 0px -12% 0px'});
-archLayers.forEach(el=>layerObserver.observe(el));
-
-const arrowObserver=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
+/* Architecture layers are independently observed so the stacked-card effect
+   continues to replay as each layer enters/leaves the viewport. */
+(function(){
+  const layers=[...document.querySelectorAll('.architecture-modern .scroll-layer')];
+  const arrows=[...document.querySelectorAll('.architecture-modern .arch-layer-arrow')];
+  layers.forEach((el,i)=>el.style.setProperty('--layer-delay',(i*110)+'ms'));
+  const layerObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
     entry.target.classList.toggle('show',entry.isIntersecting);
+  }),{threshold:.18,rootMargin:'-8% 0px -12% 0px'});
+  layers.forEach(el=>layerObserver.observe(el));
+  const arrowObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    entry.target.classList.toggle('show',entry.isIntersecting);
+  }),{threshold:.15,rootMargin:'-4% 0px -12% 0px'});
+  arrows.forEach(el=>arrowObserver.observe(el));
+})();
+
+/* Remote logo safety net: if a CDN is unavailable, show a clean text badge
+   instead of the browser's broken-image symbol. */
+document.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error',function(){
+    if(this.dataset.fallbackDone) return;
+    this.dataset.fallbackDone='1';
+    const host=this.parentElement;
+    if(host){
+      host.classList.add('icon-fallback');
+      host.setAttribute('data-fallback',(this.alt||'Icon').replace(/[^A-Za-z0-9 +\/-]/g,'').slice(0,10));
+    }
+    this.style.display='none';
   });
-},{threshold:0.15,rootMargin:'-4% 0px -12% 0px'});
-archArrows.forEach(el=>arrowObserver.observe(el));
+});
 </script>
 </body>
 </html>
