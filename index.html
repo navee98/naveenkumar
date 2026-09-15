@@ -2473,42 +2473,1047 @@ section#experience,section#education{background:var(--ref-bg) !important}
 }
 
 
-/* Cleaner Let's Connect icon */
-.connect-arrow{
-  display:inline-block !important;
-  margin-left:5px !important;
-  font-size:1.15em !important;
-  font-weight:900 !important;
-  line-height:1 !important;
-  transform:translateY(1px) !important;
-  transition:transform .2s ease !important;
+/* ============================================================
+   HERO REFERENCE UPDATE
+   - Metrics moved to top hero area
+   - Reference circular background
+   - Stronger dark blue atmospheric lighting
+   - Single handwritten Data Drives Possibilities
+   ============================================================ */
+
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+  min-height:520px !important;
+  background:
+    radial-gradient(circle at 73% 50%,rgba(36,166,255,.13),transparent 24%),
+    radial-gradient(circle at 18% 75%,rgba(75,181,255,.06),transparent 30%),
+    linear-gradient(125deg,#fbfdff 0%,#eef7ff 58%,#e5f3ff 100%) !important;
 }
-.btn:hover .connect-arrow{
-  transform:translate(3px,1px) !important;
+.hero:before{
+  content:"" !important;
+  position:absolute !important;
+  width:900px !important;
+  height:900px !important;
+  right:-330px !important;
+  top:-370px !important;
+  border-radius:50% !important;
+  border:105px solid rgba(42,151,239,.045) !important;
+  box-shadow:
+    0 0 0 55px rgba(42,151,239,.022),
+    0 0 0 115px rgba(42,151,239,.014) !important;
+  pointer-events:none !important;
+}
+.hero:after{
+  content:"" !important;
+  position:absolute !important;
+  width:680px !important;
+  height:680px !important;
+  right:-300px !important;
+  bottom:-510px !important;
+  border-radius:50% !important;
+  border:90px solid rgba(42,151,239,.035) !important;
+  pointer-events:none !important;
+}
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 70% 49%,rgba(0,192,255,.21) 0%,rgba(0,117,255,.10) 19%,transparent 36%),
+    radial-gradient(circle at 87% 20%,rgba(0,205,255,.10),transparent 27%),
+    radial-gradient(circle at 34% 82%,rgba(14,102,255,.08),transparent 32%),
+    linear-gradient(125deg,#020d1b 0%,#06182b 48%,#082b48 100%) !important;
+}
+:root:not(.light) .hero:before{
+  border-color:rgba(28,166,249,.055) !important;
+  box-shadow:
+    0 0 0 55px rgba(28,166,249,.032),
+    0 0 0 115px rgba(28,166,249,.020) !important;
+}
+:root:not(.light) .hero:after{
+  border-color:rgba(27,181,255,.04) !important;
+}
+
+/* Hero layout */
+.hero-grid{
+  min-height:520px !important;
+  position:relative !important;
+  z-index:2 !important;
+  grid-template-columns:1fr 1fr !important;
+  padding:42px 0 28px !important;
+}
+.hero-copy{position:relative !important;z-index:5 !important}
+.hero h1{
+  font-size:46px !important;
+  line-height:1.04 !important;
+  letter-spacing:-1.8px !important;
+  margin-top:14px !important;
+}
+.hero p{
+  max-width:475px !important;
+  margin:12px 0 17px !important;
+  line-height:1.7 !important;
+}
+.hero-buttons{margin-bottom:16px !important}
+
+/* Metrics are now directly beneath the hero buttons, matching the reference. */
+.hero-copy > .stats{
+  width:100% !important;
+  max-width:475px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  position:relative !important;
+  z-index:6 !important;
+}
+.hero-copy > .stats .stat{
+  padding:8px 6px 5px 0 !important;
+  text-align:left !important;
+  border:0 !important;
+  min-width:0 !important;
+}
+.hero-copy > .stats .stat strong{
+  display:block !important;
+  font-size:22px !important;
+  line-height:1 !important;
+  letter-spacing:-.5px !important;
+  color:#087cf0 !important;
+  white-space:nowrap !important;
+}
+.hero-copy > .stats .stat span{
+  display:block !important;
+  margin-top:6px !important;
+  font-size:8px !important;
+  line-height:1.25 !important;
+  color:#526b89 !important;
+  white-space:nowrap !important;
+}
+:root:not(.light) .hero-copy > .stats .stat strong{
+  color:#16c5ff !important;
+  text-shadow:0 0 12px rgba(0,190,255,.12);
+}
+:root:not(.light) .hero-copy > .stats .stat span{
+  color:#b4c9dc !important;
+}
+
+/* Orbit: more like the supplied reference images */
+.visual{
+  min-height:390px !important;
+  height:390px !important;
+  position:relative !important;
+}
+.visual-stage{
+  width:510px !important;
+  height:370px !important;
+  position:relative !important;
+}
+.visual-stage:before{
+  content:"" !important;
+  position:absolute !important;
+  width:370px !important;
+  height:370px !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  background:radial-gradient(circle,rgba(54,174,255,.09),transparent 67%) !important;
+  pointer-events:none !important;
+}
+.orbit{
+  width:300px !important;
+  height:300px !important;
+  border-color:rgba(50,164,248,.68) !important;
+}
+.orbit:before{
+  border-color:rgba(55,171,248,.23) !important;
+}
+.cloud-core{
+  width:106px !important;
+  height:106px !important;
+  border-radius:29px !important;
+  box-shadow:
+    0 0 0 1px rgba(57,174,255,.18),
+    0 18px 42px rgba(29,93,146,.14) !important;
+}
+:root:not(.light) .visual-stage:before{
+  background:radial-gradient(circle,rgba(0,190,255,.17),rgba(0,115,255,.06) 36%,transparent 70%) !important;
+}
+:root:not(.light) .orbit{
+  border-color:rgba(25,184,255,.78) !important;
+  filter:drop-shadow(0 0 8px rgba(0,175,255,.18));
+}
+:root:not(.light) .cloud-core{
+  box-shadow:
+    0 0 0 1px rgba(51,192,255,.34),
+    0 0 27px rgba(0,181,255,.25),
+    0 18px 42px rgba(0,0,0,.32) !important;
+}
+
+/* Exactly one handwritten reference label */
+.scribble{
+  position:absolute !important;
+  right:-3px !important;
+  top:276px !important;
+  z-index:8 !important;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-size:17px !important;
+  line-height:1.02 !important;
+  font-weight:600 !important;
+  color:#153b86 !important;
+  transform:rotate(-5deg) !important;
+  text-align:left !important;
+}
+.scribble:after{
+  content:"" !important;
+  display:block !important;
+  width:105px !important;
+  height:2px !important;
+  margin-top:8px !important;
+  background:#087cf0 !important;
+  transform:rotate(-4deg) !important;
+  border-radius:2px !important;
+}
+:root:not(.light) .scribble{
+  color:#e2f6ff !important;
+  text-shadow:0 1px 12px rgba(0,188,255,.24) !important;
+}
+:root:not(.light) .scribble:after{
+  background:#20caff !important;
+  box-shadow:0 0 8px rgba(32,202,255,.36) !important;
+}
+
+/* Mobile keeps the metrics at the top and prevents overlap. */
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    min-height:auto !important;
+  }
+  .visual{
+    height:360px !important;
+  }
+}
+@media(max-width:620px){
+  .hero{
+    min-height:710px !important;
+  }
+  .hero-grid{
+    padding:30px 0 20px !important;
+  }
+  .hero h1{font-size:36px !important}
+  .hero-copy > .stats{
+    max-width:100% !important;
+  }
+  .hero-copy > .stats .stat strong{
+    font-size:17px !important;
+  }
+  .hero-copy > .stats .stat span{
+    font-size:6.5px !important;
+  }
+  .visual{
+    height:315px !important;
+    min-height:315px !important;
+  }
+  .visual-stage{
+    width:350px !important;
+    height:295px !important;
+  }
+  .orbit{
+    width:205px !important;
+    height:205px !important;
+  }
+  .scribble{
+    right:0 !important;
+    top:235px !important;
+    font-size:12px !important;
+  }
+  .scribble:after{
+    width:74px !important;
+    margin-top:5px !important;
+  }
 }
 
 
-/* FINAL Let's Connect CTA icon fix */
-.btn .connect-arrow{
-  display:inline-block !important;
-  width:auto !important;
-  height:auto !important;
-  margin-left:6px !important;
-  font-family:Arial, sans-serif !important;
-  font-size:1.15em !important;
-  font-weight:900 !important;
-  line-height:1 !important;
-  opacity:1 !important;
-  transform:translateY(1px) !important;
+/* ============================================================
+   ARCHITECTURE — reference-style atmospheric background
+   ============================================================ */
+
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+  background:#eef7ff !important;
 }
-.btn:hover .connect-arrow{
-  transform:translate(3px,1px) !important;
+
+/* Layered curved bands behind the architecture graphic */
+.architecture-bg{
+  position:absolute !important;
+  inset:0 !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+  z-index:0 !important;
 }
-/* Prevent any old button pseudo-icon from appearing before the label. */
-.btn.connect::before,
-.btn.connect::after{
-  content:none !important;
+
+.arch-wave{
+  position:absolute !important;
+  border-radius:50% !important;
+  pointer-events:none !important;
 }
+
+/* Large pale sweeping curve */
+.arch-wave-1{
+  width:900px !important;
+  height:560px !important;
+  right:-310px !important;
+  top:-185px !important;
+  border:70px solid rgba(112,184,239,.075) !important;
+  transform:rotate(-10deg) !important;
+}
+
+/* Lower sweeping curve */
+.arch-wave-2{
+  width:850px !important;
+  height:480px !important;
+  left:-300px !important;
+  bottom:-310px !important;
+  border:75px solid rgba(88,171,237,.065) !important;
+  transform:rotate(12deg) !important;
+}
+
+/* Broad diagonal/curved atmospheric band */
+.arch-wave-3{
+  width:1050px !important;
+  height:620px !important;
+  left:-420px !important;
+  top:95px !important;
+  border:105px solid rgba(255,255,255,.52) !important;
+  transform:rotate(-13deg) !important;
+  opacity:.85 !important;
+}
+
+/* Blue light concentrated behind the Google Cloud center */
+.arch-glow{
+  position:absolute !important;
+  width:560px !important;
+  height:560px !important;
+  left:57% !important;
+  top:52% !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  background:radial-gradient(
+    circle,
+    rgba(71,181,255,.18) 0%,
+    rgba(91,188,250,.09) 28%,
+    rgba(91,188,250,.035) 48%,
+    transparent 72%
+  ) !important;
+  filter:blur(2px) !important;
+}
+
+/* Architecture content stays above the background */
+.hero-grid,
+.visual,
+.visual-stage,
+.orbit,
+.cloud-core,
+.orbit-card,
+.scribble{
+  position:relative;
+  z-index:2;
+}
+
+/* Orbit rings — reference look */
+.visual-stage{
+  isolation:isolate !important;
+}
+.orbit{
+  border:3px dashed rgba(74,171,247,.72) !important;
+  box-shadow:0 0 22px rgba(50,165,245,.05) !important;
+}
+.orbit:before{
+  border:1px dashed rgba(73,169,245,.25) !important;
+}
+
+/* Small orbit points add the reference "data flow" feel */
+.orbit:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:-9px !important;
+  border-radius:50% !important;
+  border:1px solid rgba(83,174,244,.16) !important;
+  pointer-events:none !important;
+}
+
+/* White architecture cards in light mode */
+:root.light .orbit-card .float-card{
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(206,226,243,.96) !important;
+  box-shadow:
+    0 14px 30px rgba(45,112,158,.11),
+    0 2px 8px rgba(45,112,158,.06) !important;
+  color:#173452 !important;
+}
+
+/* Reference-style dark mode: deep blue + cyan atmospheric glow */
+:root:not(.light) .hero{
+  background:
+    radial-gradient(circle at 67% 50%,
+      rgba(0,196,255,.20) 0%,
+      rgba(0,135,255,.10) 18%,
+      transparent 38%),
+    radial-gradient(circle at 90% 15%,
+      rgba(0,204,255,.10),
+      transparent 28%),
+    radial-gradient(circle at 22% 84%,
+      rgba(17,106,255,.10),
+      transparent 32%),
+    linear-gradient(135deg,#020d1b 0%,#06203a 52%,#073451 100%) !important;
+}
+
+:root:not(.light) .arch-wave-1{
+  border-color:rgba(28,160,238,.075) !important;
+}
+:root:not(.light) .arch-wave-2{
+  border-color:rgba(24,145,236,.065) !important;
+}
+:root:not(.light) .arch-wave-3{
+  border-color:rgba(20,112,184,.10) !important;
+}
+:root:not(.light) .arch-glow{
+  background:radial-gradient(
+    circle,
+    rgba(0,195,255,.22) 0%,
+    rgba(0,137,255,.11) 30%,
+    rgba(0,111,255,.045) 50%,
+    transparent 73%
+  ) !important;
+  filter:blur(4px) !important;
+}
+
+:root:not(.light) .orbit{
+  border-color:rgba(17,185,255,.82) !important;
+  filter:drop-shadow(0 0 8px rgba(0,172,255,.16)) !important;
+}
+:root:not(.light) .orbit:before{
+  border-color:rgba(35,185,255,.24) !important;
+}
+:root:not(.light) .orbit:after{
+  border-color:rgba(22,175,255,.18) !important;
+}
+
+:root:not(.light) .orbit-card .float-card{
+  background:rgba(4,28,49,.95) !important;
+  border:1px solid rgba(50,171,231,.24) !important;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.30),
+    0 0 18px rgba(0,155,255,.045) !important;
+  color:#f2f8ff !important;
+}
+
+/* Center Google Cloud card */
+.cloud-core{
+  background:#fff !important;
+  border:1px solid rgba(69,177,247,.42) !important;
+  box-shadow:
+    0 0 0 10px rgba(65,175,245,.045),
+    0 0 28px rgba(55,174,247,.14),
+    0 18px 38px rgba(35,101,146,.14) !important;
+}
+:root:not(.light) .cloud-core{
+  box-shadow:
+    0 0 0 10px rgba(0,174,255,.06),
+    0 0 30px rgba(0,185,255,.22),
+    0 18px 42px rgba(0,0,0,.32) !important;
+}
+
+/* One handwritten note, reference placement */
+.scribble{
+  color:#153b86 !important;
+  font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive !important;
+  font-weight:600 !important;
+  transform:rotate(-5deg) !important;
+}
+:root:not(.light) .scribble{
+  color:#e4f7ff !important;
+  text-shadow:0 1px 12px rgba(0,192,255,.25) !important;
+}
+
+/* Do not let the architecture visual clip cards */
+.visual{
+  overflow:visible !important;
+}
+
+/* Mobile reference treatment */
+@media(max-width:620px){
+  .arch-wave-1{
+    width:620px !important;
+    height:420px !important;
+    right:-280px !important;
+    top:80px !important;
+    border-width:55px !important;
+  }
+  .arch-wave-2{
+    width:600px !important;
+    height:360px !important;
+    left:-270px !important;
+    bottom:-190px !important;
+    border-width:55px !important;
+  }
+  .arch-wave-3{
+    width:700px !important;
+    height:420px !important;
+    left:-300px !important;
+    top:170px !important;
+    border-width:65px !important;
+  }
+  .arch-glow{
+    width:390px !important;
+    height:390px !important;
+    left:50% !important;
+    top:53% !important;
+  }
+}
+
+
+/* ============================================================
+   CRITICAL ORBIT POSITION FIX
+   The previous background-layer CSS accidentally changed the
+   orbit elements from absolute positioning to relative positioning.
+   Restore the shared center so the GCP Cloud icon and bright ring
+   stay together exactly like the reference.
+   ============================================================ */
+
+.visual-stage{
+  position:relative !important;
+  width:500px !important;
+  height:340px !important;
+  margin:0 auto !important;
+}
+
+.visual-stage .cloud-core{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:6 !important;
+  width:106px !important;
+  height:106px !important;
+  display:grid !important;
+  place-items:center !important;
+}
+
+.visual-stage .cloud-core img{
+  display:block !important;
+  width:72px !important;
+  height:72px !important;
+  object-fit:contain !important;
+}
+
+.visual-stage .orbit{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:2 !important;
+  width:285px !important;
+  height:285px !important;
+  border:3px dashed rgba(55,171,248,.78) !important;
+  border-radius:50% !important;
+  pointer-events:none !important;
+}
+
+.visual-stage .orbit:before{
+  content:"" !important;
+  position:absolute !important;
+  inset:42px !important;
+  border:1px dashed rgba(73,169,245,.28) !important;
+  border-radius:50% !important;
+}
+
+.visual-stage .orbit-items{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:285px !important;
+  height:285px !important;
+  transform:translate3d(-50%,-50%,0) rotate(0deg) !important;
+  z-index:7 !important;
+}
+
+.visual-stage .orbit-card{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:0 !important;
+  height:0 !important;
+}
+
+.visual-stage .orbit-card .float-card{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:96px !important;
+  min-height:88px !important;
+  transform:translate3d(-50%,-50%,0) !important;
+  display:block !important;
+  z-index:8 !important;
+}
+
+/* Reference-like glowing center in dark mode */
+:root:not(.light) .visual-stage .cloud-core{
+  background:#fff !important;
+  box-shadow:
+    0 0 0 10px rgba(0,180,255,.07),
+    0 0 30px rgba(0,190,255,.30),
+    0 18px 42px rgba(0,0,0,.34) !important;
+}
+
+:root:not(.light) .visual-stage .orbit{
+  border-color:#12b9ff !important;
+  filter:
+    drop-shadow(0 0 5px rgba(0,183,255,.48))
+    drop-shadow(0 0 12px rgba(0,125,255,.18)) !important;
+}
+
+:root:not(.light) .visual-stage .orbit:before{
+  border-color:rgba(31,191,255,.28) !important;
+}
+
+/* Reference-like bright orbit in light mode */
+:root.light .visual-stage .orbit{
+  border-color:#65b4ff !important;
+  filter:drop-shadow(0 0 5px rgba(67,166,247,.13)) !important;
+}
+
+/* Keep the architecture atmospheric background behind everything. */
+.architecture-bg{
+  z-index:0 !important;
+}
+.visual-stage{
+  z-index:2 !important;
+}
+
+/* Do not let the handwritten note get duplicated or clipped. */
+.visual .scribble{
+  z-index:12 !important;
+  pointer-events:none !important;
+}
+
+/* Responsive: same centered geometry, scaled down on phones. */
+@media(max-width:620px){
+  .visual-stage{
+    width:360px !important;
+    height:300px !important;
+  }
+  .visual-stage .cloud-core{
+    width:104px !important;
+    height:104px !important;
+  }
+  .visual-stage .cloud-core img{
+    width:70px !important;
+    height:70px !important;
+  }
+  .visual-stage .orbit,
+  .visual-stage .orbit-items{
+    width:210px !important;
+    height:210px !important;
+  }
+  .visual-stage .orbit:before{
+    inset:29px !important;
+  }
+  .visual-stage .orbit-card .float-card{
+    width:82px !important;
+    min-height:76px !important;
+  }
+}
+
+
+/* ============================================================
+   FINAL ORBIT FIX
+   Orbit rotates. Cards stay upright. GCP stays fixed in center.
+   ============================================================ */
+
+.visual-stage{
+  position:relative !important;
+  width:520px !important;
+  height:390px !important;
+  margin:0 auto !important;
+  overflow:visible !important;
+}
+
+/* Fixed center */
+.visual-stage .cloud-core{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:30 !important;
+  width:108px !important;
+  height:108px !important;
+  display:grid !important;
+  place-items:center !important;
+}
+
+/* The visible orbit never tilts */
+.visual-stage .orbit{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:310px !important;
+  height:310px !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  z-index:3 !important;
+  pointer-events:none !important;
+}
+
+/* Orbiting item container */
+.visual-stage .orbit-items{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:310px !important;
+  height:310px !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  transform-origin:center center !important;
+  z-index:20 !important;
+  animation:architectureOrbit 22s linear infinite !important;
+  will-change:transform !important;
+}
+
+/* Each item is placed at a fixed angle.
+   The item itself counter-rotates by the same amount, keeping cards upright. */
+.visual-stage .orbit-card{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  transform:
+    rotate(var(--angle))
+    translateY(-155px)
+    rotate(calc(var(--angle) * -1)) !important;
+  transform-origin:0 0 !important;
+}
+
+.visual-stage .orbit-card .float-card{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:96px !important;
+  min-height:92px !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  rotate:0deg !important;
+  z-index:25 !important;
+  backface-visibility:visible !important;
+}
+
+/* Explicit angles — 5 cards evenly distributed */
+.visual-stage .orbit-card:nth-child(1){--angle:0deg !important}
+.visual-stage .orbit-card:nth-child(2){--angle:72deg !important}
+.visual-stage .orbit-card:nth-child(3){--angle:144deg !important}
+.visual-stage .orbit-card:nth-child(4){--angle:216deg !important}
+.visual-stage .orbit-card:nth-child(5){--angle:288deg !important}
+
+@keyframes architectureOrbit{
+  from{
+    transform:translate(-50%,-50%) rotate(0deg);
+  }
+  to{
+    transform:translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+/* Important: card transforms above use CSS variable angles and therefore
+   remain upright as the orbit wrapper rotates. Add a second animation layer
+   to cancel the wrapper's rotation at the card level. */
+.visual-stage .orbit-card{
+  animation:cardCounterRotate 22s linear infinite !important;
+}
+
+@keyframes cardCounterRotate{
+  from{
+    transform:
+      rotate(var(--angle))
+      translateY(-155px)
+      rotate(calc(var(--angle) * -1));
+  }
+  to{
+    transform:
+      rotate(calc(var(--angle) + 360deg))
+      translateY(-155px)
+      rotate(calc((var(--angle) + 360deg) * -1));
+  }
+}
+
+/* Ensure the card contents themselves never inherit a rotation */
+.visual-stage .orbit-card .float-card,
+.visual-stage .orbit-card .float-card img,
+.visual-stage .orbit-card .float-card span,
+.visual-stage .orbit-card .float-card strong{
+  rotate:0deg !important;
+}
+
+/* Bright reference-style data-flow ring */
+:root.light .visual-stage .orbit{
+  border:3px dashed rgba(71,170,248,.82) !important;
+  filter:drop-shadow(0 0 4px rgba(70,165,245,.12)) !important;
+}
+:root:not(.light) .visual-stage .orbit{
+  border:3px dashed #10baff !important;
+  filter:
+    drop-shadow(0 0 5px rgba(0,190,255,.50))
+    drop-shadow(0 0 13px rgba(0,125,255,.18)) !important;
+}
+
+/* Inner reference ring */
+.visual-stage .orbit:before{
+  content:"" !important;
+  position:absolute !important;
+  inset:43px !important;
+  border:1px dashed rgba(74,169,245,.28) !important;
+  border-radius:50% !important;
+}
+:root:not(.light) .visual-stage .orbit:before{
+  border-color:rgba(37,192,255,.28) !important;
+}
+
+/* GCP center glow */
+.visual-stage .cloud-core{
+  background:#fff !important;
+  border-radius:29px !important;
+  border:1px solid rgba(62,177,247,.48) !important;
+  box-shadow:
+    0 0 0 9px rgba(56,174,247,.045),
+    0 0 28px rgba(44,174,247,.18),
+    0 18px 42px rgba(30,93,137,.14) !important;
+}
+:root:not(.light) .visual-stage .cloud-core{
+  box-shadow:
+    0 0 0 9px rgba(0,185,255,.07),
+    0 0 32px rgba(0,190,255,.30),
+    0 18px 42px rgba(0,0,0,.35) !important;
+}
+
+.visual-stage .cloud-core img{
+  display:block !important;
+  width:74px !important;
+  height:74px !important;
+  object-fit:contain !important;
+}
+
+/* Cards must remain clean and readable */
+:root.light .visual-stage .orbit-card .float-card{
+  background:rgba(255,255,255,.97) !important;
+  border:1px solid #d2e5f5 !important;
+  color:#173452 !important;
+  box-shadow:
+    0 14px 30px rgba(35,105,150,.12),
+    0 2px 8px rgba(35,105,150,.06) !important;
+}
+:root:not(.light) .visual-stage .orbit-card .float-card{
+  background:rgba(4,29,49,.97) !important;
+  border:1px solid rgba(61,177,235,.25) !important;
+  color:#f3f9ff !important;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.32),
+    0 0 16px rgba(0,160,255,.05) !important;
+}
+
+/* Prevent missing/failed image icons from changing card geometry */
+.visual-stage .orbit-card .float-card img{
+  width:42px !important;
+  height:42px !important;
+  object-fit:contain !important;
+}
+
+/* Accessibility/performance: reduce motion if requested */
+@media(prefers-reduced-motion:reduce){
+  .visual-stage .orbit-items,
+  .visual-stage .orbit-card{
+    animation:none !important;
+  }
+}
+
+/* Mobile: same orbit concept, smaller scale */
+@media(max-width:620px){
+  .visual-stage{
+    width:350px !important;
+    height:300px !important;
+  }
+  .visual-stage .orbit,
+  .visual-stage .orbit-items{
+    width:220px !important;
+    height:220px !important;
+  }
+  .visual-stage .orbit-card{
+    transform:
+      rotate(var(--angle))
+      translateY(-110px)
+      rotate(calc(var(--angle) * -1)) !important;
+  }
+  .visual-stage .orbit-card .float-card{
+    width:82px !important;
+    min-height:76px !important;
+  }
+  .visual-stage .orbit-card{
+    animation-name:cardCounterRotateMobile !important;
+  }
+  @keyframes cardCounterRotateMobile{
+    from{
+      transform:
+        rotate(var(--angle))
+        translateY(-110px)
+        rotate(calc(var(--angle) * -1));
+    }
+    to{
+      transform:
+        rotate(calc(var(--angle) + 360deg))
+        translateY(-110px)
+        rotate(calc((var(--angle) + 360deg) * -1));
+    }
+  }
+  .visual-stage .cloud-core{
+    width:96px !important;
+    height:96px !important;
+  }
+  .visual-stage .cloud-core img{
+    width:66px !important;
+    height:66px !important;
+  }
+}
+
+
+/* ============================================================
+   ORBIT FINAL — cards definitely move and remain upright
+   ============================================================ */
+.visual-stage{
+  position:relative !important;
+  overflow:visible !important;
+}
+
+.visual-stage .orbit{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:3 !important;
+  pointer-events:none !important;
+  animation:none !important;
+}
+
+.visual-stage .orbit-items{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  transform:none !important;
+  z-index:10 !important;
+  animation:none !important;
+  pointer-events:none !important;
+}
+
+.visual-stage .orbit-card{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+  transform-origin:0 0 !important;
+  animation:none !important;
+  transition:none !important;
+  pointer-events:auto !important;
+}
+
+.visual-stage .orbit-card .float-card{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  transform-origin:center center !important;
+  animation:none !important;
+  transition:box-shadow .2s ease, scale .2s ease !important;
+  will-change:transform !important;
+}
+
+.visual-stage .orbit-card .float-card:hover{
+  scale:1.03 !important;
+}
+
+/* Keep the bright data-flow ring fixed while the cards travel. */
+:root.light .visual-stage .orbit{
+  border:3px dashed #63b3ff !important;
+  box-shadow:0 0 9px rgba(53,166,248,.13) !important;
+}
+:root:not(.light) .visual-stage .orbit{
+  border:3px dashed #11baff !important;
+  box-shadow:
+    0 0 7px rgba(0,190,255,.45),
+    0 0 18px rgba(0,132,255,.16) !important;
+}
+
+/* Center GCP remains completely fixed. */
+.visual-stage .cloud-core{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:30 !important;
+}
+
+/* Mobile uses the same JavaScript motion with a smaller radius. */
+@media(max-width:620px){
+  .visual-stage .orbit-card .float-card{
+    width:82px !important;
+    min-height:74px !important;
+  }
+}
+
+
+/* ===== FINAL: metrics only in Hero ===== */
+.about-highlight{display:none !important}
+/* ===== NEW DATA ENGINEERING ARCHITECTURE ===== */
+.architecture-modern{position:relative;overflow:hidden;padding:10px 0 30px}
+.architecture-modern .arch-canvas{position:relative;min-height:390px;border-radius:22px;border:1px solid #d9eafb;background:linear-gradient(135deg,#f8fcff 0%,#edf7ff 52%,#e2f2ff 100%);box-shadow:0 18px 50px rgba(31,105,165,.10);overflow:hidden}
+.architecture-modern .arch-canvas:before{content:"";position:absolute;inset:-30% -10%;background:radial-gradient(circle at 50% 48%,rgba(47,171,255,.17),transparent 25%),radial-gradient(circle at 10% 100%,rgba(79,167,239,.10),transparent 30%);pointer-events:none}
+.architecture-modern .arch-canvas:after{content:"";position:absolute;width:720px;height:360px;left:50%;top:55%;transform:translate(-50%,-50%);border:1px solid rgba(61,167,241,.13);border-radius:50%;box-shadow:0 0 0 70px rgba(78,174,244,.035),0 0 0 140px rgba(78,174,244,.025);pointer-events:none}
+.arch-flow{position:absolute;inset:0;z-index:2}
+.arch-node{position:absolute;width:138px;min-height:92px;padding:13px 12px;border-radius:16px;background:rgba(255,255,255,.94);border:1px solid #cfe4f6;box-shadow:0 12px 28px rgba(32,91,133,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5;transition:.25s ease}
+.arch-node:hover{transform:translateY(-5px);border-color:#55b9ff;box-shadow:0 16px 34px rgba(25,139,225,.18)}
+.arch-node img{width:38px;height:38px;object-fit:contain;margin-bottom:7px}
+.arch-node strong{font-size:11px;color:#102e50}
+.arch-node small{font-size:8px;color:#71849a;margin-top:3px;line-height:1.3}
+.arch-node.source{left:4%;top:50%;transform:translateY(-50%)}
+.arch-node.ingest{left:23%;top:18%}
+.arch-node.process{left:42%;top:50%;transform:translateY(-50%)}
+.arch-node.warehouse{right:23%;top:18%}
+.arch-node.analytics{right:4%;top:50%;transform:translateY(-50%)}
+.arch-node.orchestration{left:23%;bottom:10%}
+.arch-node.orchestration img{width:34px;height:34px}
+.arch-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:#fff;border:2px solid #72c2ff;display:grid;place-items:center;z-index:6;box-shadow:0 0 0 10px rgba(67,178,248,.07),0 0 34px rgba(47,170,248,.23),0 18px 35px rgba(33,99,142,.15)}
+.arch-center img{width:70px;height:70px;object-fit:contain}
+.arch-center span{position:absolute;bottom:-28px;font-size:9px;font-weight:800;color:#1c4e80;white-space:nowrap}
+.arch-svg{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+.arch-svg path{fill:none;stroke:#55b5fb;stroke-width:2.5;stroke-dasharray:7 7;filter:drop-shadow(0 0 2px rgba(50,163,239,.15))}
+.arch-svg circle{fill:#159bf1;filter:drop-shadow(0 0 4px rgba(0,157,255,.35))}
+.arch-label{position:absolute;right:4%;bottom:9%;z-index:7;width:155px;color:#183c7d;font-family:"Segoe Print","Bradley Hand",cursive;font-size:17px;line-height:1.02;font-weight:700;transform:rotate(-4deg);text-align:center}
+.arch-label:after{content:"";display:block;width:110px;height:3px;margin:7px auto 0;background:#169bf2;transform:rotate(-4deg);border-radius:3px}
+:root:not(.light) .architecture-modern .arch-canvas{background:radial-gradient(circle at 50% 48%,rgba(0,193,255,.20),transparent 25%),radial-gradient(circle at 88% 20%,rgba(20,115,255,.14),transparent 30%),linear-gradient(135deg,#031221,#062846 58%,#073b5d);border-color:rgba(70,174,238,.22);box-shadow:0 18px 55px rgba(0,0,0,.30)}
+:root:not(.light) .architecture-modern .arch-canvas:before{background:radial-gradient(circle at 50% 48%,rgba(0,207,255,.20),transparent 27%),radial-gradient(circle at 10% 90%,rgba(20,112,255,.12),transparent 32%)}
+:root:not(.light) .architecture-modern .arch-canvas:after{border-color:rgba(35,177,244,.18);box-shadow:0 0 0 70px rgba(20,150,235,.055),0 0 0 140px rgba(20,150,235,.035)}
+:root:not(.light) .arch-node{background:rgba(5,29,49,.95);border-color:rgba(69,180,240,.24);box-shadow:0 15px 32px rgba(0,0,0,.30)}
+:root:not(.light) .arch-node strong{color:#f0f8ff}.arch-node small{color:#91b2ca}
+:root:not(.light) .arch-node:hover{border-color:#16baff;box-shadow:0 16px 35px rgba(0,171,255,.18)}
+:root:not(.light) .arch-center{background:#fff;border-color:#20b8ff;box-shadow:0 0 0 10px rgba(0,185,255,.07),0 0 36px rgba(0,190,255,.30),0 18px 38px rgba(0,0,0,.34)}
+:root:not(.light) .arch-center span{color:#9fe5ff}.arch-svg path{stroke:#12baff}.arch-svg circle{fill:#0bd1ff}.arch-label{color:#e7f8ff;text-shadow:0 0 10px rgba(0,194,255,.24)}
+@media(max-width:800px){.architecture-modern .arch-canvas{min-height:600px}.arch-node{width:112px;min-height:78px}.arch-node.source{left:3%;top:50%}.arch-node.ingest{left:8%;top:10%}.arch-node.process{left:50%;top:37%}.arch-node.warehouse{right:8%;top:10%}.arch-node.analytics{right:3%;top:50%}.arch-node.orchestration{left:8%;bottom:9%}.arch-center{width:100px;height:100px}.arch-center img{width:60px;height:60px}.arch-label{right:5%;bottom:8%;font-size:14px;width:120px}}
+@media(max-width:520px){.architecture-modern .arch-canvas{min-height:650px}.arch-node{width:105px;padding:10px 7px}.arch-node img{width:32px;height:32px}.arch-node strong{font-size:9px}.arch-node small{font-size:7px}.arch-node.source{left:2%;top:48%}.arch-node.ingest{left:5%;top:8%}.arch-node.process{left:50%;top:42%}.arch-node.warehouse{right:5%;top:8%}.arch-node.analytics{right:2%;top:48%}.arch-node.orchestration{left:5%;bottom:7%}.arch-center{width:88px;height:88px}.arch-center img{width:54px;height:54px}.arch-label{right:3%;bottom:5%;font-size:12px;width:100px}}
 
 </style>
 
@@ -2526,7 +3531,33 @@ section#experience,section#education{background:var(--ref-bg) !important}
     <nav>
       <a href="#top" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
     </nav>
-    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme"><span class="theme-icon theme-light-icon" aria-hidden="true">☀</span> <span class="theme-icon theme-dark-icon" aria-hidden="true">☾</span> </button><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div> </div> </header> <main id="top"> <section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div> <div class="container hero-grid"> <div class="hero-copy"> <span class="eyebrow">DATA ENGINEER | GOOGLE CLOUD</span> <h1>Building Data<br>Solutions for a<br><span>Smarter Tomorrow</span></h1> <p>I design, build, and automate scalable data pipelines and analytics solutions on Google Cloud to turn data into meaningful insights.</p> <div class="pills"> <span class="pill">Google Cloud</span><span class="pill">Data Engineering</span> <span class="pill">Data Analytics</span><span class="pill">Automation</span> </div> <div class="hero-buttons"> <a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a> <a class="btn" href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener"> &nbsp;Let's Connect <span class="connect-arrow" aria-hidden="true">→</span></a>
+    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme">
+  <span class="theme-icon theme-light-icon" aria-hidden="true">☀</span>
+  <span class="theme-icon theme-dark-icon" aria-hidden="true">☾</span>
+</button><a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero"><div class="hero-ring-bg" aria-hidden="true"></div>
+<div class="container hero-grid">
+  <div class="hero-copy">
+    <span class="eyebrow">DATA ENGINEER | GOOGLE CLOUD</span>
+    <h1>Building Data<br>Solutions for a<br><span>Smarter Tomorrow</span></h1>
+    
+    <p>I design, build, and automate scalable data pipelines and analytics solutions on Google Cloud to turn data into meaningful insights.</p>
+    <div class="pills">
+      <span class="pill">Google Cloud</span><span class="pill">Data Engineering</span>
+      <span class="pill">Data Analytics</span><span class="pill">Automation</span>
+    </div>
+    <div class="hero-buttons">
+      <a class="btn primary" href="Naveen_Kumar_resume.pdf" download>↓ &nbsp;Download Resume</a>
+      <a class="btn" href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">↗ &nbsp;Let's Connect</a>
+    </div>
+<div class="stats">
+      <div class="stat"><strong>4+</strong><span>Years Experience</span></div>
+      <div class="stat"><strong>10+</strong><span>Data Pipelines</span></div>
+      <div class="stat"><strong>100M+</strong><span>Records Processed</span></div>
     </div>
   </div>
 
@@ -2582,25 +3613,10 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </div>
 </section>
 
-<div class="stats">
-      <div class="stat"><strong>4+</strong><span>Years Experience</span></div>
-      <div class="stat"><strong>10+</strong><span>Data Pipelines</span></div>
-      <div class="stat"><strong>100M+</strong><span>Records Processed</span></div>
-    </div>
-
 <section id="about" class="reveal"><div class="container">
 <div class="section-head"><span class="bar"></span><h3>About Me</h3><p>Data engineering with a focus on reliable, scalable and useful data solutions.</p></div>
 <div class="about-grid">
-<div class="about-copy"><h3 style="font-size:21px;line-height:1.2;margin-bottom:12px">Passionate about solving real-world problems with data</h3><p>I am a Data Engineer with 4+ years of experience in designing, building and maintaining scalable data pipelines and analytics solutions on Google Cloud Platform.</p><p>My experience includes extracting, transforming and loading data from diverse sources, automating workflows, and creating reliable data platforms that support business decisions.</p><div class="values"><div class="value"><div class="ico">◈</div><strong>Problem Solver</strong><small>Enjoy solving complex challenges</small></div><div class="value"><div class="ico">♟</div><strong>Team Player</strong><small>Collaborative by nature</small></div><div class="value"><div class="ico">◉</div><strong>Data Driven</strong><small>Focused on measurable impact</small></div><div class="value"><div class="ico">↗</div><strong>Continuous Learner</strong><small>Always learning new technology</small></div></div><div class="about-highlight">
-  <div class="about-highlight-number">4+</div>
-  <div><strong>Years Experience</strong><small>Data Engineering</small></div>
-  <div class="about-highlight-number">10+</div>
-  <div><strong>Data Pipelines</strong><small>Cloud & Analytics</small></div>
-  <div class="about-highlight-number">100M+</div>
-  <div><strong>Records Processed</strong><small>Scalable Workloads</small></div>
-  <blockquote>“Better Data.<br>Brighter Decisions.”</blockquote>
-</div>
-</div>
+<div class="about-copy"><h3 style="font-size:21px;line-height:1.2;margin-bottom:12px">Passionate about solving real-world problems with data</h3><p>I am a Data Engineer with 4+ years of experience in designing, building and maintaining scalable data pipelines and analytics solutions on Google Cloud Platform.</p><p>My experience includes extracting, transforming and loading data from diverse sources, automating workflows, and creating reliable data platforms that support business decisions.</p><div class="values"><div class="value"><div class="ico">◈</div><strong>Problem Solver</strong><small>Enjoy solving complex challenges</small></div><div class="value"><div class="ico">♟</div><strong>Team Player</strong><small>Collaborative by nature</small></div><div class="value"><div class="ico">◉</div><strong>Data Driven</strong><small>Focused on measurable impact</small></div><div class="value"><div class="ico">↗</div><strong>Continuous Learner</strong><small>Always learning new technology</small></div></div></div>
 <div id="skills" class="stack">
   <div class="stack-title">
     <strong>Tech Stack</strong>
@@ -2633,14 +3649,17 @@ section#experience,section#education{background:var(--ref-bg) !important}
 </div>
 </div></div></section>
 
-<section class="arch reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end data pipeline on Google Cloud Platform</p></div><div class="arch-grid">
-<div class="arch-card" data-tooltip="I extract structured data from Oracle, MySQL and APIs and prepare it for the cloud pipeline."><div class="arch-icon"><img src="https://cdn.simpleicons.org/oracle" alt="Data sources" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/Oracle%20Corporation%20logo.svg'"></div><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div><div class="arrow">→</div>
-<div class="arch-card" data-tooltip="I ingest source data into GCS for batch workloads and use Pub/Sub for event or streaming ingestion."><div class="arch-icon"><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"></div><strong>Ingestion Layer</strong><small>GCS · Pub/Sub</small></div><div class="arrow">→</div>
-<div class="arch-card" data-tooltip="I build and manage Airflow/Composer workflows, schedule dependencies, monitor runs and handle retries."><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Cloud-Composer.svg" alt="Orchestration"></div><strong>Orchestration</strong><small>Airflow · Composer · Astronomer</small></div><div class="arrow">→</div>
-<div class="arch-card" data-tooltip="I transform, validate and enrich data using Dataflow, PySpark, Python and SQL before loading curated data."><div class="arch-icon"><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"></div><strong>Processing</strong><small>Dataflow · PySpark · Python</small></div><div class="arrow">→</div>
-<div class="arch-card" data-tooltip="I load and organize curated datasets in BigQuery for scalable SQL analytics and downstream reporting."><div class="arch-icon"><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"></div><strong>Data Warehouse</strong><small>BigQuery</small></div><div class="arrow">→</div>
-<div class="arch-card" data-tooltip="I prepare reporting-ready datasets and support dashboards in Looker Studio and Tableau."><div class="arch-icon"><img src="assets/icons/Looker-512-color.svg" alt="Visualization"></div><strong>Visualization</strong><small>Looker · Tableau</small></div>
-</div></div></section>
+<section class="architecture-modern reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>End-to-end pipeline showing how I move data from source systems to business insights.</p></div><div class="arch-canvas"><div class="arch-flow">
+<div class="arch-node source" data-tooltip="I extract structured data from Oracle, MySQL and APIs and prepare it for cloud ingestion."><img src="https://cdn.simpleicons.org/oracle" alt="Data Sources"><strong>Data Sources</strong><small>Oracle · MySQL · APIs</small></div>
+<div class="arch-node ingest" data-tooltip="I land incoming data in Cloud Storage and use Pub/Sub when event-driven ingestion is required."><img src="assets/icons/Cloud_Storage-512-color.svg" alt="Ingestion"><strong>Ingestion</strong><small>GCS · Pub/Sub</small></div>
+<div class="arch-node orchestration" data-tooltip="I schedule, monitor, retry and coordinate pipeline dependencies with Airflow, Composer and Astronomer."><img src="https://airflow.apache.org/images/airflow-icon.svg" alt="Orchestration"><strong>Orchestration</strong><small>Airflow · Composer · Astronomer</small></div>
+<div class="arch-node process" data-tooltip="I clean, validate, transform and enrich data using Dataflow, PySpark, Python and SQL."><img src="https://icon.icepanel.io/GCP/svg/Dataflow.svg" alt="Processing"><strong>Processing</strong><small>Dataflow · PySpark · Python · SQL</small></div>
+<div class="arch-node warehouse" data-tooltip="I organize curated datasets in BigQuery for scalable analytics and downstream consumption."><img src="assets/icons/BigQuery-512-color.svg" alt="BigQuery"><strong>Data Warehouse</strong><small>BigQuery</small></div>
+<div class="arch-node analytics" data-tooltip="I publish reporting-ready datasets and support dashboards for business users."><img src="assets/icons/Looker-512-color.svg" alt="Analytics"><strong>Analytics</strong><small>Looker Studio · Tableau</small></div>
+<div class="arch-center"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Google_Cloud_icon_%282026%29.svg" alt="Google Cloud"><span>Google Cloud Platform</span></div>
+<svg class="arch-svg" viewBox="0 0 1000 390" preserveAspectRatio="none" aria-hidden="true"><path d="M145 195 C205 195 205 110 285 110 S400 195 500 195 S600 110 715 110 S810 195 855 195"/><path d="M285 110 C300 190 350 290 500 195"/><path d="M500 195 C650 100 700 100 715 110"/><circle cx="145" cy="195" r="4"/><circle cx="285" cy="110" r="4"/><circle cx="500" cy="195" r="5"/><circle cx="715" cy="110" r="4"/><circle cx="855" cy="195" r="4"/></svg>
+<div class="arch-label">Data<br>Drives<br>Possibilities</div>
+</div></div></div></section>
 
 <section class="reveal"><div class="container"><div class="section-head"><span class="bar"></span><h3>What I Do</h3><p>Turning raw data into reliable platforms and actionable insights.</p></div><div class="do-grid"><div class="do-card"><div class="big-icon">⇄</div><h4>Build Data Pipelines</h4><p>Design and develop robust ETL/ELT pipelines for batch and cloud data workloads.</p></div><div class="do-card"><div class="big-icon">☁</div><h4>Cloud Data Solutions</h4><p>Build scalable GCP solutions using BigQuery, Cloud Storage, Composer and related services.</p></div><div class="do-card"><div class="big-icon">⚙</div><h4>Data Transformation</h4><p>Transform, validate and optimize data using SQL, Python and cloud processing services.</p></div><div class="do-card"><div class="big-icon">▥</div><h4>Analytics & Visualization</h4><p>Create reporting-ready datasets and dashboards with Looker Studio and Tableau.</p></div></div></div></section>
 
@@ -2664,18 +3683,18 @@ section#experience,section#education{background:var(--ref-bg) !important}
 <footer><div class="container footer-inner"><div><div class="footer-brand">Naveen Kumar M</div><p>Data Engineer · Google Cloud · Data & Analytics</p></div><div class="footer-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="https://www.linkedin.com/in/naveen-kumar-36207824a" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
 
 <script>
-/* Hero orbit animation
-   - Same animation on desktop, Android Chrome and iPhone Chrome.
-   - Uses requestAnimationFrame, which is supported by iOS Chrome (WebKit).
-   - Does NOT disable itself because of iOS Reduce Motion settings.
-   - Cards counter-rotate so logos and names stay upright. */
+/* Hero orbit animation — stable cards, moving positions.
+   The orbit ring stays fixed. JavaScript moves each card around the circle.
+   Each card counter-rotates so the card itself always remains upright.
+   This avoids CSS-animation/inline-transform conflicts on Safari/iPhone. */
 (function(){
-  const orbit = document.querySelector('.orbit-items');
+  const stage = document.querySelector('.visual-stage');
+  const orbit = document.querySelector('.orbit');
   const cards = Array.from(document.querySelectorAll('.orbit-card'));
-  if (!orbit || cards.length === 0) return;
+  if (!stage || !orbit || cards.length === 0) return;
 
-  const angles = [0, 72, 144, 216, 288];
   const duration = 18000;
+  const baseAngles = [0, 72, 144, 216, 288];
   let startTime = null;
   let rafId = null;
 
@@ -2683,27 +3702,22 @@ section#experience,section#education{background:var(--ref-bg) !important}
     if (startTime === null) startTime = now;
 
     const elapsed = now - startTime;
-    const rotation = (elapsed % duration) / duration * 360;
-
-    /* Rotate the complete orbit around its own center. */
-    orbit.style.transform =
-      'translate3d(-50%, -50%, 0) rotate(' + rotation + 'deg)';
-
-    /* Keep every card at exactly the same radius and upright. */
-    const radius = orbit.offsetWidth / 2;
+    const rotation = ((elapsed % duration) / duration) * 360;
+    const radius = Math.max(70, orbit.getBoundingClientRect().width / 2);
 
     cards.forEach(function(card, i){
-      const angle = angles[i];
+      const angle = baseAngles[i] + rotation;
 
+      // Position the card on the circular path.
       card.style.transform =
         'translate3d(-50%, -50%, 0) rotate(' + angle + 'deg) translateY(-' +
         radius + 'px)';
 
+      // Counter-rotate the actual card so it stays perfectly upright.
       const inner = card.querySelector('.float-card');
-      if(inner){
+      if (inner) {
         inner.style.transform =
-          'translate3d(-50%, -50%, 0) rotate(' +
-          (-(rotation + angle)) + 'deg)';
+          'translate3d(-50%, -50%, 0) rotate(' + (-angle) + 'deg)';
       }
     });
 
@@ -2711,27 +3725,27 @@ section#experience,section#education{background:var(--ref-bg) !important}
   }
 
   function start(){
-    if(rafId === null){
+    if (rafId === null) {
       startTime = null;
       rafId = requestAnimationFrame(draw);
     }
   }
 
   function stop(){
-    if(rafId !== null){
+    if (rafId !== null) {
       cancelAnimationFrame(rafId);
       rafId = null;
     }
   }
 
-  /* Keep animation alive when returning to the Safari/Chrome tab. */
   document.addEventListener('visibilitychange', function(){
-    if(document.visibilityState === 'visible'){
-      start();
-    }else{
-      stop();
-    }
+    if (document.visibilityState === 'visible') start();
+    else stop();
   });
+
+  window.addEventListener('resize', function(){
+    // The next animation frame recalculates the radius automatically.
+  }, {passive:true});
 
   start();
 })();
