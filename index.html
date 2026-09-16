@@ -4040,29 +4040,8 @@ section#experience,section#education{background:var(--ref-bg) !important}
 .tech:hover::before{opacity:1;animation:skillScan .9s ease forwards}
 @keyframes skillScan{to{transform:translateX(120%)}}
 
-/* ---------- 3. ARCHITECTURE: flowing data particles ---------- */
+/* ---------- 3. ARCHITECTURE: standard layered architecture ---------- */
 .architecture-modern .layered-architecture{position:relative}
-.architecture-modern .pipeline-runner{
-  position:absolute;left:34px;top:28px;width:10px;height:10px;border-radius:50%;
-  background:#20d8ff;box-shadow:0 0 8px #20d8ff,0 0 22px rgba(0,190,255,.8);
-  transform:translate(-50%,-50%);opacity:0;z-index:8;pointer-events:none;
-}
-.architecture-modern.pipeline-active .pipeline-runner{opacity:1}
-.arch-layer.pipeline-active-layer{
-  border-color:#1bbdff !important;
-  box-shadow:0 0 0 1px rgba(27,189,255,.12),0 20px 48px rgba(0,167,255,.18) !important;
-}
-.arch-layer.pipeline-active-layer .arch-layer-number{
-  box-shadow:0 0 0 3px rgba(33,212,253,.12),0 0 22px rgba(33,212,253,.45) !important;
-}
-.arch-node.pipeline-active-node{
-  border-color:#25c6ff !important;
-  box-shadow:0 0 0 1px rgba(37,198,255,.08),0 0 20px rgba(0,177,255,.15) !important;
-}
-.arch-layer-arrow.pipeline-active-arrow span{
-  border-color:#21caff !important;color:#21caff !important;
-  box-shadow:0 0 18px rgba(0,190,255,.25) !important;
-}
 
 /* ---------- 4. EXPERIENCE: scroll-driven progress ---------- */
 #experience .timeline{--timeline-progress:0%}
@@ -4129,51 +4108,8 @@ section#experience,section#education{background:var(--ref-bg) !important}
 }
 .value:hover::before{opacity:.65;transform:scaleX(1)}
 
-/* ---------- LIVE PIPELINE MODE UI ---------- */
-.pipeline-control{
-  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  margin:0 0 18px;padding:12px 14px;border:1px solid rgba(22,140,255,.18);
-  border-radius:16px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);
-  box-shadow:0 10px 28px rgba(25,90,140,.07)
-}
-.pipeline-control-copy{display:flex;align-items:center;gap:9px;min-width:0}
-.pipeline-status-dot{width:8px;height:8px;border-radius:50%;background:#91a4bf;box-shadow:0 0 0 4px rgba(145,164,191,.12);flex:0 0 8px}
-.pipeline-status-dot.running{background:#21d4fd;box-shadow:0 0 0 4px rgba(33,212,253,.12),0 0 14px rgba(33,212,253,.55);animation:pipelinePulse 1s ease-in-out infinite}
-.pipeline-status-dot.done{background:#31c48d;box-shadow:0 0 0 4px rgba(49,196,141,.12)}
-.pipeline-status{font-size:9px;font-weight:800;color:#536b84;letter-spacing:.2px}
-.pipeline-btn{
-  border:1px solid #b9daf4;border-radius:10px;padding:9px 13px;background:#fff;color:#087cf0;
-  font-size:9px;font-weight:900;cursor:pointer;transition:.25s ease;white-space:nowrap;
-}
-.pipeline-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,140,255,.14);border-color:#5ab9f5}
-.pipeline-btn.running{background:linear-gradient(135deg,#087cf0,#18bff4);color:#fff;border-color:transparent}
-.pipeline-progress{height:3px;border-radius:99px;background:rgba(22,140,255,.09);overflow:hidden;margin:-4px 0 18px}
-.pipeline-progress>span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#087cf0,#21d4fd);box-shadow:0 0 12px rgba(33,212,253,.35);transition:width .25s ease}
-.pipeline-complete{display:none;margin-left:7px;color:#21a879;font-size:8px;font-weight:900}
-.pipeline-complete.show{display:inline}
-@keyframes pipelinePulse{50%{transform:scale(1.35);opacity:.72}}
+</style>
 
-:root:not(.light) .pipeline-control{background:rgba(7,31,51,.82);border-color:rgba(76,176,235,.20);box-shadow:0 12px 32px rgba(0,0,0,.22)}
-:root:not(.light) .pipeline-status{color:#9db8ca}
-:root:not(.light) .pipeline-btn{background:#08243c;color:#63d5ff;border-color:rgba(80,185,235,.30)}
-:root:not(.light) .pipeline-btn:hover{border-color:#21caff;box-shadow:0 8px 24px rgba(0,180,255,.14)}
-:root:not(.light) .pipeline-progress{background:rgba(80,180,235,.10)}
-
-@media(max-width:640px){
-  .hero-cursor-glow{display:none}
-  #experience .timeline::after{left:8px}
-  .pipeline-control{align-items:flex-start}
-  .pipeline-control-copy{flex:1}
-  .pipeline-btn{width:100%}
-  .architecture-modern .pipeline-runner{left:22px}
-}
-@media(prefers-reduced-motion:reduce){
-  .hero-copy,.visual-stage,.tech img,.project,.project .project-icon{transition:none!important}
-  .hero-cursor-glow{display:none}
-  .pipeline-status-dot.running{animation:none}
-  #experience .timeline::after{transition:none!important}
-}
-</style>\n\n
 <style id="final-clarity-fixes">
 /* Keep skill tooltips fully visible instead of clipping them inside the card. */
 .tech{
@@ -4381,11 +4317,6 @@ section#experience,section#education{background:var(--ref-bg) !important}
 
 <section class="architecture-modern reveal"><div class="container">
   <div class="section-head"><span class="bar"></span><h3>Data Engineering Architecture</h3><p>Layered end-to-end architecture showing how I move data from source systems to business insights.</p></div>
-  <div class="pipeline-control" aria-label="Live Pipeline Mode controls">
-  <div class="pipeline-control-copy"><span class="pipeline-status-dot" id="pipelineStatusDot"></span><span class="pipeline-status" id="pipelineStatus">Pipeline ready · Source → Analytics</span><span class="pipeline-complete" id="pipelineComplete">✓ Completed</span></div>
-  <button class="pipeline-btn" id="runPipeline" type="button">▶ Run Pipeline</button>
-</div>
-<div class="pipeline-progress" aria-hidden="true"><span id="pipelineProgress"></span></div>
 <div class="layered-architecture" aria-label="Layered data engineering architecture">
     <article class="arch-layer scroll-layer" data-tooltip="I connect operational and external sources and prepare data for reliable cloud ingestion.">
       <div class="arch-layer-label"><span class="arch-layer-number">01</span><div><h4>Source Layer</h4><p>Where the data originates</p></div></div>
@@ -4779,87 +4710,6 @@ document.querySelectorAll('img').forEach(img=>{
   /* 5. Projects: use the same subtle lift/glow hover interaction as What I Do. */
   /* Mouse-position 3D tilt is intentionally removed for a cleaner professional feel. */
 
-  /* 6. Live Pipeline Mode: animate one glowing data point through the real architecture layers. */
-  const arch=document.querySelector('.architecture-modern');
-  const archWrap=arch && arch.querySelector('.layered-architecture');
-  const runBtn=document.getElementById('runPipeline');
-  const status=document.getElementById('pipelineStatus');
-  const statusDot=document.getElementById('pipelineStatusDot');
-  const progress=document.getElementById('pipelineProgress');
-  const complete=document.getElementById('pipelineComplete');
-  if(arch && archWrap && runBtn){
-    const layers=[...archWrap.querySelectorAll('.scroll-layer')];
-    const arrows=[...archWrap.querySelectorAll('.arch-layer-arrow')];
-    const runner=archWrap.querySelector('.pipeline-runner') || document.createElement('span');
-    if(!runner.classList.contains('pipeline-runner')){
-      runner.className='pipeline-runner'; runner.setAttribute('aria-hidden','true'); archWrap.appendChild(runner);
-    }
-    let running=false, raf=null, runId=0;
-    const duration=6200;
-
-    function centers(){
-      const br=archWrap.getBoundingClientRect();
-      return layers.map(l=>{const r=l.getBoundingClientRect();return {x:r.left-br.left+34,y:r.top-br.top+r.height/2}});
-    }
-    function reset(){
-      layers.forEach(l=>l.classList.remove('pipeline-active-layer'));
-      arrows.forEach(a=>a.classList.remove('pipeline-active-arrow'));
-      archWrap.querySelectorAll('.pipeline-active-node').forEach(n=>n.classList.remove('pipeline-active-node'));
-      runner.style.opacity='0';
-      progress.style.width='0%';
-      complete.classList.remove('show');
-      statusDot.className='pipeline-status-dot';
-      status.textContent='Pipeline ready · Source → Analytics';
-      runBtn.classList.remove('running'); runBtn.textContent='▶ Run Pipeline';
-    }
-    function finish(){
-      running=false; arch.classList.remove('pipeline-active');
-      layers.forEach(l=>l.classList.add('pipeline-active-layer'));
-      runner.style.opacity='0'; progress.style.width='100%';
-      statusDot.className='pipeline-status-dot done';
-      status.textContent='Pipeline completed · Data reached Analytics';
-      complete.classList.add('show'); runBtn.classList.remove('running'); runBtn.textContent='↻ Run Again';
-    }
-    function run(){
-      if(reduceMotion){
-        layers.forEach(l=>l.classList.add('pipeline-active-layer'));
-        status.textContent='Pipeline completed · Data reached Analytics';
-        statusDot.className='pipeline-status-dot done'; progress.style.width='100%';
-        complete.classList.add('show'); runBtn.textContent='↻ Run Again'; return;
-      }
-      if(running) return;
-      running=true; runId++;
-      const thisRun=runId;
-      arch.classList.add('pipeline-active');
-      layers.forEach(l=>l.classList.remove('pipeline-active-layer'));
-      arrows.forEach(a=>a.classList.remove('pipeline-active-arrow'));
-      archWrap.querySelectorAll('.pipeline-active-node').forEach(n=>n.classList.remove('pipeline-active-node'));
-      statusDot.className='pipeline-status-dot running'; status.textContent='Pipeline running · moving data through layers';
-      complete.classList.remove('show'); runBtn.classList.add('running'); runBtn.textContent='● Running…';
-      const pts=centers();
-      const start=performance.now();
-      function frame(now){
-        if(thisRun!==runId) return;
-        const t=Math.min(1,(now-start)/duration);
-        const eased=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-        const scaled=eased*(pts.length-1);
-        const idx=Math.min(pts.length-1,Math.floor(scaled));
-        const local=scaled-idx;
-        const a=pts[idx], b=pts[Math.min(pts.length-1,idx+1)];
-        const x=a.x+(b.x-a.x)*local, y=a.y+(b.y-a.y)*local;
-        runner.style.left=x+'px'; runner.style.top=y+'px'; runner.style.opacity='1';
-        progress.style.width=(t*100)+'%';
-        layers.forEach((l,i)=>l.classList.toggle('pipeline-active-layer',i<=idx));
-        arrows.forEach((aEl,i)=>aEl.classList.toggle('pipeline-active-arrow',i<idx));
-        layers[idx].querySelectorAll('.arch-node').forEach((n,i)=>n.classList.toggle('pipeline-active-node',i===Math.floor(local*layers[idx].querySelectorAll('.arch-node').length)%layers[idx].querySelectorAll('.arch-node').length));
-        if(t<1){raf=requestAnimationFrame(frame)}else{finish()}
-      }
-      cancelAnimationFrame(raf); raf=requestAnimationFrame(frame);
-    }
-    runBtn.addEventListener('click',function(){if(running)return; reset(); setTimeout(run,80)});
-    window.addEventListener('resize',function(){if(!running) runner.style.opacity='0'},{passive:true});
-    reset();
-  }
 })();
 </script>
 </body>
